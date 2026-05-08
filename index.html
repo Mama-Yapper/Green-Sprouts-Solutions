@@ -6,15 +6,16 @@
   <title>Green Sprouts Solutions | Advanced Fodder Systems</title>
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Premium Font Pairing -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
     :root {
       --forest: #1A2F24;
       --sage: #76947A;
       --cream: #F9F8F4;
-      --sand: #EAE7DC;
       --text-main: #333333;
+      --card-bg: #FFFFFF;
     }
 
     body {
@@ -30,48 +31,38 @@
       color: var(--forest);
     }
 
+    /* Premium shadows and animations */
     .premium-shadow {
       box-shadow: 0 20px 40px rgba(26, 47, 36, 0.06);
     }
-
+    
     .hover-lift {
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .hover-lift:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 30px 60px rgba(26, 47, 36, 0.1);
+      transform: translateY(-8px);
+      box-shadow: 0 30px 60px rgba(26, 47, 36, 0.12);
     }
 
     .btn-premium {
       background-color: var(--forest);
       color: var(--cream);
-      border-radius: 100px;
-      transition: all 0.4s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      border-radius: 50px;
+      padding: 12px 32px;
+      display: inline-block;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-align: center;
     }
     .btn-premium:hover {
       background-color: var(--sage);
-      padding-right: 24px;
+      color: white;
     }
 
-    /* Collapsible Accordion Styling for Dense Text */
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease-out;
-    }
-    .accordion-toggle:checked ~ .accordion-content {
-      max-height: 1000px;
-    }
-    .accordion-toggle:checked ~ .accordion-icon {
-      transform: rotate(180deg);
-    }
-
+    /* Scroll Animations */
     .reveal {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(40px);
       transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .reveal.active {
@@ -79,105 +70,118 @@
       transform: translateY(0);
     }
     .delay-100 { transition-delay: 0.1s; }
+    .delay-200 { transition-delay: 0.2s; }
   </style>
 </head>
 <body class="antialiased selection:bg-[#76947A] selection:text-white">
 
-  <!-- Nav -->
-  <nav class="fixed w-full top-0 z-50 bg-[#F9F8F4]/90 backdrop-blur-xl border-b border-[#EAE7DC] transition-all">
+  <!-- Navigation -->
+  <nav class="fixed w-full top-0 z-50 bg-[#F9F8F4]/90 backdrop-blur-md border-b border-[#EAE7DC]">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
       <div class="serif-text text-2xl font-bold tracking-tight">GreenSprouts.</div>
-      <div class="hidden md:flex gap-6 text-sm font-semibold text-[#555]">
-        <a href="#about" class="hover:text-[#1A2F24]">About Us</a>
-        <a href="#products" class="hover:text-[#1A2F24]">Products & Services</a>
-        <a href="#boosters" class="hover:text-[#1A2F24]">Booster Options</a>
-        <a href="#equipment" class="hover:text-[#1A2F24]">Equipment</a>
+      <div class="hidden lg:flex gap-8 text-sm font-semibold text-[#555]">
+        <a href="#about" class="hover:text-[#1A2F24] transition">About</a>
+        <a href="#difference" class="hover:text-[#1A2F24] transition">Why Us</a>
+        <a href="#products" class="hover:text-[#1A2F24] transition">Products</a>
+        <a href="#boosters" class="hover:text-[#1A2F24] transition">Systems</a>
+        <a href="#equipment" class="hover:text-[#1A2F24] transition">Equipment</a>
       </div>
-      <a href="#contact" class="btn-premium px-6 py-2 text-sm font-bold">Contact Us</a>
+      <a href="#contact" class="btn-premium text-sm">Contact Us</a>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <header class="pt-32 lg:pt-40 pb-16 px-6 relative">
-    <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
-      
-      <div class="lg:col-span-5 reveal z-10">
+  <header class="pt-32 lg:pt-40 pb-20 px-6">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <div class="reveal">
         <p class="text-sm font-bold text-[#76947A] uppercase tracking-widest mb-4">Market Leader in Green Feed Systems</p>
-        <h1 class="text-5xl lg:text-6xl font-bold leading-[1.1] mb-6">
-          Drought-proofing Livestock farms with <span class="italic text-[#76947A]">Green Feed Systems.</span>
+        <h1 class="text-5xl lg:text-7xl font-bold leading-[1.1] mb-6">
+          Drought-proof <br><span class="italic text-[#76947A]">Commercial Farming.</span>
         </h1>
-        <ul class="space-y-2 mb-8 text-[#555] font-medium">
-          <li><strong>MORE THAN 600</strong> units installed</li>
-          <li><strong>LOW WATER</strong> usage</li>
-          <li><strong>NO YELLOW COLOURING</strong> due to natural sunlight</li>
-          <li><strong>NO MOULDING</strong> due to spore busting technology</li>
-          <li><strong>LOW ELECTRICITY</strong> usage</li>
-          <li><strong>PATENTED</strong> technology & <strong>SOLAR</strong> options</li>
+        <ul class="space-y-3 mb-8 text-[#555] text-lg font-medium">
+          <li>✓ <strong>MORE THAN 600</strong> units installed</li>
+          <li>✓ <strong>LOW WATER</strong> usage</li>
+          <li>✓ <strong>NO YELLOW COLOURING</strong> due to natural sunlight</li>
+          <li>✓ <strong>NO MOULDING</strong> due to spore busting technology</li>
+          <li>✓ <strong>LOW ELECTRICITY</strong> usage</li>
+          <li>✓ <strong>PATENTED</strong> technology with <strong>SOLAR</strong> options</li>
         </ul>
-        <a href="#products" class="btn-premium px-8 py-4 text-base font-bold">Explore Our Systems</a>
+        <a href="#difference" class="btn-premium">Explore the Technology</a>
       </div>
-
-      <div class="lg:col-span-7 reveal delay-100 relative">
-        <div class="rounded-3xl premium-shadow overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1589923158776-cb4485d99fd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Green Sprouts Solutions Machine" class="w-full h-[500px] object-cover transition-transform duration-700 hover:scale-105">
-        </div>
+      <div class="reveal delay-100 relative">
+        <!-- Professional image of hydroponic machine setup -->
+        <img src="https://images.unsplash.com/photo-1530836369250-ef71a3f5e902?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Hydroponic System Machine" class="w-full h-[600px] object-cover rounded-[2rem] premium-shadow">
       </div>
     </div>
   </header>
 
-  <!-- About Us & Vision -->
-  <section id="about" class="py-20 px-6 bg-[#EAE7DC]/30">
+  <!-- About Us Section -->
+  <section id="about" class="py-20 px-6 bg-[#EAE7DC]/40 border-y border-[#EAE7DC]">
     <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
       <div class="reveal">
         <h2 class="text-4xl font-bold mb-6">About Us</h2>
-        <div class="space-y-4 text-[#555] leading-relaxed">
+        <div class="space-y-5 text-[#555] leading-relaxed text-sm lg:text-base">
           <p>Green Sprouts Solutions offers systems for Livestock Feeding and Hydroponic Green Houses / Hot Houses. A specialist company in the fields of Product Manufacturing and Feeding Solutions.</p>
           <p>Green Sprouts Solutions as a company has been around for more than 20 years affording the company the opportunity to become experts in sprouting technology and hothouse design. From an early start the goal has always been to develop a product that is both cost effective and efficient and that will become an asset to all our clients.</p>
           <p>Vivian Beukes, the company owner set out to achieve this goal and with his Engineering background and being somewhat of a Bacteria expert he soon embarked on a journey of solving the most pressing issues faced by the industry.</p>
-          <p>This unique designed system accelerates the germination periods of seeds. Green Sprouts Solutions has successfully installed feeding systems all over the country. Our systems can withstand harsh and extreme weather conditions. The material used in the Green Sprouts Systems has proven fantastic durability and good weathering capabilities. Farmers who have invested in our system will agree on how it has revolutionised the way we feed and maintain our livestock worldwide.</p>
+          <p>This unique designed system accelerates the germination periods of seeds. Green Sprouts Solutions has successfully installed feeding systems all over the country. Our systems can withstand harsh and extreme weather conditions. The material used in the Green Sprouts Systems has proven fantastic durability and good weathering capabilities.</p>
+          <p>Farmers who have invested in our system will agree on how it has revolutionised the way we feed and maintain our livestock worldwide.</p>
         </div>
       </div>
+      
       <div class="space-y-8 reveal delay-100">
-        <div class="bg-white p-8 rounded-2xl premium-shadow border-l-4 border-[#76947A]">
-          <h3 class="text-2xl font-bold mb-2">Vision</h3>
-          <p class="text-[#555]">Grow good… in all aspects of life. To introduce a sufficient skills and development program to all the people of Africa thereby ensuring they become empowered to be self sustainable.</p>
+        <div class="bg-white p-8 rounded-3xl premium-shadow hover-lift">
+          <h3 class="text-2xl font-bold mb-3 text-[#1A2F24]">Vision</h3>
+          <p class="text-[#555] text-sm">Grow good… in all aspects of life. To introduce a sufficient skills and development program to all the people of Africa thereby ensuring they become empowered to be self sustainable.</p>
         </div>
-        <div class="bg-white p-8 rounded-2xl premium-shadow border-l-4 border-[#76947A]">
-          <h3 class="text-2xl font-bold mb-2">Mission</h3>
-          <p class="text-[#555]">Our mission is to by way of expertise and a positive spirit of enterprise and enthusiasm, create products that will be beneficial in all spheres of life.</p>
+        <div class="bg-white p-8 rounded-3xl premium-shadow hover-lift">
+          <h3 class="text-2xl font-bold mb-3 text-[#1A2F24]">Mission</h3>
+          <p class="text-[#555] text-sm">Our mission is to by way of expertise and a positive spirit of enterprise and enthusiasm, create products that will be beneficial in all spheres of life.</p>
         </div>
-        <div class="bg-[#1A2F24] text-white p-8 rounded-2xl premium-shadow">
-          <h3 class="text-2xl font-bold mb-2 text-white">Manufacturing Facility</h3>
-          <p class="text-[#B5C2B8]">The material used in the Green Sprouts Booster Systems has proven its fantastic durability. Both our production process and sheeting material have been patented and we keep a constant eye on quality. Each manufacturing line undergoes a thorough examination and quality check ensuring no sub standard materials leave the assembly line.</p>
+        <div class="bg-[#1A2F24] p-8 rounded-3xl premium-shadow hover-lift text-white">
+          <h3 class="text-2xl font-bold mb-3 text-white">Manufacturing Facility</h3>
+          <p class="text-[#B5C2B8] text-sm">The material used in the Green Sprouts Booster Systems has proven its fantastic durability. Both our production process and sheeting material have been patented and we keep a constant eye on quality. Each manufacturing line undergoes a thorough examination and quality check ensuring no sub standard materials leave the assembly line.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- What Makes Us Different -->
-  <section class="py-20 px-6">
+  <section id="difference" class="py-24 px-6">
     <div class="max-w-7xl mx-auto">
-      <h2 class="text-4xl font-bold mb-12 text-center reveal">What makes us different?</h2>
+      <h2 class="text-4xl md:text-5xl font-bold mb-16 text-center reveal">What makes us different?</h2>
+      
       <div class="grid md:grid-cols-2 gap-8">
-        
-        <div class="bg-white rounded-3xl p-10 premium-shadow hover-lift reveal border border-[#EAE7DC] flex">
-          <div class="text-[#1A2F24] text-7xl font-serif italic mr-6">$</div>
+        <!-- Cost -->
+        <div class="bg-white rounded-3xl p-10 premium-shadow hover-lift reveal flex flex-col md:flex-row gap-6">
+          <div class="text-[#1A2F24] text-7xl font-serif italic">$</div>
           <div>
             <h3 class="text-2xl font-bold mb-3">Cost</h3>
             <p class="text-[#555] leading-relaxed text-sm">This is one of the most important aspects in designing a system. It would be futile to develop an expensive system that will erode any potential profit gain sought by feeding livestock. With ever increasing electricity and labor costs we set out to develop a system that can be managed with minimal labor input and one that will be sufficient in energy usage. Our cleverly designed cooling system results in us not relying on expensive equipment like air-conditioners and due to the low energy usage we also have the benefit of installing a much more cost effective solar system. This is proving to be a game changer to the African market.</p>
           </div>
         </div>
 
-        <div class="bg-white rounded-3xl p-10 premium-shadow hover-lift reveal border border-[#EAE7DC]">
-          <h3 class="text-2xl font-bold mb-3">Water</h3>
-          <p class="text-[#555] leading-relaxed text-sm">Water is becoming a commodity and not having enough is one of the main reasons clients approach us. Irrigated land uses a tremendous amount of water and seeing that our standard booster system produces the equivalent of 15ha of irrigated land it is easy to see the benefit in the amount of water being saved with such a system.</p>
+        <!-- Water -->
+        <div class="bg-white rounded-3xl p-10 premium-shadow hover-lift reveal delay-100 flex flex-col md:flex-row gap-6">
+          <div class="text-[#1A2F24] text-6xl">💧</div>
+          <div>
+            <h3 class="text-2xl font-bold mb-3">Water</h3>
+            <p class="text-[#555] leading-relaxed text-sm">Water is becoming a commodity and not having enough is one of the main reasons clients approach us. Irrigated land uses a tremendous amount of water and seeing that our standard booster system produces the equivalent of 15ha of irrigated land it is easy to see the benefit in the amount of water being saved with such a system.</p>
+          </div>
         </div>
 
-        <div class="bg-white rounded-3xl p-10 premium-shadow hover-lift reveal border border-[#EAE7DC]">
-          <h3 class="text-2xl font-bold mb-3">Nutrients</h3>
-          <p class="text-[#555] leading-relaxed text-sm">Sprouted technology has come a long way and has had to overcome a few obstacles not least of these being uneducated claims made by producers that livestock can thrive on sprouted fodder alone. We have found this to simply not be true and therefore we enrolled the services of university professors to aid us in the formulation of different feeding rations that include but is not limited to fodder. The rations are varied based on the geographical locations, which again allows us to bring cost down and increase profit margins for the client. By doing this we endeavour to redeem the hydroponic fodder system.</p>
+        <!-- Nutrients -->
+        <div class="bg-white rounded-3xl p-10 premium-shadow hover-lift reveal flex flex-col md:flex-row gap-6">
+          <div class="text-[#1A2F24] text-6xl">☀️</div>
+          <div>
+            <h3 class="text-2xl font-bold mb-3">Nutrients</h3>
+            <p class="text-[#555] leading-relaxed text-sm">Sprouted technology has come a long way and has had to overcome a few obstacles not least of these being uneducated claims made by producers that livestock can thrive on sprouted fodder alone. We have found this to simply not be true and therefore we enrolled the services of university professors to aid us in the formulation of different feeding rations that include but is not limited to fodder. The rations are varied based on the geographical locations, which again allows us to bring cost down and increase profit margins for the client. By doing this we endeavour to redeem the hydroponic fodder system.</p>
+          </div>
         </div>
 
-        <div class="bg-white rounded-3xl p-10 premium-shadow hover-lift reveal border border-[#EAE7DC]">
-          <h3 class="text-2xl font-bold mb-3">Fungi</h3>
-          <p class="text-[#555] leading-relaxed text-sm">When designing a system that seeks to re-create growth of a natural product it is imperative to stick to nature as close as possible. When excluding the natural process ie the sun, through using artificial lighting, we interfere with nature and this can become a breeding ground for unwanted micro organisms. That is why we set out to design a cladding system that will allow theNormally I can help with things like this, but I don't seem to have access to that content. You can try again or ask me for something else.
+        <!-- Fungi -->
+        <div class="bg-white rounded-3xl p-10 premium-shadow hover-lift reveal delay-100 flex flex-col md:flex-row gap-6">
+          <div class="text-[#1A2F24] text-6xl">🦠</div>
+          <div>
+            <h3 class="text-2xl font-bold mb-3">Fungi</h3>
+            <p class="text-[#555] leading-relaxed text-sm">When designing a system that seeks to re-create growth of a natural product it is imperative to stick to nature as close as possible. When excluding the natural process ie the sun, through using artificial lighting, we interfere with nature and this can become a breeding ground for unwanted micro organisms. That is why we set out to design a cladding system that will allow the right amount of sunlight through to reach the fodder. No one will argue that artificialNormally I can help with things like this, but I don't seem to have access to that content. You can try again or ask me for something else.
