@@ -31,7 +31,7 @@
       color: var(--forest);
     }
 
-    /* Human-touch: Soft, tinted environmental shadows */
+    /* Soft, tinted environmental shadows */
     .premium-shadow {
       box-shadow: 0 20px 40px rgba(26, 47, 36, 0.06);
     }
@@ -69,7 +69,7 @@
     }
     .btn-premium:hover {
       background-color: var(--sage);
-      padding-right: 24px; /* Creates movement on hover */
+      padding-right: 24px;
     }
     .btn-premium .arrow {
       transition: transform 0.4s ease;
@@ -110,7 +110,6 @@
     }
     .delay-100 { transition-delay: 0.1s; }
     .delay-200 { transition-delay: 0.2s; }
-    .delay-300 { transition-delay: 0.3s; }
   </style>
 </head>
 <body class="antialiased selection:bg-[#76947A] selection:text-white">
@@ -133,11 +132,10 @@
     </div>
   </nav>
 
-  <!-- Offset Hero Section (Breaks the boring symmetrical layout) -->
+  <!-- Offset Hero Section -->
   <header class="pt-32 lg:pt-40 pb-16 px-6 relative">
     <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
       
-      <!-- Text content spans 5 columns -->
       <div class="lg:col-span-5 reveal z-10">
         <div class="inline-block border border-[#76947A] text-[#76947A] text-xs font-bold px-3 py-1 rounded-full mb-6 tracking-widest uppercase bg-white/50 backdrop-blur-sm">
           Est. Over 20 Years Ago
@@ -154,12 +152,11 @@
         </a>
       </div>
 
-      <!-- Image content spans 7 columns and overlaps -->
       <div class="lg:col-span-7 reveal delay-200 relative">
+        <!-- Replaced with a highly stable Pexels link that requires no downloading -->
         <div class="img-zoom-container rounded-3xl premium-shadow relative z-0">
-          <img src="https://images.unsplash.com/photo-1530836369250-ef71a3f5e902?auto=format&fit=crop&w=1200&q=80" alt="Hydroponic Farming Facility" class="w-full h-[600px] object-cover">
+          <img src="https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Hydroponic Farming Facility" class="w-full h-[600px] object-cover">
         </div>
-        <!-- Floating stats card (Classic agency technique) -->
         <div class="absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl premium-shadow z-20 max-w-xs hidden md:block hover-lift">
           <p class="serif-text text-4xl font-bold text-[#1A2F24] mb-1">600+</p>
           <p class="text-sm font-semibold text-[#76947A] uppercase tracking-wide">Units Installed Worldwide</p>
@@ -172,31 +169,20 @@
   <!-- Active Marquee Ticker -->
   <div class="marquee-container border-y border-[#1A2F24]/20 mt-12 mb-24">
     <div class="marquee-content font-bold text-sm tracking-widest uppercase flex items-center">
-      <span>💧 Low Water Usage</span>
-      <span>•</span>
-      <span>☀️ Natural Sunlight Driven</span>
-      <span>•</span>
-      <span>🦠 SporeBuster Tech</span>
-      <span>•</span>
-      <span>⚡ Low Electricity</span>
-      <span>•</span>
-      <span>🛡️ Patented Innovation</span>
-      <span>•</span>
-      <!-- Duplicate for infinite loop -->
-      <span>💧 Low Water Usage</span>
-      <span>•</span>
-      <span>☀️ Natural Sunlight Driven</span>
-      <span>•</span>
-      <span>🦠 SporeBuster Tech</span>
-      <span>•</span>
-      <span>⚡ Low Electricity</span>
-      <span>•</span>
+      <span>💧 Low Water Usage</span><span>•</span>
+      <span>☀️ Natural Sunlight Driven</span><span>•</span>
+      <span>🦠 SporeBuster Tech</span><span>•</span>
+      <span>⚡ Low Electricity</span><span>•</span>
+      <span>🛡️ Patented Innovation</span><span>•</span>
+      <span>💧 Low Water Usage</span><span>•</span>
+      <span>☀️ Natural Sunlight Driven</span><span>•</span>
+      <span>🦠 SporeBuster Tech</span><span>•</span>
+      <span>⚡ Low Electricity</span><span>•</span>
       <span>🛡️ Patented Innovation</span>
     </div>
   </div>
 
   <!-- Bento Box Grid: What Makes Us Different -->
-  <!-- This asymmetrical grid instantly proves this isn't an AI template -->
   <section id="difference" class="py-16 px-6">
     <div class="max-w-7xl mx-auto">
       <div class="mb-12 max-w-2xl reveal">
@@ -206,11 +192,12 @@
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
-        <!-- Large Feature Card -->
-        <div class="md:col-span-2 bg-white rounded-3xl p-10 lg:p-12 premium-shadow hover-lift reveal">
-          <div class="w-12 h-12 rounded-full bg-[#EAE7DC] text-[#1A2F24] flex items-center justify-center text-xl mb-6 font-serif italic">Cost</div>
-          <h3 class="text-2xl font-bold mb-4">Radically Low Operating Costs</h3>
-          <p class="text-[#555] leading-relaxed max-w-lg">
+        <!-- Large Feature Card with Massive $ Logo -->
+        <div class="md:col-span-2 bg-white rounded-3xl p-10 lg:p-12 premium-shadow hover-lift reveal flex flex-col justify-center">
+          <div class="text-[#1A2F24] text-7xl font-serif italic mb-6">
+            $
+          </div>
+          <p class="text-[#555] leading-relaxed max-w-lg text-lg">
             It is futile to develop an expensive system that erodes profit. Our cleverly designed cooling system eliminates the need for expensive air-conditioners, slashing energy usage and allowing for highly cost-effective solar integration.
           </p>
         </div>
@@ -247,17 +234,17 @@
     </div>
   </section>
 
-  <!-- Product Systems (Elegant Overlapping Layouts) -->
+  <!-- Product Systems -->
   <section id="boosters" class="py-24 px-6 bg-[#EAE7DC]/30">
     <div class="max-w-7xl mx-auto">
       <h2 class="text-4xl md:text-5xl font-bold mb-20 text-center reveal">Engineered Solutions.</h2>
 
       <div class="space-y-24">
         
-        <!-- System 1: Image Left, Text overlaps to the left -->
+        <!-- System 1 -->
         <div class="flex flex-col lg:flex-row items-center reveal">
           <div class="lg:w-7/12 img-zoom-container rounded-3xl premium-shadow z-0">
-            <img src="https://images.unsplash.com/photo-1589923158776-cb4485d99fd6?auto=format&fit=crop&w=1000&q=80" alt="Econo Booster" class="w-full h-[450px] object-cover rounded-3xl">
+            <img src="https://images.pexels.com/photos/3076009/pexels-photo-3076009.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Econo Booster" class="w-full h-[450px] object-cover rounded-3xl">
           </div>
           <div class="lg:w-6/12 bg-white p-10 lg:p-14 rounded-3xl premium-shadow z-10 lg:-ml-20 mt-8 lg:mt-0">
             <div class="text-[#76947A] font-bold text-sm uppercase tracking-widest mb-3">From R32,000.00</div>
@@ -271,10 +258,10 @@
           </div>
         </div>
 
-        <!-- System 2: Image Right, Text overlaps to the right -->
+        <!-- System 2 -->
         <div class="flex flex-col lg:flex-row-reverse items-center reveal">
           <div class="lg:w-7/12 img-zoom-container rounded-3xl premium-shadow z-0">
-            <img src="https://images.unsplash.com/photo-1592982537447-6f233c848529?auto=format&fit=crop&w=1000&q=80" alt="Next Gen Booster" class="w-full h-[450px] object-cover rounded-3xl">
+            <img src="https://images.pexels.com/photos/1105019/pexels-photo-1105019.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Next Gen Booster" class="w-full h-[450px] object-cover rounded-3xl">
           </div>
           <div class="lg:w-6/12 bg-[#1A2F24] text-white p-10 lg:p-14 rounded-3xl premium-shadow z-10 lg:-mr-20 mt-8 lg:mt-0">
             <div class="text-[#B5C2B8] font-bold text-sm uppercase tracking-widest mb-3">Flagship System</div>
@@ -292,7 +279,6 @@
   <section id="contact" class="py-24 px-6">
     <div class="max-w-7xl mx-auto bg-white rounded-[3rem] premium-shadow overflow-hidden flex flex-col lg:flex-row reveal">
       
-      <!-- Contact Info Side -->
       <div class="lg:w-5/12 bg-[#1A2F24] text-white p-12 lg:p-16 flex flex-col justify-between">
         <div>
           <h2 class="text-4xl font-bold mb-4 text-white">Let's Talk.</h2>
@@ -311,7 +297,6 @@
         </div>
       </div>
 
-      <!-- Form Side -->
       <div class="lg:w-7/12 p-12 lg:p-16 bg-white">
         <form class="space-y-6">
           <div class="grid md:grid-cols-2 gap-6">
@@ -344,7 +329,6 @@
     </div>
   </section>
 
-  <!-- Minimal Footer -->
   <footer class="py-8 text-center text-[#76947A] text-sm font-semibold tracking-wide border-t border-[#EAE7DC]">
     <p>© 2010 - 2026 Green Sprouts Solutions | Engineering the Future of Agriculture</p>
   </footer>
@@ -355,7 +339,6 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
-          // Optional: Unobserve after revealing to keep it rendered
           observer.unobserve(entry.target); 
         }
       });
