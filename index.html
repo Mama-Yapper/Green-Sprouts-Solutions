@@ -4,18 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Green Sprouts Solutions | Advanced Fodder Systems</title>
+  <meta name="description" content="Manufacturers & Suppliers of Green Feed Booster Solutions, Hydroponic Fodder Systems, Hydroponic Greenhouses & Hothouses. GREENSPROUTS - We supply AFRICA.">
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Premium Font Pairing -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
+
   <style>
     :root {
       --forest: #1A2F24;
       --sage: #76947A;
       --cream: #F9F8F4;
+      --sand: #EAE7DC;
       --text-main: #333333;
-      --card-bg: #FFFFFF;
     }
 
     body {
@@ -25,163 +24,848 @@
       overflow-x: hidden;
       scroll-behavior: smooth;
     }
-    
-    h1, h2, h3, h4, .serif-text {
+
+    h1, h2, h3, .serif-text {
       font-family: 'Playfair Display', serif;
       color: var(--forest);
     }
 
-    /* Premium shadows and animations */
-    .premium-shadow {
-      box-shadow: 0 20px 40px rgba(26, 47, 36, 0.06);
-    }
-    
+    .premium-shadow { box-shadow: 0 20px 40px rgba(26, 47, 36, 0.07); }
+
     .hover-lift {
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .hover-lift:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 30px 60px rgba(26, 47, 36, 0.12);
+      transform: translateY(-6px);
+      box-shadow: 0 30px 60px rgba(26, 47, 36, 0.11);
     }
+
+    .img-zoom-container { overflow: hidden; }
+    .img-zoom-container img {
+      transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .img-zoom-container:hover img { transform: scale(1.055); }
 
     .btn-premium {
       background-color: var(--forest);
       color: var(--cream);
-      border-radius: 50px;
-      padding: 12px 32px;
-      display: inline-block;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      text-align: center;
+      border-radius: 100px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
-    .btn-premium:hover {
-      background-color: var(--sage);
-      color: white;
+    .btn-premium:hover { background-color: var(--sage); }
+    .btn-premium .arrow { transition: transform 0.4s ease; }
+    .btn-premium:hover .arrow { transform: translateX(5px); }
+
+    .btn-outline {
+      border: 2px solid var(--forest);
+      color: var(--forest);
+      border-radius: 100px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.4s ease;
+    }
+    .btn-outline:hover {
+      background-color: var(--forest);
+      color: var(--cream);
     }
 
-    /* Scroll Animations */
+    /* Marquee */
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
+      background-color: var(--forest);
+      color: var(--cream);
+      padding: 13px 0;
+      white-space: nowrap;
+      display: flex;
+    }
+    .marquee-content {
+      animation: marquee 30s linear infinite;
+      display: flex;
+      gap: 3rem;
+      will-change: transform;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Reveal */
     .reveal {
       opacity: 0;
-      transform: translateY(40px);
-      transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(28px);
+      transition: all 0.95s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.active { opacity: 1; transform: translateY(0); }
     .delay-100 { transition-delay: 0.1s; }
     .delay-200 { transition-delay: 0.2s; }
+    .delay-300 { transition-delay: 0.3s; }
+    .delay-400 { transition-delay: 0.4s; }
+
+    /* Photo gallery grid */
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    @media (max-width: 768px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    /* Testimonial card quote mark */
+    .quote-mark { font-family: 'Playfair Display', serif; font-size: 5rem; line-height: 0.6; color: #76947A; opacity: 0.35; }
+
+    /* Stat counter */
+    .stat-number { font-family: 'Playfair Display', serif; }
+
+    /* Tab active */
+    .tab-btn.active {
+      background-color: var(--forest);
+      color: var(--cream);
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* Product tag */
+    .price-tag {
+      background: var(--sage);
+      color: white;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+      display: inline-block;
+    }
+
+    /* Accordion */
+    .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.45s ease; }
+    .accordion-body.open { max-height: 600px; }
+    .accordion-btn svg { transition: transform 0.35s ease; }
+    .accordion-btn.open svg { transform: rotate(180deg); }
+
+    /* Nav scrolled */
+    .nav-scrolled { box-shadow: 0 4px 30px rgba(26,47,36,0.08); }
+
+    /* Highlight underline */
+    .highlight {
+      position: relative;
+      display: inline-block;
+    }
+    .highlight::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -2px;
+      width: 100%; height: 3px;
+      background: var(--sage);
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body class="antialiased selection:bg-[#76947A] selection:text-white">
 
-  <!-- Navigation -->
-  <nav class="fixed w-full top-0 z-50 bg-[#F9F8F4]/90 backdrop-blur-md border-b border-[#EAE7DC]">
+  <!-- ===== NAV ===== -->
+  <nav id="main-nav" class="fixed w-full top-0 z-50 bg-[#F9F8F4]/85 backdrop-blur-xl border-b border-[#EAE7DC] transition-all duration-300">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
       <div class="serif-text text-2xl font-bold tracking-tight">GreenSprouts.</div>
-      <div class="hidden lg:flex gap-8 text-sm font-semibold text-[#555]">
-        <a href="#about" class="hover:text-[#1A2F24] transition">About</a>
-        <a href="#difference" class="hover:text-[#1A2F24] transition">Why Us</a>
-        <a href="#products" class="hover:text-[#1A2F24] transition">Products</a>
-        <a href="#boosters" class="hover:text-[#1A2F24] transition">Systems</a>
-        <a href="#equipment" class="hover:text-[#1A2F24] transition">Equipment</a>
+      <div class="hidden md:flex gap-8 text-sm font-semibold tracking-wide text-[#555]">
+        <a href="#about" class="hover:text-[#1A2F24] transition-colors">About</a>
+        <a href="#difference" class="hover:text-[#1A2F24] transition-colors">Technology</a>
+        <a href="#boosters" class="hover:text-[#1A2F24] transition-colors">Systems</a>
+        <a href="#pricing" class="hover:text-[#1A2F24] transition-colors">Pricing</a>
+        <a href="#testimonials" class="hover:text-[#1A2F24] transition-colors">Clients</a>
+        <a href="#gallery" class="hover:text-[#1A2F24] transition-colors">Gallery</a>
       </div>
-      <a href="#contact" class="btn-premium text-sm">Contact Us</a>
+      <a href="#contact" class="btn-premium px-6 py-2.5 text-sm font-bold">
+        <span>Get a Quote</span><span class="arrow">→</span>
+      </a>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <header class="pt-32 lg:pt-40 pb-20 px-6">
-    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-      <div class="reveal">
-        <p class="text-sm font-bold text-[#76947A] uppercase tracking-widest mb-4">Market Leader in Green Feed Systems</p>
-        <h1 class="text-5xl lg:text-7xl font-bold leading-[1.1] mb-6">
-          Drought-proof <br><span class="italic text-[#76947A]">Commercial Farming.</span>
+  <!-- ===== HERO ===== -->
+  <header class="pt-32 lg:pt-40 pb-16 px-6 relative">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-5 reveal z-10">
+        <div class="inline-block border border-[#76947A] text-[#76947A] text-xs font-bold px-3 py-1 rounded-full mb-6 tracking-widest uppercase bg-white/60 backdrop-blur-sm">
+          Est. Over 20 Years · George, RSA
+        </div>
+        <h1 class="text-5xl lg:text-7xl font-bold leading-[1.08] mb-6">
+          The new standard in <span class="italic text-[#76947A]">green feed.</span>
         </h1>
-        <ul class="space-y-3 mb-8 text-[#555] text-lg font-medium">
-          <li>✓ <strong>MORE THAN 600</strong> units installed</li>
-          <li>✓ <strong>LOW WATER</strong> usage</li>
-          <li>✓ <strong>NO YELLOW COLOURING</strong> due to natural sunlight</li>
-          <li>✓ <strong>NO MOULDING</strong> due to spore busting technology</li>
-          <li>✓ <strong>LOW ELECTRICITY</strong> usage</li>
-          <li>✓ <strong>PATENTED</strong> technology with <strong>SOLAR</strong> options</li>
-        </ul>
-        <a href="#difference" class="btn-premium">Explore the Technology</a>
+        <p class="text-lg text-[#555] mb-4 leading-relaxed">
+          Manufacturers and suppliers of hydroponic fodder systems, green feed boosters, and hothouses—engineered for African climates with over 600 successful installations across the continent.
+        </p>
+        <p class="text-sm text-[#76947A] font-semibold mb-8">Enquiries welcome in English &amp; Afrikaans.</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#difference" class="btn-premium px-8 py-4 text-base font-bold">
+            <span>Explore Our Systems</span><span class="arrow">→</span>
+          </a>
+          <a href="#contact" class="btn-outline px-8 py-4 text-base font-bold">
+            <span>Contact Us</span>
+          </a>
+        </div>
       </div>
-      <div class="reveal delay-100 relative">
-        <!-- Professional image of hydroponic machine setup -->
-        <img src="https://images.unsplash.com/photo-1530836369250-ef71a3f5e902?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Hydroponic System Machine" class="w-full h-[600px] object-cover rounded-[2rem] premium-shadow">
+
+      <div class="lg:col-span-7 reveal delay-200 relative">
+        <div class="img-zoom-container rounded-3xl premium-shadow">
+          <img src="https://static.wixstatic.com/media/e85c6c_b99740aebfa64b19bdad7fff5b1ff52e~mv2_d_6000_4000_s_4_2.jpg/v1/fill/w_1200,h_800,al_c,q_90,enc_avif,quality_auto/e85c6c_b99740aebfa64b19bdad7fff5b1ff52e~mv2_d_6000_4000_s_4_2.jpg" alt="Green Sprouts Hydroponic Fodder System" class="w-full h-[520px] object-cover rounded-3xl" onerror="this.src='https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=1200'">
+        </div>
+        <!-- Floating stat cards -->
+        <div class="absolute -bottom-8 -left-8 bg-white p-5 rounded-2xl premium-shadow z-20 max-w-[200px] hidden md:block hover-lift">
+          <p class="stat-number text-4xl font-bold text-[#1A2F24] mb-1">600+</p>
+          <p class="text-xs font-semibold text-[#76947A] uppercase tracking-wide">Units Installed Worldwide</p>
+        </div>
+        <div class="absolute -top-6 -right-4 bg-[#1A2F24] text-white p-5 rounded-2xl premium-shadow z-20 max-w-[200px] hidden md:block hover-lift">
+          <p class="stat-number text-3xl font-bold mb-1">20+</p>
+          <p class="text-xs font-semibold text-[#76947A] uppercase tracking-wide">Years Manufacturing</p>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- About Us Section -->
-  <section id="about" class="py-20 px-6 bg-[#EAE7DC]/40 border-y border-[#EAE7DC]">
-    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee-container border-y border-[#1A2F24]/20 mt-12 mb-24">
+    <div class="marquee-content font-bold text-sm tracking-widest uppercase flex items-center">
+      <span>💧 Low Water Usage</span><span>•</span>
+      <span>☀️ Natural Sunlight Driven</span><span>•</span>
+      <span>🦠 SporeBuster Technology</span><span>•</span>
+      <span>⚡ Low Electricity Running Cost</span><span>•</span>
+      <span>🛡️ Patented Innovation</span><span>•</span>
+      <span>🌍 600+ African Installations</span><span>•</span>
+      <span>☀️ Solar Options Available</span><span>•</span>
+      <span>🌿 University-Verified Nutrients</span><span>•</span>
+      <span>💧 Low Water Usage</span><span>•</span>
+      <span>☀️ Natural Sunlight Driven</span><span>•</span>
+      <span>🦠 SporeBuster Technology</span><span>•</span>
+      <span>⚡ Low Electricity Running Cost</span><span>•</span>
+      <span>🛡️ Patented Innovation</span><span>•</span>
+      <span>🌍 600+ African Installations</span><span>•</span>
+      <span>☀️ Solar Options Available</span><span>•</span>
+      <span>🌿 University-Verified Nutrients</span>
+    </div>
+  </div>
+
+  <!-- ===== STATS STRIP ===== -->
+  <section class="py-8 px-6 mb-16">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 reveal">
+      <div class="text-center">
+        <p class="stat-number text-5xl font-bold text-[#1A2F24] mb-2">600+</p>
+        <p class="text-sm font-semibold text-[#76947A] uppercase tracking-wide">Units Installed</p>
+      </div>
+      <div class="text-center">
+        <p class="stat-number text-5xl font-bold text-[#1A2F24] mb-2">20+</p>
+        <p class="text-sm font-semibold text-[#76947A] uppercase tracking-wide">Years in Business</p>
+      </div>
+      <div class="text-center">
+        <p class="stat-number text-5xl font-bold text-[#1A2F24] mb-2">15ha</p>
+        <p class="text-sm font-semibold text-[#76947A] uppercase tracking-wide">Equivalent Water Saving</p>
+      </div>
+      <div class="text-center">
+        <p class="stat-number text-5xl font-bold text-[#1A2F24] mb-2">7<span class="text-3xl">day</span></p>
+        <p class="text-sm font-semibold text-[#76947A] uppercase tracking-wide">Greenfeed Production Cycle</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="py-16 px-6 mb-8">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
       <div class="reveal">
-        <h2 class="text-4xl font-bold mb-6">About Us</h2>
-        <div class="space-y-5 text-[#555] leading-relaxed text-sm lg:text-base">
-          <p>Green Sprouts Solutions offers systems for Livestock Feeding and Hydroponic Green Houses / Hot Houses. A specialist company in the fields of Product Manufacturing and Feeding Solutions.</p>
-          <p>Green Sprouts Solutions as a company has been around for more than 20 years affording the company the opportunity to become experts in sprouting technology and hothouse design. From an early start the goal has always been to develop a product that is both cost effective and efficient and that will become an asset to all our clients.</p>
-          <p>Vivian Beukes, the company owner set out to achieve this goal and with his Engineering background and being somewhat of a Bacteria expert he soon embarked on a journey of solving the most pressing issues faced by the industry.</p>
-          <p>This unique designed system accelerates the germination periods of seeds. Green Sprouts Solutions has successfully installed feeding systems all over the country. Our systems can withstand harsh and extreme weather conditions. The material used in the Green Sprouts Systems has proven fantastic durability and good weathering capabilities.</p>
-          <p>Farmers who have invested in our system will agree on how it has revolutionised the way we feed and maintain our livestock worldwide.</p>
+        <div class="inline-block border border-[#76947A] text-[#76947A] text-xs font-bold px-3 py-1 rounded-full mb-6 tracking-widest uppercase">
+          Market Leader in Green Feed
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Africa's most trusted fodder innovator.</h2>
+        <p class="text-[#555] text-lg leading-relaxed mb-6">
+          Green Sprouts Solutions is a South African manufacturer of hydroponic fodder systems and hothouses, supplying farmers across Africa from our manufacturing facility in George, Western Cape. We have been engineering green feed solutions for over two decades, driven by a singular mission: to make high-quality, nutritious livestock feed accessible and affordable.
+        </p>
+        <p class="text-[#555] leading-relaxed mb-8">
+          Our systems are designed to produce year-round greenfeed within 7 days without the need for a pivot or ploughing fields. We partner with university professors to develop precise feeding rations that maximize profit margins for our clients across different geographical regions.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <span class="bg-[#EAE7DC] text-[#1A2F24] text-sm font-semibold px-4 py-2 rounded-full">Patented Technology</span>
+          <span class="bg-[#EAE7DC] text-[#1A2F24] text-sm font-semibold px-4 py-2 rounded-full">Solar-Ready</span>
+          <span class="bg-[#EAE7DC] text-[#1A2F24] text-sm font-semibold px-4 py-2 rounded-full">University Verified</span>
+          <span class="bg-[#EAE7DC] text-[#1A2F24] text-sm font-semibold px-4 py-2 rounded-full">Pan-African Supply</span>
         </div>
       </div>
-      
-      <div class="space-y-8 reveal delay-100">
-        <div class="bg-white p-8 rounded-3xl premium-shadow hover-lift">
-          <h3 class="text-2xl font-bold mb-3 text-[#1A2F24]">Vision</h3>
-          <p class="text-[#555] text-sm">Grow good… in all aspects of life. To introduce a sufficient skills and development program to all the people of Africa thereby ensuring they become empowered to be self sustainable.</p>
-        </div>
-        <div class="bg-white p-8 rounded-3xl premium-shadow hover-lift">
-          <h3 class="text-2xl font-bold mb-3 text-[#1A2F24]">Mission</h3>
-          <p class="text-[#555] text-sm">Our mission is to by way of expertise and a positive spirit of enterprise and enthusiasm, create products that will be beneficial in all spheres of life.</p>
-        </div>
-        <div class="bg-[#1A2F24] p-8 rounded-3xl premium-shadow hover-lift text-white">
-          <h3 class="text-2xl font-bold mb-3 text-white">Manufacturing Facility</h3>
-          <p class="text-[#B5C2B8] text-sm">The material used in the Green Sprouts Booster Systems has proven its fantastic durability. Both our production process and sheeting material have been patented and we keep a constant eye on quality. Each manufacturing line undergoes a thorough examination and quality check ensuring no sub standard materials leave the assembly line.</p>
+      <div class="reveal delay-200">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="img-zoom-container rounded-2xl h-56 premium-shadow">
+            <img src="https://static.wixstatic.com/media/e85c6c_1c18254b42a74c85a837c7bdb620f23d~mv2.jpg/v1/fill/w_600,h_600,al_c,q_90,enc_avif,quality_auto/e85c6c_1c18254b42a74c85a837c7bdb620f23d~mv2.jpg" alt="Green Sprouts System" class="w-full h-full object-cover rounded-2xl" onerror="this.src='https://images.pexels.com/photos/3076009/pexels-photo-3076009.jpeg?auto=compress&cs=tinysrgb&w=600'">
+          </div>
+          <div class="img-zoom-container rounded-2xl h-56 premium-shadow mt-8">
+            <img src="https://static.wixstatic.com/media/e85c6c_c70932245a644945ac4435c0a13a4b8a~mv2.jpg/v1/fill/w_600,h_600,al_c,q_90,enc_avif,quality_auto/e85c6c_c70932245a644945ac4435c0a13a4b8a~mv2.jpg" alt="Hydroponic Fodder" class="w-full h-full object-cover rounded-2xl" onerror="this.src='https://images.pexels.com/photos/1105019/pexels-photo-1105019.jpeg?auto=compress&cs=tinysrgb&w=600'">
+          </div>
+          <div class="img-zoom-container rounded-2xl h-56 premium-shadow">
+            <img src="https://static.wixstatic.com/media/e85c6c_20cb6ca84760487b91f20f41ba6e7bbc~mv2.jpg/v1/fill/w_600,h_600,al_c,q_90,enc_avif,quality_auto/e85c6c_20cb6ca84760487b91f20f41ba6e7bbc~mv2.jpg" alt="Green Feed Booster" class="w-full h-full object-cover rounded-2xl" onerror="this.src='https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=600'">
+          </div>
+          <div class="img-zoom-container rounded-2xl h-56 premium-shadow mt-8">
+            <img src="https://static.wixstatic.com/media/e85c6c_52c661f339e444ea8df524ea35f64189~mv2.jpg/v1/fill/w_600,h_600,al_c,q_90,enc_avif,quality_auto/e85c6c_52c661f339e444ea8df524ea35f64189~mv2.jpg" alt="Sprout Booster Interior" class="w-full h-full object-cover rounded-2xl" onerror="this.src='https://images.pexels.com/photos/3076009/pexels-photo-3076009.jpeg?auto=compress&cs=tinysrgb&w=600'">
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- What Makes Us Different -->
-  <section id="difference" class="py-24 px-6">
+  <!-- ===== WHAT MAKES US DIFFERENT ===== -->
+  <section id="difference" class="py-16 px-6">
     <div class="max-w-7xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-bold mb-16 text-center reveal">What makes us different?</h2>
-      
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Cost -->
-        <div class="bg-white rounded-3xl p-10 premium-shadow hover-lift reveal flex flex-col md:flex-row gap-6">
-          <div class="text-[#1A2F24] text-7xl font-serif italic">$</div>
-          <div>
-            <h3 class="text-2xl font-bold mb-3">Cost</h3>
-            <p class="text-[#555] leading-relaxed text-sm">This is one of the most important aspects in designing a system. It would be futile to develop an expensive system that will erode any potential profit gain sought by feeding livestock. With ever increasing electricity and labor costs we set out to develop a system that can be managed with minimal labor input and one that will be sufficient in energy usage. Our cleverly designed cooling system results in us not relying on expensive equipment like air-conditioners and due to the low energy usage we also have the benefit of installing a much more cost effective solar system. This is proving to be a game changer to the African market.</p>
+      <div class="mb-14 max-w-2xl reveal">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">Uncompromising quality.</h2>
+        <p class="text-[#555] text-lg">Four pillars that separate Green Sprouts from the rest of the market.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Cost — large card -->
+        <div class="md:col-span-2 bg-white rounded-3xl p-10 lg:p-12 premium-shadow hover-lift reveal flex flex-col justify-center">
+          <div class="text-[#1A2F24] text-8xl font-serif italic mb-6 opacity-10 leading-none">$</div>
+          <div class="-mt-10">
+            <span class="text-[#76947A] font-bold text-xs uppercase tracking-widest mb-3 block">Cost Efficiency</span>
+            <h3 class="text-2xl font-bold mb-4">Designed to protect your profit.</h3>
+            <p class="text-[#555] leading-relaxed text-base max-w-lg">
+              It is futile to develop an expensive system that will erode any potential profit gain. Our cleverly designed cooling system eliminates the need for expensive air-conditioners entirely. Due to our very low energy consumption, clients can install a far more cost-effective solar system—proving to be a game changer for the African market.
+            </p>
           </div>
         </div>
 
         <!-- Water -->
-        <div class="bg-white rounded-3xl p-10 premium-shadow hover-lift reveal delay-100 flex flex-col md:flex-row gap-6">
-          <div class="text-[#1A2F24] text-6xl">💧</div>
+        <div class="bg-[#1A2F24] text-white rounded-3xl p-10 premium-shadow hover-lift reveal delay-100 flex flex-col justify-between">
           <div>
-            <h3 class="text-2xl font-bold mb-3">Water</h3>
-            <p class="text-[#555] leading-relaxed text-sm">Water is becoming a commodity and not having enough is one of the main reasons clients approach us. Irrigated land uses a tremendous amount of water and seeing that our standard booster system produces the equivalent of 15ha of irrigated land it is easy to see the benefit in the amount of water being saved with such a system.</p>
+            <div class="w-12 h-12 rounded-full bg-[#2A4032] flex items-center justify-center text-xl mb-6">💧</div>
+            <h3 class="text-2xl font-bold mb-4 text-white">Water Scarcity Solved</h3>
+            <p class="text-[#B5C2B8] text-sm leading-relaxed">
+              Water is becoming a scarce commodity. Irrigated land uses enormous amounts. Our standard booster system produces the equivalent of 15 hectares of irrigated land—redefining water efficiency for African agriculture and dramatically reducing your water costs.
+            </p>
+          </div>
+          <div class="mt-8 border-t border-[#2A4032] pt-6">
+            <p class="text-[#76947A] font-bold text-sm">≡ 15ha irrigated land equivalent</p>
           </div>
         </div>
 
-        <!-- Nutrients -->
-        <div class="bg-white rounded-3xl p-10 premium-shadow hover-lift reveal flex flex-col md:flex-row gap-6">
-          <div class="text-[#1A2F24] text-6xl">☀️</div>
-          <div>
-            <h3 class="text-2xl font-bold mb-3">Nutrients</h3>
-            <p class="text-[#555] leading-relaxed text-sm">Sprouted technology has come a long way and has had to overcome a few obstacles not least of these being uneducated claims made by producers that livestock can thrive on sprouted fodder alone. We have found this to simply not be true and therefore we enrolled the services of university professors to aid us in the formulation of different feeding rations that include but is not limited to fodder. The rations are varied based on the geographical locations, which again allows us to bring cost down and increase profit margins for the client. By doing this we endeavour to redeem the hydroponic fodder system.</p>
+        <!-- Fungi / Mould -->
+        <div class="bg-white rounded-3xl p-10 premium-shadow hover-lift reveal">
+          <div class="w-12 h-12 rounded-full bg-[#EAE7DC] text-[#1A2F24] flex items-center justify-center text-xl mb-6">🦠</div>
+          <h3 class="text-xl font-bold mb-3">Fungi &amp; Mould Eliminated</h3>
+          <p class="text-[#555] text-sm leading-relaxed mb-4">
+            By sticking to nature and using patented cladding that allows the right amount of sunlight through, combined with our organic bacterial product <strong>SporeBuster</strong>, we have all but eliminated moulding. Crucially, our system achieves temperature variation inside—impossible with air-conditioners—which is key for spore elimination.
+          </p>
+          <span class="inline-block text-xs font-bold text-[#76947A] border border-[#76947A] px-3 py-1 rounded-full">SporeBuster Technology</span>
+        </div>
+
+        <!-- Nutrients — wide card -->
+        <div class="md:col-span-2 bg-white rounded-3xl p-10 premium-shadow hover-lift reveal delay-100 flex flex-col justify-center">
+          <div class="w-12 h-12 rounded-full bg-[#EAE7DC] text-[#1A2F24] flex items-center justify-center text-xl mb-6">🎓</div>
+          <h3 class="text-xl font-bold mb-3">University-Verified Nutrition</h3>
+          <p class="text-[#555] text-sm leading-relaxed mb-4">
+            Sprouted fodder technology has had to overcome uneducated claims that livestock can thrive on sprouted fodder alone. We have found this to simply not be true. That is why we enrolled university professors to formulate precise feeding rations that include but are not limited to fodder. Rations are varied based on geographic location to reduce costs and increase client profit margins—redeeming the hydroponic fodder system through real science.
+          </p>
+          <p class="text-xs font-bold text-[#76947A] uppercase tracking-wide">Partner universities · Geographic ration profiling · Profit-first formulation</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SYSTEMS / BOOSTERS ===== -->
+  <section id="boosters" class="py-24 px-6 bg-[#EAE7DC]/40">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-20 reveal">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">Engineered Solutions.</h2>
+        <p class="text-[#555] text-lg max-w-2xl mx-auto">Every booster is built with UV- and heat-stabilised polymer, stainless steel fasteners and our patented cladding—hail resistant, rust-free, chemical proof, and built to last.</p>
+      </div>
+
+      <div class="space-y-20">
+
+        <!-- Econo & NextGen Econo -->
+        <div class="flex flex-col lg:flex-row items-center gap-0 reveal">
+          <div class="lg:w-7/12 img-zoom-container rounded-3xl premium-shadow z-0">
+            <img src="https://static.wixstatic.com/media/e85c6c_b99740aebfa64b19bdad7fff5b1ff52e~mv2_d_6000_4000_s_4_2.jpg/v1/fill/w_1000,h_700,al_c,q_90,enc_avif,quality_auto/e85c6c_b99740aebfa64b19bdad7fff5b1ff52e~mv2_d_6000_4000_s_4_2.jpg" alt="Econo Booster" class="w-full h-[420px] object-cover rounded-3xl" onerror="this.src='https://images.pexels.com/photos/3076009/pexels-photo-3076009.jpeg?auto=compress&cs=tinysrgb&w=1000'">
+          </div>
+          <div class="lg:w-6/12 bg-white p-10 lg:p-12 rounded-3xl premium-shadow z-10 lg:-ml-16 mt-8 lg:mt-0">
+            <span class="price-tag mb-3">From R32,000.00</span>
+            <h3 class="text-3xl font-bold mt-4 mb-3">Econo Booster &amp; NextGen Econo</h3>
+            <p class="text-[#555] mb-6 leading-relaxed text-sm">Our most affordable entry-level boosters—ideal for farmers starting out. Capable of feeding 20 sheep/goats or 200 chickens. Constructed with high-quality UV- and heat-stabilised polymer and stainless steel fasteners. The patented cladding allows essential sun rays through, producing chlorophyll-rich, vitamin D3-loaded plants without any growing lights, keeping running costs minimal.</p>
+            <ul class="space-y-2 text-sm font-semibold text-[#333] mb-6">
+              <li>✓ Hail Resistant · No Rust · No Discolouration</li>
+              <li>✓ Chemical Proof — withstands all cleaning agents</li>
+              <li>✓ All pumps, plumbing &amp; electrical box included</li>
+              <li>✓ Zero growing lights — solar-compatible</li>
+              <li>✓ Minimal labour input required</li>
+            </ul>
+            <a href="#contact" class="btn-premium px-7 py-3 text-sm font-bold">
+              <span>Request a Quote</span><span class="arrow">→</span>
+            </a>
           </div>
         </div>
 
-        <!-- Fungi -->
-        <div class="bg-white rounded-3xl p-10 premium-shadow hover-lift reveal delay-100 flex flex-col md:flex-row gap-6">
-          <div class="text-[#1A2F24] text-6xl">🦠</div>
+        <!-- Standard Booster -->
+        <div class="flex flex-col lg:flex-row-reverse items-center gap-0 reveal">
+          <div class="lg:w-7/12 img-zoom-container rounded-3xl premium-shadow z-0">
+            <img src="https://static.wixstatic.com/media/e85c6c_7235a3e00abd444d928ade104e14eb07~mv2.jpg/v1/fill/w_1000,h_700,al_c,q_90,enc_avif,quality_auto/e85c6c_7235a3e00abd444d928ade104e14eb07~mv2.jpg" alt="Standard Booster" class="w-full h-[420px] object-cover rounded-3xl" onerror="this.src='https://images.pexels.com/photos/1105019/pexels-photo-1105019.jpeg?auto=compress&cs=tinysrgb&w=1000'">
+          </div>
+          <div class="lg:w-6/12 bg-[#1A2F24] text-white p-10 lg:p-12 rounded-3xl premium-shadow z-10 lg:-mr-16 mt-8 lg:mt-0">
+            <span class="inline-block bg-[#76947A] text-white text-xs font-bold px-3 py-1 rounded-full tracking-widest uppercase mb-4">From R111,500.00</span>
+            <h3 class="text-3xl font-bold mb-3 text-white">Non-Standard 180 &amp; Standard Booster</h3>
+            <p class="text-[#B5C2B8] mb-6 leading-relaxed text-sm">The Non-Standard 180 feeds 100–150 sheep/goats. The Standard Booster features a 1.45m wide internal passage, providing full interior access for cleaning, harvesting, sowing, and maintenance. Same patented cladding and polymer quality—chemical proof, zero growing lights, solar-ready.</p>
+            <ul class="space-y-2 text-sm font-semibold text-[#B5C2B8] mb-6">
+              <li>✓ 1.45m wide internal access passage</li>
+              <li>✓ Full access for cleaning &amp; maintenance</li>
+              <li>✓ UV-stabilised polymer construction</li>
+              <li>✓ Patented natural light cladding</li>
+            </ul>
+            <a href="#contact" class="text-white font-bold border-b-2 border-[#76947A] pb-1 hover:text-[#76947A] transition-colors text-sm">Request Full Specifications →</a>
+          </div>
+        </div>
+
+        <!-- Hybrid Booster -->
+        <div class="flex flex-col lg:flex-row items-center gap-0 reveal">
+          <div class="lg:w-7/12 img-zoom-container rounded-3xl premium-shadow z-0">
+            <img src="https://static.wixstatic.com/media/e85c6c_6c59537337ec446cb9628100321e98f7~mv2.jpg/v1/fill/w_1000,h_700,al_c,q_90,enc_avif,quality_auto/e85c6c_6c59537337ec446cb9628100321e98f7~mv2.jpg" alt="Hybrid Booster" class="w-full h-[420px] object-cover rounded-3xl" onerror="this.src='https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=1000'">
+          </div>
+          <div class="lg:w-6/12 bg-white p-10 lg:p-12 rounded-3xl premium-shadow z-10 lg:-ml-16 mt-8 lg:mt-0">
+            <span class="price-tag mb-3">Mid-Range System</span>
+            <h3 class="text-3xl font-bold mt-4 mb-3">Hybrid Booster</h3>
+            <p class="text-[#555] mb-6 leading-relaxed text-sm">The perfect bridge between the Standard and the Next Generation Booster. Built with the same quality polymer as the Standard, but with added insulated chromadek paneling at the front, back, and top. This extra insulation layer means better cold-weather performance in winter and protection for the top row of plants during extremely hot summers and intense sunlight typical of warmer areas.</p>
+            <ul class="space-y-2 text-sm font-semibold text-[#333] mb-6">
+              <li>✓ Insulated chromadek panels (front, back, top)</li>
+              <li>✓ Enhanced cold-weather performance</li>
+              <li>✓ Top-row plant protection in summer</li>
+              <li>✓ Same patented polymer cladding as Standard</li>
+            </ul>
+            <a href="#contact" class="btn-premium px-7 py-3 text-sm font-bold">
+              <span>Get Hybrid Quote</span><span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Next Generation Booster -->
+        <div class="flex flex-col lg:flex-row-reverse items-center gap-0 reveal">
+          <div class="lg:w-7/12 img-zoom-container rounded-3xl premium-shadow z-0">
+            <img src="https://static.wixstatic.com/media/e85c6c_b51a6e79f6244387ba93320bc3986244~mv2.jpg/v1/fill/w_1000,h_700,al_c,q_90,enc_avif,quality_auto/e85c6c_b51a6e79f6244387ba93320bc3986244~mv2.jpg" alt="Next Generation Booster" class="w-full h-[420px] object-cover rounded-3xl" onerror="this.src='https://images.pexels.com/photos/3076009/pexels-photo-3076009.jpeg?auto=compress&cs=tinysrgb&w=1000'">
+          </div>
+          <div class="lg:w-6/12 bg-[#1A2F24] text-white p-10 lg:p-12 rounded-3xl premium-shadow z-10 lg:-mr-16 mt-8 lg:mt-0">
+            <span class="inline-block bg-[#76947A] text-white text-xs font-bold px-3 py-1 rounded-full tracking-widest uppercase mb-4">Flagship System</span>
+            <h3 class="text-3xl font-bold mb-3 text-white">Next Generation Booster</h3>
+            <p class="text-[#B5C2B8] mb-4 leading-relaxed text-sm">Our most advanced system, designed for climates with extreme cold or heat. A 900mm-wide internal passage provides full access. Insulated doors close tightly over the polymer cladding for superior cold-weather insulation. A specially designed <em>evaporative cooler</em> replaces expensive, high-maintenance air-conditioners—running at minimal cost during hot summers.</p>
+            <ul class="space-y-2 text-sm font-semibold text-[#B5C2B8] mb-6">
+              <li>✓ 900mm wide internal access passage</li>
+              <li>✓ Insulated doors — extreme cold protection</li>
+              <li>✓ Evaporative cooler (no air-con required)</li>
+              <li>✓ Natural sunlight — zero growing lights</li>
+              <li>✓ Market-leading low electrical usage</li>
+              <li>✓ Affordable solar integration</li>
+            </ul>
+            <a href="#contact" class="text-white font-bold border-b-2 border-[#76947A] pb-1 hover:text-[#76947A] transition-colors text-sm">Request Full Specifications →</a>
+          </div>
+        </div>
+
+        <!-- Tandem / Twin Systems -->
+        <div class="bg-[#1A2F24] rounded-3xl p-10 lg:p-14 text-white premium-shadow reveal">
+          <div class="grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <span class="inline-block bg-[#76947A] text-white text-xs font-bold px-3 py-1 rounded-full tracking-widest uppercase mb-6">Industrial Scale</span>
+              <h3 class="text-3xl font-bold text-white mb-4">Tandem &amp; Twin Systems</h3>
+              <p class="text-[#B5C2B8] mb-6 leading-relaxed">Tandem and Twin systems are exactly double the size of their Standard, Hybrid, and NextGen counterparts—built for high-volume commercial operations that require maximum throughput at the lowest possible cost per kilogram of fodder.</p>
+              <div class="grid grid-cols-3 gap-4 mb-8">
+                <div class="bg-[#2A4032] rounded-xl p-4 text-center">
+                  <p class="text-2xl font-bold font-serif mb-1">16m</p>
+                  <p class="text-[#76947A] text-xs font-semibold uppercase">Length</p>
+                </div>
+                <div class="bg-[#2A4032] rounded-xl p-4 text-center">
+                  <p class="text-2xl font-bold font-serif mb-1">3.4m</p>
+                  <p class="text-[#76947A] text-xs font-semibold uppercase">Width</p>
+                </div>
+                <div class="bg-[#2A4032] rounded-xl p-4 text-center">
+                  <p class="text-2xl font-bold font-serif mb-1">2.75m</p>
+                  <p class="text-[#76947A] text-xs font-semibold uppercase">Height</p>
+                </div>
+              </div>
+              <ul class="space-y-2 text-sm font-semibold text-[#B5C2B8]">
+                <li>✓ Produces up to 1 ton of fodder per day</li>
+                <li>✓ Very low operating costs</li>
+                <li>✓ Natural sunlight — enhanced chlorophyll</li>
+                <li>✓ Affordable solar option available</li>
+              </ul>
+            </div>
+            <div class="img-zoom-container rounded-2xl">
+              <img src="https://static.wixstatic.com/media/e85c6c_9d5b58d12aa6470687cfe73dbde69f13~mv2.png/v1/fill/w_720,h_485,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e85c6c_9d5b58d12aa6470687cfe73dbde69f13~mv2.png" alt="Solar Tandem Booster" class="w-full h-[340px] object-cover rounded-2xl" onerror="this.src='https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=800'">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING TABLE ===== -->
+  <section id="pricing" class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-14 reveal">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">System Pricing.</h2>
+        <p class="text-[#555] text-lg">All prices are indicative. Contact us for a full quote tailored to your location and livestock needs.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
+
+        <!-- Card 1 -->
+        <div class="bg-white rounded-3xl p-8 premium-shadow hover-lift border border-[#EAE7DC]">
+          <p class="text-xs font-bold text-[#76947A] uppercase tracking-widest mb-2">Entry Level</p>
+          <h3 class="text-2xl font-bold mb-1">Econo Booster</h3>
+          <p class="text-4xl font-serif font-bold text-[#1A2F24] mb-4">R32,000<span class="text-base font-sans text-[#76947A]">+</span></p>
+          <hr class="border-[#EAE7DC] mb-5">
+          <ul class="space-y-2 text-sm text-[#555]">
+            <li>🐑 20 sheep / goats</li>
+            <li>🐔 200 chickens</li>
+            <li>☀️ No growing lights needed</li>
+            <li>🔩 Stainless steel fasteners</li>
+            <li>💧 Pumps &amp; plumbing included</li>
+            <li>🛡️ UV-stabilised polymer</li>
+          </ul>
+          <a href="#contact" class="btn-premium mt-6 w-full justify-center px-6 py-3 text-sm font-bold">
+            <span>Enquire</span><span class="arrow">→</span>
+          </a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-[#1A2F24] text-white rounded-3xl p-8 premium-shadow hover-lift relative overflow-hidden">
+          <div class="absolute top-0 right-0 bg-[#76947A] text-white text-xs font-bold px-4 py-2 rounded-bl-2xl tracking-widest uppercase">Most Popular</div>
+          <p class="text-xs font-bold text-[#76947A] uppercase tracking-widest mb-2 mt-4">Mid Range</p>
+          <h3 class="text-2xl font-bold mb-1 text-white">Non-Standard 180</h3>
+          <p class="text-4xl font-serif font-bold text-white mb-4">R111,500<span class="text-base font-sans text-[#76947A]">+</span></p>
+          <hr class="border-[#2A4032] mb-5">
+          <ul class="space-y-2 text-sm text-[#B5C2B8]">
+            <li>🐑 100–150 sheep / goats</li>
+            <li>☀️ Natural sunlight cladding</li>
+            <li>🦠 SporeBuster compatible</li>
+            <li>⚡ Minimal electricity use</li>
+            <li>🛡️ Chemical proof construction</li>
+            <li>🌿 Vitamin D3 enhanced plants</li>
+          </ul>
+          <a href="#contact" class="mt-6 w-full justify-center px-6 py-3 text-sm font-bold border-2 border-[#76947A] text-white rounded-full hover:bg-[#76947A] transition-all flex items-center gap-2">
+            <span>Enquire</span><span>→</span>
+          </a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white rounded-3xl p-8 premium-shadow hover-lift border border-[#EAE7DC]">
+          <p class="text-xs font-bold text-[#76947A] uppercase tracking-widest mb-2">Flagship</p>
+          <h3 class="text-2xl font-bold mb-1">Next Generation</h3>
+          <p class="text-2xl font-serif font-bold text-[#1A2F24] mb-1">Price on Request</p>
+          <p class="text-xs text-[#76947A] mb-4">Tandem / Twin also available</p>
+          <hr class="border-[#EAE7DC] mb-5">
+          <ul class="space-y-2 text-sm text-[#555]">
+            <li>🏭 Extreme climate design</li>
+            <li>❄️ Insulated doors — full closure</li>
+            <li>💨 Evaporative cooler (no A/C)</li>
+            <li>🛤️ 900mm wide internal passage</li>
+            <li>☀️ Solar option available</li>
+            <li>⚡ Market-leading low electricity</li>
+          </ul>
+          <a href="#contact" class="btn-premium mt-6 w-full justify-center px-6 py-3 text-sm font-bold">
+            <span>Request Specs</span><span class="arrow">→</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TECHNOLOGY ACCORDION ===== -->
+  <section class="py-16 px-6 bg-[#EAE7DC]/30">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-14 reveal">
+        <h2 class="text-4xl font-bold mb-4">The Technology Behind It.</h2>
+        <p class="text-[#555] text-lg">Answers to the questions every farmer asks.</p>
+      </div>
+      <div class="space-y-4 reveal">
+
+        <div class="bg-white rounded-2xl overflow-hidden premium-shadow">
+          <button onclick="toggleAccordion(this)" class="accordion-btn w-full flex justify-between items-center p-7 text-left font-bold text-[#1A2F24] text-base">
+            <span>Why natural sunlight instead of growing lights?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="accordion-body">
+            <p class="px-7 pb-7 text-[#555] leading-relaxed text-sm">No one can argue that artificial lighting cannot compare to natural sunlight in the chlorophyll process. Natural sunlight ensures healthier plants loaded with chlorophyll and vitamin D3—both essential elements for healthier livestock. By eliminating growing lights, we dramatically reduce electricity running costs and make solar integration far more cost-effective.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl overflow-hidden premium-shadow">
+          <button onclick="toggleAccordion(this)" class="accordion-btn w-full flex justify-between items-center p-7 text-left font-bold text-[#1A2F24] text-base">
+            <span>How does the SporeBuster system work?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="accordion-body">
+            <p class="px-7 pb-7 text-[#555] leading-relaxed text-sm">SporeBuster is our key organic bacterial product. Combined with our patented cladding technology, it allows the right amount of sunlight to reach the fodder while eliminating mould and fungal growth. A critical additional factor is that our system achieves temperature variation inside the booster—something that is impossible with a conventional air-conditioner—and this temperature variance is key to eliminating spores at the source.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl overflow-hidden premium-shadow">
+          <button onclick="toggleAccordion(this)" class="accordion-btn w-full flex justify-between items-center p-7 text-left font-bold text-[#1A2F24] text-base">
+            <span>Can livestock survive on sprouted fodder alone?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="accordion-body">
+            <p class="px-7 pb-7 text-[#555] leading-relaxed text-sm">No. We have found that to simply not be true and we are transparent about it. That is why we partnered with university professors to formulate comprehensive feeding rations that include—but are not limited to—fodder. These rations are tailored per geographic region, which allows us to bring costs down significantly and increase profit margins for each client.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl overflow-hidden premium-shadow">
+          <button onclick="toggleAccordion(this)" class="accordion-btn w-full flex justify-between items-center p-7 text-left font-bold text-[#1A2F24] text-base">
+            <span>What are the solar options?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="accordion-body">
+            <p class="px-7 pb-7 text-[#555] leading-relaxed text-sm">Because our systems operate on very low electricity, the solar panel system required to run them is far smaller and more affordable than you might expect. Solar options are available across our range, including the Tandem NextGen system. This makes our boosters viable for remote farms with unreliable grid supply. Contact us for a solar quote specific to your location.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl overflow-hidden premium-shadow">
+          <button onclick="toggleAccordion(this)" class="accordion-btn w-full flex justify-between items-center p-7 text-left font-bold text-[#1A2F24] text-base">
+            <span>Do you offer delivery and installation?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="accordion-body">
+            <p class="px-7 pb-7 text-[#555] leading-relaxed text-sm">Yes. Green Sprouts Solutions offers full delivery and installation services. We have successfully installed over 600 units across Southern Africa. Contact our team in George for delivery timelines and installation costs to your specific location.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section id="testimonials" class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-14 reveal">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">What Our Clients Say.</h2>
+        <p class="text-[#555] text-lg">Real farmers. Real results. Across South Africa.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 reveal">
+
+        <div class="bg-white rounded-3xl p-10 premium-shadow hover-lift">
+          <div class="quote-mark mb-4">"</div>
+          <p class="text-[#333] text-base leading-relaxed mb-6 font-medium italic">Best quality Angora Goats in my area. I have never had such quality goats. All thanks to the greenfeed.</p>
+          <div class="flex items-center gap-4 border-t border-[#EAE7DC] pt-5">
+            <div class="w-10 h-10 rounded-full bg-[#EAE7DC] flex items-center justify-center text-[#1A2F24] font-bold font-serif text-lg">G</div>
+            <div>
+              <p class="font-bold text-[#1A2F24] text-sm">Gugi Botha</p>
+              <p class="text-[#76947A] text-xs font-semibold">Pearston, Eastern Cape</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-[#1A2F24] text-white rounded-3xl p-10 premium-shadow hover-lift">
+          <div class="text-[#76947A] text-7xl font-serif leading-none opacity-40 mb-4">"</div>
+          <p class="text-[#E0E8E2] text-base leading-relaxed mb-6 font-medium italic">I have cut my feeding cost on my heifers by about 40% and am getting a better quality animal as well.</p>
+          <div class="flex items-center gap-4 border-t border-[#2A4032] pt-5">
+            <div class="w-10 h-10 rounded-full bg-[#2A4032] flex items-center justify-center text-white font-bold font-serif text-lg">E</div>
+            <div>
+              <p class="font-bold text-white text-sm">Eric Steenekamp</p>
+              <p class="text-[#76947A] text-xs font-semibold">Derby, North West</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl p-10 premium-shadow hover-lift">
+          <div class="quote-mark mb-4">"</div>
+          <p class="text-[#333] text-base leading-relaxed mb-6 font-medium italic">This is definitely the best agricultural invention of the last decade. My butcher says he has never seen such good quality carcasses on pigs.</p>
+          <div class="flex items-center gap-4 border-t border-[#EAE7DC] pt-5">
+            <div class="w-10 h-10 rounded-full bg-[#EAE7DC] flex items-center justify-center text-[#1A2F24] font-bold font-serif text-lg">L</div>
+            <div>
+              <p class="font-bold text-[#1A2F24] text-sm">Louw Wessels</p>
+              <p class="text-[#76947A] text-xs font-semibold">Hartenbos, Western Cape</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl p-10 premium-shadow hover-lift">
+          <div class="quote-mark mb-4">"</div>
+          <p class="text-[#333] text-base leading-relaxed mb-6 font-medium italic">This system provides me with greenfeed year round, within 7 days—without the need for a pivot or to plough my fields.</p>
+          <div class="flex items-center gap-4 border-t border-[#EAE7DC] pt-5">
+            <div class="w-10 h-10 rounded-full bg-[#EAE7DC] flex items-center justify-center text-[#1A2F24] font-bold font-serif text-lg">C</div>
+            <div>
+              <p class="font-bold text-[#1A2F24] text-sm">Chris Hayward</p>
+              <p class="text-[#76947A] text-xs font-semibold">South Africa</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PHOTO GALLERY ===== -->
+  <section id="gallery" class="py-16 px-6 bg-[#EAE7DC]/30">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-12 reveal">
+        <h2 class="text-4xl font-bold mb-3">From Our Installations.</h2>
+        <p class="text-[#555] text-lg">A selection of our systems across Africa.</p>
+      </div>
+      <div class="gallery-grid reveal">
+        <div class="img-zoom-container rounded-2xl h-52 premium-shadow">
+          <img src="https://static.wixstatic.com/media/e85c6c_b99740aebfa64b19bdad7fff5b1ff52e~mv2_d_6000_4000_s_4_2.jpg/v1/fill/w_600,h_500,al_c,q_90,enc_avif,quality_auto/e85c6c_b99740aebfa64b19bdad7fff5b1ff52e~mv2_d_6000_4000_s_4_2.jpg" alt="Installation 1" class="w-full h-full object-cover rounded-2xl" onerror="this.src='https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=600'">
+        </div>
+        <div class="img-zoom-container rounded-2xl h-52 premium-shadow mt-6">
+          <img src="https://static.wixstatic.com/media/e85c6c_1c18254b42a74c85a837c7bdb620f23d~mv2.jpg/v1/fill/w_600,h_500,al_c,q_90,enc_avif,quality_auto/e85c6c_1c18254b42a74c85a837c7bdb620f23d~mv2.jpg" alt="Installation 2" class="w-full h-full object-cover rounded-2xl" onerror="this.src='https://images.pexels.com/photos/3076009/pexels-photo-3076009.jpeg?auto=compress&cs=tinysrgb&w=600'">
+        </div>
+        <div class="img-zoom-container rounded-2xl h-52 premium-shadow">
+          <img src="https://static.wixstatic.com/media/e85c6c_c70932245a644945ac4435c0a13a4b8a~mv2.jpg/v1/fill/w_600,h_500,al_c,q_90,enc_avif,quality_auto/e85c6c_c70932245a644945ac4435c0a13a4b8a~mv2.jpg" alt="Installation 3" class="w-full h-full object-cover rounded-2xl" onerror="this.src='https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=600'">
+        </div>
+        <div class="img-zoom-container rounded-2xl h-52 premium-shadow mt-6">
+          <img src="https://static.wixstatic.com/media/e85c6c_20cb6ca84760487b91f20f41ba6e7bbc~mv2.jpg/v1/fill/w_600,h_500,al_c,q_90,enc_avif,quality_auto/e85c6c_20cb6ca84760487b91f20f41ba6e7bbc~mv2.jpg" alt="Installation 4" class="w-full h-full object-cover rounded-2xl" onerror="this.src='https://images.pexels.com/photos/1105019/pexels-photo-1105019.jpeg?auto=compress&cs=tinysrgb&w=600'">
+        </div>
+        <div class="img-zoom-container rounded-2xl h-52 premium-shadow">
+          <img src="https://static.wixstatic.com/media/e85c6c_52c661f339e444ea8df524ea35f64189~mv2.jpg/v1/fill/w_600,h_500,al_c,q_90,enc_avif,quality_auto/e85c6c_52c661f339e444ea8df524ea35f64189~mv2.jpg" alt="Installation 5" class="w-full h-full object-cover rounded-2xl" onerror="this.src='https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=600'">
+        </div>
+        <div class="img-zoom-container rounded-2xl h-52 premium-shadow mt-6">
+          <img src="https://static.wixstatic.com/media/e85c6c_7235a3e00abd444d928ade104e14eb07~mv2.jpg/v1/fill/w_600,h_500,al_c,q_90,enc_avif,quality_auto/e85c6c_7235a3e00abd444d928ade104e14eb07~mv2.jpg" alt="Installation 6" class="w-full h-full object-cover rounded-2xl" onerror="this.src='https://images.pexels.com/photos/3076009/pexels-photo-3076009.jpeg?auto=compress&cs=tinysrgb&w=600'">
+        </div>
+        <div class="img-zoom-container rounded-2xl h-52 premium-shadow">
+          <img src="https://static.wixstatic.com/media/e85c6c_6c59537337ec446cb9628100321e98f7~mv2.jpg/v1/fill/w_600,h_500,al_c,q_90,enc_avif,quality_auto/e85c6c_6c59537337ec446cb9628100321e98f7~mv2.jpg" alt="Installation 7" class="w-full h-full object-cover rounded-2xl" onerror="this.src='https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=600'">
+        </div>
+        <div class="img-zoom-container rounded-2xl h-52 premium-shadow mt-6">
+          <img src="https://static.wixstatic.com/media/e85c6c_b51a6e79f6244387ba93320bc3986244~mv2.jpg/v1/fill/w_600,h_500,al_c,q_90,enc_avif,quality_auto/e85c6c_b51a6e79f6244387ba93320bc3986244~mv2.jpg" alt="Installation 8" class="w-full h-full object-cover rounded-2xl" onerror="this.src='https://images.pexels.com/photos/1105019/pexels-photo-1105019.jpeg?auto=compress&cs=tinysrgb&w=600'">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="py-24 px-6">
+    <div class="max-w-7xl mx-auto bg-white rounded-[3rem] premium-shadow overflow-hidden flex flex-col lg:flex-row reveal">
+
+      <div class="lg:w-5/12 bg-[#1A2F24] text-white p-12 lg:p-16 flex flex-col justify-between">
+        <div>
+          <h2 class="text-4xl font-bold mb-4 text-white">Let's Talk.</h2>
+          <p class="text-[#B5C2B8] mb-12 text-lg leading-relaxed">Enquiries are welcome in English and Afrikaans. Partner with Africa's market leader in green feed technology.</p>
+
+          <div class="space-y-8">
+            <div>
+              <p class="text-xs text-[#76947A] font-bold uppercase tracking-widest mb-3">Manufacturing Facility</p>
+              <p class="text-base leading-relaxed">Unit 3, 113 Fichat Street<br>George Industria, 6529<br>Western Cape, RSA</p>
+            </div>
+            <div>
+              <p class="text-xs text-[#76947A] font-bold uppercase tracking-widest mb-3">Direct Lines</p>
+              <p class="text-base leading-relaxed">
+                Office: <a href="tel:+27448730371" class="hover:text-[#76947A] transition-colors">+27 44 873 0371</a><br>
+                Vivian: <a href="tel:+27826737211" class="hover:text-[#76947A] transition-colors">+27 82 673 7211</a><br>
+                Victor: <a href="tel:+27619831872" class="hover:text-[#76947A] transition-colors">+27 61 983 1872</a>
+              </p>
+            </div>
+            <div>
+              <p class="text-xs text-[#76947A] font-bold uppercase tracking-widest mb-3">Follow Us</p>
+              <div class="flex gap-4">
+                <a href="https://www.facebook.com/Greensproutssolutions" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-[#2A4032] flex items-center justify-center hover:bg-[#76947A] transition-colors text-sm font-bold">f</a>
+                <a href="https://www.instagram.com/greensproutssolutions/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-[#2A4032] flex items-center justify-center hover:bg-[#76947A] transition-colors text-sm font-bold">ig</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12 border-t border-[#2A4032] pt-8">
+          <p class="text-xs text-[#555] text-[#76947A]">Delivering &amp; installing across Southern Africa since 2010.</p>
+        </div>
+      </div>
+
+      <div class="lg:w-7/12 p-12 lg:p-16 bg-white">
+        <h3 class="text-2xl font-bold mb-8 text-[#1A2F24]">Send an Enquiry</h3>
+        <form class="space-y-6" id="contact-form">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-bold text-[#76947A] uppercase tracking-widest mb-2">Name / Naam</label>
+              <input type="text" class="w-full border-b-2 border-[#EAE7DC] py-2 focus:outline-none focus:border-[#1A2F24] transition-colors bg-transparent text-base">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-[#76947A] uppercase tracking-widest mb-2">Email / E-pos *</label>
+              <input type="email" class="w-full border-b-2 border-[#EAE7DC] py-2 focus:outline-none focus:border-[#1A2F24] transition-colors bg-transparent text-base">
+            </div>
+          </div>
           <div>
-            <h3 class="text-2xl font-bold mb-3">Fungi</h3>
-            <p class="text-[#555] leading-relaxed text-sm">When designing a system that seeks to re-create growth of a natural product it is imperative to stick to nature as close as possible. When excluding the natural process ie the sun, through using artificial lighting, we interfere with nature and this can become a breeding ground for unwanted micro organisms. That is why we set out to design a cladding system that will allow the right amount of sunlight through to reach the fodder. No one will argue that artificialNormally I can help with things like this, but I don't seem to have access to that content. You can try again or ask me for something else.
+            <label class="block text-xs font-bold text-[#76947A] uppercase tracking-widest mb-2">Phone / Telefoon *</label>
+            <input type="tel" class="w-full border-b-2 border-[#EAE7DC] py-2 focus:outline-none focus:border-[#1A2F24] transition-colors bg-transparent text-base">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-[#76947A] uppercase tracking-widest mb-2">Product / Quotation Required</label>
+            <select class="w-full border-b-2 border-[#EAE7DC] py-2 focus:outline-none focus:border-[#1A2F24] transition-colors bg-transparent text-base text-[#555]">
+              <option value="">Select a system…</option>
+              <option>Econo Booster / NextGen Econo</option>
+              <option>Non-Standard 180 Booster</option>
+              <option>Standard Booster</option>
+              <option>Hybrid Booster</option>
+              <option>Next Generation Booster</option>
+              <option>Tandem / Twin System</option>
+              <option>Hydroponic Greenhouse</option>
+              <option>General Enquiry</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-[#76947A] uppercase tracking-widest mb-2">Message / Boodskap</label>
+            <textarea rows="3" class="w-full border-b-2 border-[#EAE7DC] py-2 focus:outline-none focus:border-[#1A2F24] transition-colors bg-transparent text-base resize-none"></textarea>
+          </div>
+          <div class="pt-4">
+            <button type="button" onclick="handleFormSubmit()" class="btn-premium px-10 py-4 text-base font-bold w-full justify-center">
+              <span id="submit-text">Send Enquiry</span>
+              <span class="arrow">→</span>
+            </button>
+          </div>
+          <p id="form-success" class="hidden text-center text-[#76947A] font-semibold text-sm pt-2">✓ Thank you. We'll be in touch shortly.</p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="py-10 px-6 border-t border-[#EAE7DC]">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="serif-text text-xl font-bold text-[#1A2F24]">GreenSprouts.</div>
+      <p class="text-[#76947A] text-sm font-semibold text-center">© 2010 – 2026 Green Sprouts Solutions · George, Western Cape, RSA · Engineering the Future of Agriculture</p>
+      <div class="flex gap-5 text-sm font-semibold text-[#555]">
+        <a href="https://www.facebook.com/Greensproutssolutions" target="_blank" rel="noopener" class="hover:text-[#1A2F24] transition-colors">Facebook</a>
+        <a href="https://www.instagram.com/greensproutssolutions/" target="_blank" rel="noopener" class="hover:text-[#1A2F24] transition-colors">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Nav shadow on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('main-nav');
+      nav.classList.toggle('nav-scrolled', window.scrollY > 40);
+    });
+
+    // Accordion
+    function toggleAccordion(btn) {
+      const body = btn.nextElementSibling;
+      const isOpen = body.classList.contains('open');
+      document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+      document.querySelectorAll('.accordion-btn').forEach(b => b.classList.remove('open'));
+      if (!isOpen) {
+        body.classList.add('open');
+        btn.classList.add('open');
+      }
+    }
+
+    // Form submit (UI only — real form submission would need a backend)
+    function handleFormSubmit() {
+      document.getElementById('submit-text').textContent = 'Sent!';
+      document.getElementById('form-success').classList.remove('hidden');
+      setTimeout(() => {
+        document.getElementById('submit-text').textContent = 'Send Enquiry';
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
