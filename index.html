@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Sprouts Solutions | Hydroponic Farming</title>
+  <!-- Tailwind for stable, professional layout grids -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts for typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #022c22; /* Deep aesthetic forest green */
+      color: #ecfdf5;
+      overflow-x: hidden;
+    }
+    .glass-nav {
+      background: rgba(2, 44, 34, 0.7);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+    }
+    .sprout-card {
+      background: rgba(16, 185, 129, 0.05);
+      border: 1px solid rgba(16, 185, 129, 0.1);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .sprout-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(16, 185, 129, 0.5);
+    }
+    
+    /* Scroll Animation Classes */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Lively floating image animation */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+    .floating-img {
+      animation: float 6s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- Navigation Bar -->
+  <nav class="glass-nav fixed w-full top-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="text-2xl font-extrabold text-green-400 tracking-tighter">
+        GreenSprouts<span class="text-white">.</span>
+      </div>
+      <div class="hidden md:flex gap-8 text-sm font-semibold text-green-100">
+        <a href="#systems" class="hover:text-green-400 transition">Our Systems</a>
+        <a href="#benefits" class="hover:text-green-400 transition">Why Hydroponics?</a>
+        <a href="#contact" class="hover:text-green-400 transition">Contact</a>
+      </div>
+      <button class="bg-green-500 hover:bg-green-400 text-white px-6 py-2 rounded-full font-semibold transition shadow-[0_0_15px_rgba(34,197,94,0.4)]">
+        Get a Quote
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-6 overflow-hidden">
+    <!-- Ambient Glow Effects -->
+    <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-green-500 rounded-full mix-blend-screen filter blur-[150px] opacity-20"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-teal-500 rounded-full mix-blend-screen filter blur-[150px] opacity-20"></div>
+
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10">
+      <div class="lg:w-1/2 fade-in-up">
+        <div class="inline-block bg-green-900 text-green-300 text-xs font-bold px-3 py-1 rounded-full mb-6 uppercase tracking-wider border border-green-700">
+          Drought-Proof Your Farm
+        </div>
+        <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight mb-6">
+          The Future of <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-teal-400">Livestock Feed.</span>
+        </h1>
+        <p class="text-lg text-green-100/80 mb-8 max-w-xl font-light">
+          Advanced hydroponic and aeroponic fodder systems designed to save water, reduce costs, and maximize animal health using patented technology and natural sunlight.
+        </p>
+        <div class="flex gap-4">
+          <button class="bg-green-500 hover:bg-green-400 text-white px-8 py-3 rounded-full font-semibold transition transform hover:scale-105 shadow-[0_0_20px_rgba(34,197,94,0.3)]">
+            Explore Systems
+          </button>
+        </div>
+      </div>
+      <div class="lg:w-1/2 fade-in-up" style="transition-delay: 0.2s;">
+        <!-- Floating stock image of agriculture -->
+        <img src="https://images.unsplash.com/photo-1530836369250-ef71a3f5e902?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hydroponic Sprouts" class="rounded-3xl shadow-2xl floating-img border border-green-800">
+      </div>
+    </div>
+  </header>
+
+  <!-- Business Features Section -->
+  <section id="systems" class="py-24 px-6 bg-[#012119]">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16 fade-in-up">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4">Engineered for Resilience.</h2>
+        <p class="text-green-100/70 max-w-2xl mx-auto">Our innovative cladding and climate control systems replicate natural growth without the massive energy footprint.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="sprout-card p-8 rounded-3xl fade-in-up">
+          <div class="w-12 h-12 bg-green-500/20 text-green-400 rounded-xl flex items-center justify-center mb-6 text-2xl">💧</div>
+          <h3 class="text-xl font-bold mb-3">Water Scarcity Solution</h3>
+          <p class="text-green-100/70 text-sm leading-relaxed">
+            Our standard booster system produces the equivalent of 15ha of irrigated land using a fraction of the water. Zero run-off, maximum efficiency.
+          </p>
+        </div>
+        
+        <!-- Feature 2 -->
+        <div class="sprout-card p-8 rounded-3xl fade-in-up" style="transition-delay: 0.1s;">
+          <div class="w-12 h-12 bg-teal-500/20 text-teal-400 rounded-xl flex items-center justify-center mb-6 text-2xl">☀️</div>
+          <h3 class="text-xl font-bold mb-3">Solar Optimized</h3>
+          <p class="text-green-100/70 text-sm leading-relaxed">
+            We utilize natural sunlight for superior chlorophyll production and a patented low-energy cooling system, allowing for cost-effective solar integration.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="sprout-card p-8 rounded-3xl fade-in-up" style="transition-delay: 0.2s;">
+          <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-xl flex items-center justify-center mb-6 text-2xl">🛡️</div>
+          <h3 class="text-xl font-bold mb-3">SporeBuster Tech</h3>
+          <p class="text-green-100/70 text-sm leading-relaxed">
+            By managing internal temperatures and using our key organic bacterial products, we eliminate harmful molds and ensure pristine fodder quality.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section id="contact" class="py-24 px-6 relative overflow-hidden text-center">
+    <div class="max-w-3xl mx-auto relative z-10 fade-in-up">
+      <h2 class="text-4xl font-bold mb-6">Ready to Transform Your Yield?</h2>
+      <p class="text-lg text-green-100/70 mb-10">Join top South African farmers using Green Sprouts Solutions to secure their feed supply year-round.</p>
+      <a href="mailto:info@greensprouts.co.za" class="inline-block border-2 border-green-500 text-green-400 hover:bg-green-500 hover:text-white px-10 py-4 rounded-full font-bold transition duration-300">
+        Email info@greensprouts.co.za
+      </a>
+    </div>
+  </section>
+
+  <!-- JavaScript Logic for Animations -->
+  <script>
+    // Smooth scroll logic for navigation buttons
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // The Observer Loop: Detects when elements enter the screen to fade them in
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // Runs the animation only once
+        }
+      });
+    }, observerOptions);
+
+    // Apply the observer to all elements with the 'fade-in-up' class
+    document.querySelectorAll('.fade-in-up').forEach((el) => {
+      observer.observe(el);
+    });
+
+    // Dynamic Navbar styling based on scroll position
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.glass-nav');
+      if (window.scrollY > 50) {
+        nav.style.background = 'rgba(2, 44, 34, 0.9)';
+        nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.5)';
+      } else {
+        nav.style.background = 'rgba(2, 44, 34, 0.7)';
+        nav.style.boxShadow = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
