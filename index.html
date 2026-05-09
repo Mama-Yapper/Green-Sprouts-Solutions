@@ -473,9 +473,11 @@
       overflow:hidden;
       box-shadow: 0 32px 80px rgba(14,28,20,.13);
       position:relative; z-index:0;
+      align-self: stretch;
     }
     .system-img-wrap img {
-      width:100%; height:460px; object-fit:cover; display:block;
+      width:100%; height:100%; min-height:340px; max-height:520px;
+      object-fit:cover; object-position:center; display:block;
       transition: transform .9s cubic-bezier(.16,1,.3,1);
     }
     .system-img-wrap:hover img { transform:scale(1.04); }
@@ -1394,30 +1396,31 @@
     <div class="r" style="margin-bottom:72px; max-width:600px;">
       <div class="section-label">
         <div class="section-label-line"></div>
-        <span class="section-label-text">Engineered Solutions</span>
+        <span class="section-label-text">Fodder Production Systems</span>
       </div>
       <h2 class="section-h2" style="margin-top:14px;">Every system. <em>Built to last.</em></h2>
       <p style="font-size:16px;color:var(--muted);margin-top:16px;line-height:1.75;">
-        Every booster is built with UV- and heat-stabilised polymer, stainless steel fasteners, and our patented cladding — hail resistant, rust-free, chemical proof, and engineered for the African climate.
+        Every booster is built with UV- and heat-stabilised polymer, stainless steel fasteners, and our patented cladding — hail resistant, rust-free, chemical proof, and engineered for the African climate. Cladding will not discolour, and material withstands all cleaning agents.
       </p>
     </div>
 
-    <!-- Econo -->
+    <!-- Econo & NextGen Econo — actual exterior photo of the econo unit -->
     <div class="system-row r">
       <div class="system-img-wrap">
         <img
-          src="https://static.wixstatic.com/media/e85c6c_b99740aebfa64b19bdad7fff5b1ff52e~mv2_d_6000_4000_s_4_2.jpg/v1/fill/w_1000,h_700,al_c,q_90,enc_avif,quality_auto/e85c6c_b99740aebfa64b19bdad7fff5b1ff52e~mv2_d_6000_4000_s_4_2.jpg"
-          alt="Econo Booster System"
-          onerror="this.src='https://images.pexels.com/photos/3076009/pexels-photo-3076009.jpeg?auto=compress&cs=tinysrgb&w=1000'"
+          src="https://static.wixstatic.com/media/e85c6c_52c661f339e444ea8ed2c51f4cb96~mv2.jpg/v1/fill/w_980,al_c,q_90,enc_avif,quality_auto/e85c6c_52c661f339e444ea8ed2c51f4cb96~mv2.jpg"
+          alt="Econo Booster and NextGen Econo Booster"
+          onerror="this.src='https://static.wixstatic.com/media/e85c6c_52c661f339e444ea8df524ea35f64189~mv2.jpg/v1/fill/w_980,al_c,q_90,enc_avif,quality_auto/e85c6c_52c661f339e444ea8df524ea35f64189~mv2.jpg'"
         >
       </div>
       <div class="system-card">
         <span class="system-price">From R32,000.00</span>
         <h3 class="system-h light">Econo Booster &amp; NextGen Econo</h3>
-        <p class="system-p light">Our most affordable entry-level boosters — ideal for farmers starting out. Capable of feeding 20 sheep/goats or 200 chickens. Constructed with high-quality UV- and heat-stabilised polymer and stainless steel fasteners. The patented cladding allows essential sun rays through, producing chlorophyll-rich, vitamin D3-loaded plants without any growing lights, keeping running costs minimal.</p>
+        <p class="system-p light">Our most affordable entry-level boosters — ideal for farmers starting out. Capable of feeding 20 sheep/goats or 200 chickens. Roof and sides constructed with high-quality UV- and heat-stabilised polymer and stainless steel fasteners. The patented cladding allows essential sun rays through, producing chlorophyll-rich, vitamin D3-loaded plants without any growing lights, keeping running costs minimal.</p>
         <ul class="system-features">
-          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Hail Resistant · No Rust · No Discolouration</li>
-          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Chemical Proof — withstands all cleaning agents</li>
+          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Feeds 20 sheep/goats or 200 chickens</li>
+          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Hail resistant · No rust · No discolouration</li>
+          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Chemical proof — withstands all cleaning agents</li>
           <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> All pumps, plumbing &amp; electrical box included</li>
           <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Zero growing lights — solar-compatible</li>
           <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Minimal labour input required</li>
@@ -1429,25 +1432,25 @@
       </div>
     </div>
 
-    <!-- Non-Standard 180 & Standard -->
+    <!-- Non-Standard 180 & Standard — interior tray/fodder photo -->
     <div class="system-row rev r">
       <div class="system-img-wrap">
         <img
-          src="https://static.wixstatic.com/media/e85c6c_7235a3e00abd444d928ade104e14eb07~mv2.jpg/v1/fill/w_1000,h_700,al_c,q_90,enc_avif,quality_auto/e85c6c_7235a3e00abd444d928ade104e14eb07~mv2.jpg"
-          alt="Standard Booster System"
-          onerror="this.src='https://images.pexels.com/photos/1105019/pexels-photo-1105019.jpeg?auto=compress&cs=tinysrgb&w=1000'"
+          src="https://static.wixstatic.com/media/e85c6c_20cb6ca84760487b91f20f41ba6e7bbc~mv2.jpg/v1/fill/w_980,al_c,q_90,enc_avif,quality_auto/e85c6c_20cb6ca84760487b91f20f41ba6e7bbc~mv2.jpg"
+          alt="Non-Standard 180 and Standard Booster interior with fodder trays"
+          onerror="this.src='https://static.wixstatic.com/media/e85c6c_1c18254b42a74c85a837c7bdb620f23d~mv2.jpg/v1/fill/w_980,al_c,q_90,enc_avif,quality_auto/e85c6c_1c18254b42a74c85a837c7bdb620f23d~mv2.jpg'"
         >
       </div>
       <div class="system-card dark-card">
         <span class="system-price on-dark">From R111,500.00</span>
         <h3 class="system-h on-dark">Non-Standard 180 &amp; Standard Booster</h3>
-        <p class="system-p on-dark">The Non-Standard 180 feeds 100–150 sheep/goats. The Standard Booster features a 1.45m wide internal passage, providing full interior access for cleaning, harvesting, sowing, and maintenance. Same patented cladding and polymer quality — chemical proof, zero growing lights, solar-ready.</p>
+        <p class="system-p on-dark">The Non-Standard 180 feeds 100–150 sheep/goats. The Standard Booster features a 1.45m wide internal passage leading into the unit, giving full interior access for cleaning, harvesting, sowing, and repairs. Same patented cladding — no growing lights, chemical proof, solar-ready.</p>
         <ul class="system-features">
+          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Non-Standard 180: feeds 100–150 sheep/goats</li>
           <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> 1.45m wide internal access passage</li>
-          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Full access for cleaning &amp; maintenance</li>
-          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> UV-stabilised polymer construction</li>
-          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Patented natural light cladding</li>
-          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> SporeBuster compatible</li>
+          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Full access for cleaning, harvesting &amp; repairs</li>
+          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> UV-stabilised polymer · Patented cladding</li>
+          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> SporeBuster compatible · Solar-ready</li>
         </ul>
         <a href="#contact" class="btn btn-ghost" style="border-color:rgba(255,255,255,.25);color:var(--cream);">
           <span>Request Full Specifications</span>
@@ -1456,24 +1459,25 @@
       </div>
     </div>
 
-    <!-- Hybrid -->
+    <!-- Hybrid — exterior of hybrid unit with chromadek panelling -->
     <div class="system-row r">
       <div class="system-img-wrap">
         <img
-          src="https://static.wixstatic.com/media/e85c6c_6c59537337ec446cb9628100321e98f7~mv2.jpg/v1/fill/w_1000,h_700,al_c,q_90,enc_avif,quality_auto/e85c6c_6c59537337ec446cb9628100321e98f7~mv2.jpg"
-          alt="Hybrid Booster System"
-          onerror="this.src='https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=1000'"
+          src="https://static.wixstatic.com/media/e85c6c_1c18254b42a74c85a837c7bdb620f23d~mv2.jpg/v1/fill/w_980,al_c,q_90,enc_avif,quality_auto/e85c6c_1c18254b42a74c85a837c7bdb620f23d~mv2.jpg"
+          alt="Hybrid Booster with insulated chromadek panelling"
+          onerror="this.src='https://static.wixstatic.com/media/e85c6c_c70932245a644945ac4435c0a13a4b8a~mv2.jpg/v1/fill/w_980,al_c,q_90,enc_avif,quality_auto/e85c6c_c70932245a644945ac4435c0a13a4b8a~mv2.jpg'"
         >
       </div>
       <div class="system-card">
         <span class="system-price">Mid-Range System</span>
         <h3 class="system-h light">Hybrid Booster</h3>
-        <p class="system-p light">The perfect bridge between the Standard and the Next Generation Booster. Built with the same quality polymer as the Standard, but with added insulated chromadek panelling at the front, back, and top. This extra insulation layer delivers better cold-weather performance in winter and protects the top row of plants during extremely hot summers and intense sunlight typical of warmer areas.</p>
+        <p class="system-p light">The perfect bridge between the Standard and the Next Generation Booster. Constructed with the same quality polymer as the Standard, with added insulated chromadek panelling at the front, back, and top. This extra insulation layer delivers better cold-weather performance in winter, and protects the top row of plants during extremely hot summers and intense sunlight typical of warmer African regions.</p>
         <ul class="system-features">
-          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Insulated chromadek panels (front, back, top)</li>
-          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Enhanced cold-weather performance</li>
-          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Top-row plant protection in summer</li>
+          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Insulated chromadek panels — front, back &amp; top</li>
+          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Superior cold-weather insulation in winter</li>
+          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Top-row plant protection in extreme summer heat</li>
           <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Same patented polymer cladding as Standard</li>
+          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Hail resistant · No rust · Chemical proof</li>
         </ul>
         <a href="#contact" class="btn btn-dark">
           <span>Get Hybrid Quote</span>
@@ -1482,26 +1486,27 @@
       </div>
     </div>
 
-    <!-- Next Gen -->
+    <!-- Next Gen — the actual NextGen booster photos from original site -->
     <div class="system-row rev r">
       <div class="system-img-wrap">
+        <!-- NextGen2 image from the original sprout-booster-options page -->
         <img
-          src="https://static.wixstatic.com/media/e85c6c_b51a6e79f6244387ba93320bc3986244~mv2.jpg/v1/fill/w_1000,h_700,al_c,q_90,enc_avif,quality_auto/e85c6c_b51a6e79f6244387ba93320bc3986244~mv2.jpg"
-          alt="Next Generation Booster System"
-          onerror="this.src='https://images.pexels.com/photos/3076009/pexels-photo-3076009.jpeg?auto=compress&cs=tinysrgb&w=1000'"
+          src="https://static.wixstatic.com/media/e85c6c_6c59537337ec446cb9628100321e98f7~mv2.jpg/v1/fill/w_980,al_c,q_90,enc_avif,quality_auto/e85c6c_6c59537337ec446cb9628100321e98f7~mv2.jpg"
+          alt="Next Generation Booster — exterior view with insulated doors"
+          onerror="this.src='https://static.wixstatic.com/media/e85c6c_f799d38c30434f378737ca895be02222~mv2.jpg/v1/fill/w_980,al_c,q_90,enc_avif,quality_auto/e85c6c_f799d38c30434f378737ca895be02222~mv2.jpg'"
         >
       </div>
       <div class="system-card dark-card">
         <span class="system-price on-dark">Flagship System</span>
         <h3 class="system-h on-dark">Next Generation Booster</h3>
-        <p class="system-p on-dark">Our most advanced system, designed for climates with extreme cold or heat. A 900mm-wide internal passage provides full access. Insulated doors close tightly over the polymer cladding for superior cold-weather insulation. A specially designed evaporative cooler replaces expensive, high-maintenance air-conditioners — running at minimal cost during hot summers.</p>
+        <p class="system-p on-dark">Our most advanced system, designed for climates with extreme cold or heat. The NextGen is designed for the client who understands the importance of natural sunlight — no artificial lights, minimum electricity cost. A 900mm-wide internal passage gives full access. Insulated doors close tightly over the polymer cladding for superior cold insulation. A specially designed evaporative cooler replaces expensive air-conditioners, running at very low cost during hot summers.</p>
         <ul class="system-features">
           <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> 900mm wide internal access passage</li>
-          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Insulated doors — extreme cold protection</li>
-          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Evaporative cooler (no air-con required)</li>
+          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Insulated doors — tightly close over cladding</li>
+          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Evaporative cooler — no air-con required</li>
           <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Natural sunlight — zero growing lights</li>
           <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Market-leading low electrical usage</li>
-          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Affordable solar integration</li>
+          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Affordable solar integration available</li>
         </ul>
         <a href="#contact" class="btn btn-ghost" style="border-color:rgba(255,255,255,.25);color:var(--cream);">
           <span>Request Full Specifications</span>
@@ -1510,13 +1515,13 @@
       </div>
     </div>
 
-    <!-- Tandem / Twin -->
+    <!-- Tandem / Twin — the solar tandem image from original site -->
     <div class="tandem-block r">
       <div class="tandem-content">
         <span class="tag-inv" style="margin-bottom:20px; display:inline-block;">Industrial Scale</span>
         <h3 style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:var(--cream);margin-bottom:14px;">Tandem &amp; Twin Systems</h3>
         <p style="font-size:14px;color:rgba(246,243,236,.55);line-height:1.75;margin-bottom:8px;">
-          Tandem and Twin systems are exactly double the size of their Standard, Hybrid, and NextGen counterparts — built for high-volume commercial operations that require maximum throughput at the lowest possible cost per kilogram of fodder.
+          Tandem and Twin systems are exactly double the size of their Standard, Hybrid, and NextGen counterparts — built for high-volume commercial operations requiring maximum throughput at the lowest possible cost per kilogram of fodder.
         </p>
         <div class="tandem-specs">
           <div class="tandem-spec">
@@ -1545,10 +1550,10 @@
         </a>
       </div>
       <div class="tandem-img">
+        <!-- Standard Booster Solar Solution — the correct solar tandem image -->
         <img
           src="https://static.wixstatic.com/media/e85c6c_9d5b58d12aa6470687cfe73dbde69f13~mv2.png/v1/fill/w_720,h_485,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e85c6c_9d5b58d12aa6470687cfe73dbde69f13~mv2.png"
-          alt="Solar Tandem Booster System"
-          onerror="this.src='https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=800'"
+          alt="Standard Booster Solar Solution — Tandem system with solar panels"
         >
       </div>
     </div>
@@ -1558,7 +1563,204 @@
 
 
 <!-- ══════════════════════════════════════════════════════
-     PRICING
+     GREENHOUSES & HOTHOUSES
+══════════════════════════════════════════════════════ -->
+<section id="greenhouses" class="section bg-sand">
+  <div class="container">
+
+    <div class="r" style="margin-bottom:64px; max-width:640px;">
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Vegetable Production &amp; Greenhouses</span>
+      </div>
+      <h2 class="section-h2" style="margin-top:14px;">Greenhouses &amp; <em>Hothouses.</em></h2>
+      <p style="font-size:16px;color:var(--muted);margin-top:16px;line-height:1.75;">
+        Beyond fodder systems, Green Sprouts Solutions designs and manufactures hydroponic greenhouse tunnels and hothouses — from portable home-garden units to full commercial structures engineered to withstand extreme African weather conditions.
+      </p>
+    </div>
+
+    <!-- Portable Greenhouse Tunnels -->
+    <div class="r" style="margin-bottom:72px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+        <div>
+          <span class="tag" style="margin-bottom:20px;display:inline-flex;">Portable Walk-In Tunnel</span>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:var(--ink);margin-bottom:16px;line-height:1.1;">Greenhouse Tunnels</h3>
+          <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:20px;">
+            The GreenSprouts portable walk-in greenhouse tunnel is specifically designed for the home gardener. Self-sufficient food propagation has never been easier. The variety of sizes available mean that anyone, no matter how much space they have, can produce fresh greens at home.
+          </p>
+          <p style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em;">All tunnels include:</p>
+          <ul style="list-style:none;margin-bottom:28px;">
+            <li style="display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--warm);font-size:13px;font-weight:600;color:var(--text);">
+              <span style="width:18px;height:18px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              25mm galvanised steel poles for endoskeleton
+            </li>
+            <li style="display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--warm);font-size:13px;font-weight:600;color:var(--text);">
+              <span style="width:18px;height:18px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              UV-treated, reinforced PE plastic roof sheeting
+            </li>
+            <li style="display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--warm);font-size:13px;font-weight:600;color:var(--text);">
+              <span style="width:18px;height:18px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              Dual-zip roll-up door (front and back)
+            </li>
+            <li style="display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--warm);font-size:13px;font-weight:600;color:var(--text);">
+              <span style="width:18px;height:18px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              Roll-up side windows with insect netting
+            </li>
+            <li style="display:flex;gap:10px;align-items:flex-start;padding:6px 0;font-size:13px;font-weight:600;color:var(--text);">
+              <span style="width:18px;height:18px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              Full instructions &amp; all tools for construction
+            </li>
+          </ul>
+
+          <!-- Size & Price table -->
+          <div style="background:var(--white);border-radius:20px;overflow:hidden;box-shadow:0 8px 32px rgba(14,28,20,.07);">
+            <table style="width:100%;border-collapse:collapse;font-size:13px;">
+              <thead>
+                <tr style="background:var(--forest);">
+                  <th style="padding:12px 20px;text-align:left;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:10px;color:var(--gold);">Size</th>
+                  <th style="padding:12px 20px;text-align:right;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:10px;color:var(--gold);">Price (excl. VAT)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--sand);">
+                  <td style="padding:11px 20px;font-weight:600;color:var(--ink);">3m × 2m × 2m</td>
+                  <td style="padding:11px 20px;text-align:right;font-weight:700;color:var(--forest);">R 4,160.00</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--sand);background:var(--cream);">
+                  <td style="padding:11px 20px;font-weight:600;color:var(--ink);">4.5m × 2m × 2m</td>
+                  <td style="padding:11px 20px;text-align:right;font-weight:700;color:var(--forest);">R 5,980.00</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--sand);">
+                  <td style="padding:11px 20px;font-weight:600;color:var(--ink);">4m × 3m × 2m</td>
+                  <td style="padding:11px 20px;text-align:right;font-weight:700;color:var(--forest);">R 6,695.00</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--sand);background:var(--cream);">
+                  <td style="padding:11px 20px;font-weight:600;color:var(--ink);">6m × 3m × 2.5m</td>
+                  <td style="padding:11px 20px;text-align:right;font-weight:700;color:var(--forest);">R 11,180.00</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--sand);">
+                  <td style="padding:11px 20px;font-weight:600;color:var(--ink);">10m × 3m × 2.5m</td>
+                  <td style="padding:11px 20px;text-align:right;font-weight:700;color:var(--forest);">R 13,000.00</td>
+                </tr>
+                <tr style="background:var(--cream);">
+                  <td style="padding:11px 20px;font-weight:600;color:var(--ink);">12m × 3m × 2.5m</td>
+                  <td style="padding:11px 20px;text-align:right;font-weight:700;color:var(--forest);">R 14,950.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:11px;color:var(--muted);margin-top:10px;">Custom sizes available on request. All prices subject to change.</p>
+          <a href="#contact" class="btn btn-dark" style="margin-top:24px;">
+            <span>Enquire About Greenhouses</span>
+            <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <!-- Greenhouse images from original site -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div style="border-radius:20px;overflow:hidden;box-shadow:0 12px 40px rgba(14,28,20,.10);">
+            <img src="https://static.wixstatic.com/media/e85c6c_e5a016b626c04fdba1d32473d9cbd311~mv2.png/v1/fill/w_400,h_400,q_85,enc_avif,quality_auto/e85c6c_e5a016b626c04fdba1d32473d9cbd311~mv2.png" alt="3m x 2m Greenhouse Tunnel" style="width:100%;height:auto;display:block;" onerror="this.style.display='none'">
+          </div>
+          <div style="border-radius:20px;overflow:hidden;box-shadow:0 12px 40px rgba(14,28,20,.10);margin-top:24px;">
+            <img src="https://static.wixstatic.com/media/e85c6c_96650fb44b1645849594f9e3fa76ae5b~mv2.png/v1/fill/w_400,h_400,q_85,enc_avif,quality_auto/e85c6c_96650fb44b1645849594f9e3fa76ae5b~mv2.png" alt="4.5m x 2m Greenhouse Tunnel" style="width:100%;height:auto;display:block;" onerror="this.style.display='none'">
+          </div>
+          <div style="border-radius:20px;overflow:hidden;box-shadow:0 12px 40px rgba(14,28,20,.10);">
+            <img src="https://static.wixstatic.com/media/e85c6c_3771b71e5d7c471d9f19ab35871d1d1a~mv2.png/v1/fill/w_400,h_400,q_85,enc_avif,quality_auto/e85c6c_3771b71e5d7c471d9f19ab35871d1d1a~mv2.png" alt="4m x 3m Greenhouse Tunnel" style="width:100%;height:auto;display:block;" onerror="this.style.display='none'">
+          </div>
+          <div style="border-radius:20px;overflow:hidden;box-shadow:0 12px 40px rgba(14,28,20,.10);margin-top:24px;">
+            <img src="https://static.wixstatic.com/media/e85c6c_c33a5ad869c145918521624a09f697e2~mv2.png/v1/fill/w_400,h_400,q_85,enc_avif,quality_auto/e85c6c_c33a5ad869c145918521624a09f697e2~mv2.png" alt="6m x 3m Greenhouse Tunnel" style="width:100%;height:auto;display:block;" onerror="this.style.display='none'">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hydroponic Hothouses -->
+    <div class="r">
+      <div style="background:var(--ink);border-radius:var(--r-xl);overflow:hidden;padding:64px;box-shadow:0 32px 80px rgba(14,28,20,.2);">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;">
+
+          <div>
+            <span class="tag-inv" style="margin-bottom:20px;display:inline-block;">Commercial Grade</span>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:var(--cream);margin-bottom:16px;line-height:1.1;">Hydroponic Hothouses</h3>
+            <p style="font-size:14px;color:rgba(246,243,236,.55);line-height:1.8;margin-bottom:20px;">
+              Our Hydroponic Hothouses are designed to withstand extreme weather conditions. The material is a unique patented formula, produced using Polyethylene complying with ISO standards. UV-stabilised cladding ensures a very long lifespan, and blocks harmful UV-rays to prevent plant damage.
+            </p>
+            <p style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:14px;text-transform:uppercase;letter-spacing:.08em;">Cladding advantages:</p>
+            <ul style="list-style:none;margin-bottom:24px;column-count:2;column-gap:20px;">
+              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:4px 0;font-weight:500;">· Long lifespan</li>
+              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:4px 0;font-weight:500;">· Will not discolour</li>
+              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:4px 0;font-weight:500;">· Lightweight &amp; easy to handle</li>
+              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:4px 0;font-weight:500;">· Price competitive</li>
+              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:4px 0;font-weight:500;">· Hail resistant</li>
+              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:4px 0;font-weight:500;">· Eliminates fungal growth</li>
+              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:4px 0;font-weight:500;">· Easy to keep clean</li>
+              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:4px 0;font-weight:500;">· Wind resistant</li>
+            </ul>
+
+            <p style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:14px;text-transform:uppercase;letter-spacing:.08em;">Standard dimensions:</p>
+            <ul style="list-style:none;margin-bottom:28px;">
+              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:3px 0;">· Modular concept — length in 2.0m increments</li>
+              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:3px 0;">· Width: 3m / 5m / 8m / 10m / 12m standard options</li>
+              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:3px 0;">· Side walls: 2.1m high</li>
+              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:3px 0;">· Sliding door: 2.0m high × 2.5m wide (customisable)</li>
+              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:3px 0;">· Custom designed to any requirement &amp; application</li>
+            </ul>
+            <p style="font-size:11px;color:rgba(246,243,236,.3);margin-bottom:24px;">Projects completed in: South Africa, Namibia, Lesotho, Botswana, Zimbabwe, Kenya, Uganda, Tanzania &amp; Holland.</p>
+            <a href="#contact" class="btn btn-gold">
+              <span>Request Hothouse Quote</span>
+              <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+          <!-- Hothouse images from original site -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <div style="border-radius:16px;overflow:hidden;">
+              <img src="https://static.wixstatic.com/media/e85c6c_d96453cd13194fadb37875108ff3463d~mv2.jpeg/v1/fill/w_400,h_300,al_c,q_85,enc_avif,quality_auto/e85c6c_d96453cd13194fadb37875108ff3463d~mv2.jpeg" alt="Hydroponic Hothouse" style="width:100%;height:auto;display:block;" onerror="this.style.display='none'">
+            </div>
+            <div style="border-radius:16px;overflow:hidden;margin-top:20px;">
+              <img src="https://static.wixstatic.com/media/e85c6c_297ce118db3b43dc840d3c7fd96e7d0d~mv2.jpeg/v1/fill/w_400,h_300,al_c,q_85,enc_avif,quality_auto/e85c6c_297ce118db3b43dc840d3c7fd96e7d0d~mv2.jpeg" alt="Hydroponic Hothouse interior" style="width:100%;height:auto;display:block;" onerror="this.style.display='none'">
+            </div>
+            <div style="border-radius:16px;overflow:hidden;">
+              <img src="https://static.wixstatic.com/media/e85c6c_5639eee228f64334afa288344066e07d~mv2.jpg/v1/fill/w_400,h_300,al_c,q_85,enc_avif,quality_auto/e85c6c_5639eee228f64334afa288344066e07d~mv2.jpg" alt="Hydroponic Hothouse exterior" style="width:100%;height:auto;display:block;" onerror="this.style.display='none'">
+            </div>
+            <div style="border-radius:16px;overflow:hidden;margin-top:20px;">
+              <img src="https://static.wixstatic.com/media/e85c6c_b51a6e79f6244387ba93320bc3986244~mv2.jpg/v1/fill/w_400,h_300,al_c,q_85,enc_avif,quality_auto/e85c6c_b51a6e79f6244387ba93320bc3986244~mv2.jpg" alt="Green Sprouts installation" style="width:100%;height:auto;display:block;" onerror="this.style.display='none'">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Vegetable Production note -->
+    <div class="r" style="margin-top:48px;background:var(--white);border-radius:24px;padding:40px 48px;box-shadow:0 8px 32px rgba(14,28,20,.06);display:flex;align-items:center;gap:40px;flex-wrap:wrap;">
+      <div>
+        <span style="font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);display:block;margin-bottom:8px;">Also Available</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--ink);margin-bottom:10px;">Vegetable Production Systems</h3>
+        <p style="font-size:14px;color:var(--muted);line-height:1.75;max-width:560px;">
+          We offer a variety of hydroponic and soil vegetable production systems — ranging from DIY home-grown vegetable kits to full commercial operations. The ultimate kits for self-sustainability and food traceability. For full info and pricing visit our vegetable section.
+        </p>
+      </div>
+      <a href="http://www.gardenroothydro.co.za" target="_blank" rel="noopener" class="btn btn-dark" style="flex-shrink:0;">
+        <span>Visit GardenRoot Hydro</span>
+        <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
 ══════════════════════════════════════════════════════ -->
 <section id="pricing" class="section bg-sand">
   <div class="container">
