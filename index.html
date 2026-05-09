@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Green Sprouts Solutions | Advanced Hydroponic Fodder Systems — Africa</title>
-  <link rel="icon" type="image/png" href="logo.png">
   <meta name="description" content="Manufacturers & Suppliers of Green Feed Booster Solutions, Hydroponic Fodder Systems, Hydroponic Greenhouses & Hothouses. GREENSPROUTS — We supply AFRICA.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -682,7 +681,7 @@
       transition:transform .4s, box-shadow .4s;
     }
     .science-card:hover { transform:translateY(-4px); box-shadow:0 24px 60px rgba(14,28,20,.10); }
-    .science-icon { font-size:32px; margin-bottom:20px; display:block; }
+    .science-icon { font-size:32px; margin-bottom:20px; display:flex; align-items:center; }
     .science-h { font-size:20px; font-weight:600; margin-bottom:12px; }
     .science-p { font-size:13px; color:var(--muted); line-height:1.75; }
     .science-num {
@@ -914,13 +913,16 @@
 <nav id="nav">
   <div class="container">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">Green<span>Sprouts</span>.</a>
+      <a href="#" class="nav-logo">
+        <img src="/logo.png" alt="Green Sprouts Solutions" style="height:40px;width:auto;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span style="display:none;">Green<span style="color:var(--sage);">Sprouts</span> Solutions</span>
+      </a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
+        <li><a href="#video">Video</a></li>
         <li><a href="#difference">Technology</a></li>
         <li><a href="#systems">Systems</a></li>
         <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#science">Science</a></li>
         <li><a href="#testimonials">Clients</a></li>
         <li><a href="#gallery">Gallery</a></li>
       </ul>
@@ -1127,6 +1129,110 @@
 
 
 <!-- ══════════════════════════════════════════════════════
+     VIDEO SECTION
+══════════════════════════════════════════════════════ -->
+<section id="video" class="section" style="background:var(--ink); padding-top:100px; padding-bottom:100px;">
+  <div class="container">
+    <div class="r" style="text-align:center; margin-bottom:52px;">
+      <div class="section-label" style="justify-content:center;">
+        <div class="section-label-line"></div>
+        <span class="section-label-text" style="color:var(--gold-lt);">See It in Action</span>
+        <div class="section-label-line"></div>
+      </div>
+      <h2 class="section-h2 light" style="margin-top:16px; color:var(--cream);">Watch our system <em style="color:var(--mint);">work.</em></h2>
+      <p style="font-size:16px; color:rgba(246,243,236,.5); margin-top:14px; max-width:520px; margin-left:auto; margin-right:auto; line-height:1.7;">
+        See how our hydroponic fodder booster produces nutrient-dense greenfeed in 7 days — straight from the source in George, Western Cape.
+      </p>
+    </div>
+
+    <!-- Video embed wrapper -->
+    <div class="r" style="max-width:960px; margin:0 auto; position:relative;">
+      <!-- Decorative glow behind video -->
+      <div style="position:absolute; inset:-24px; background:radial-gradient(ellipse at center, rgba(90,138,94,.18) 0%, transparent 70%); pointer-events:none; border-radius:80px;"></div>
+
+      <div style="position:relative; border-radius:32px; overflow:hidden; box-shadow:0 48px 120px rgba(0,0,0,.55), 0 8px 32px rgba(0,0,0,.3);">
+        <!-- Gold border ring -->
+        <div style="position:absolute; inset:0; border:1px solid rgba(196,169,107,.2); border-radius:32px; z-index:2; pointer-events:none;"></div>
+
+        <!-- YouTube embed — channel UCeJ1ZbTpIpBVisb8fllV6WA -->
+        <!-- The src below loads their channel's latest/featured video. -->
+        <!-- If you have the specific video ID, replace VIDEO_ID in the src. -->
+        <div id="video-container" style="position:relative; padding-bottom:56.25%; height:0; background:var(--forest);">
+
+          <!-- Custom play overlay — shown before user clicks -->
+          <div id="video-overlay" onclick="loadVideo()" style="
+            position:absolute; inset:0; z-index:10; cursor:pointer;
+            display:flex; flex-direction:column; align-items:center; justify-content:center;
+            background:linear-gradient(135deg, #0E1C14 0%, #163320 60%, #1f4a2a 100%);
+          ">
+            <!-- Poster image -->
+            <img
+              src="https://static.wixstatic.com/media/e85c6c_b99740aebfa64b19bdad7fff5b1ff52e~mv2_d_6000_4000_s_4_2.jpg/v1/fill/w_1200,h_675,al_c,q_90,enc_avif,quality_auto/e85c6c_b99740aebfa64b19bdad7fff5b1ff52e~mv2_d_6000_4000_s_4_2.jpg"
+              alt="Green Sprouts Solutions — Product Video"
+              style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35;"
+              onerror="this.style.display='none'"
+            >
+            <!-- Play button -->
+            <div style="
+              position:relative; z-index:2;
+              width:80px; height:80px; border-radius:50%;
+              background:var(--gold);
+              display:flex; align-items:center; justify-content:center;
+              box-shadow:0 0 0 16px rgba(196,169,107,.15), 0 0 0 32px rgba(196,169,107,.07);
+              transition:transform .3s, box-shadow .3s;
+              margin-bottom:24px;
+            " id="play-btn">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--ink)" style="margin-left:4px;">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+            </div>
+            <p style="position:relative;z-index:2;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(246,243,236,.7);">Play Video</p>
+            <p style="position:relative;z-index:2;font-size:11px;color:rgba(246,243,236,.35);margin-top:6px;letter-spacing:.04em;">Green Sprouts Solutions — George, RSA</p>
+          </div>
+
+          <!-- iframe loads on click -->
+          <iframe
+            id="yt-iframe"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;display:none;"
+            src=""
+            title="Green Sprouts Solutions — Hydroponic Fodder System"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- Caption strip below video -->
+      <div style="display:flex; justify-content:center; gap:40px; margin-top:32px; flex-wrap:wrap;">
+        <div style="text-align:center;">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--cream);display:block;">7 Days</span>
+          <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);">Seed to Feed</span>
+        </div>
+        <div style="width:1px;background:rgba(255,255,255,.08);"></div>
+        <div style="text-align:center;">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--cream);display:block;">300kg</span>
+          <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);">From 50kg Seed</span>
+        </div>
+        <div style="width:1px;background:rgba(255,255,255,.08);"></div>
+        <div style="text-align:center;">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--cream);display:block;">600+</span>
+          <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);">Installations</span>
+        </div>
+        <div style="width:1px;background:rgba(255,255,255,.08);"></div>
+        <div style="text-align:center;">
+          <a href="https://www.youtube.com/@greensproutssolutions1887" target="_blank" rel="noopener" style="
+            font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--gold);
+            display:block;text-decoration:none;transition:color .25s;
+          " onmouseover="this.style.color='var(--gold-lt)'" onmouseout="this.style.color='var(--gold)'">YT ↗</a>
+          <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);">Our Channel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
      DIFFERENCE / PILLARS
 ══════════════════════════════════════════════════════ -->
 <section id="difference" class="section">
@@ -1159,8 +1265,12 @@
 
       <!-- Water -->
       <div class="pillar-card dark">
-        <div class="pillar-deco light-text" style="right:-5px; bottom:-10px; font-size:100px;">💧</div>
-        <div class="pillar-icon on-dark">💧</div>
+        <div class="pillar-deco light-text" style="right:-5px; bottom:-10px; font-size:100px; font-family:'Cormorant Garamond',serif;">~</div>
+        <div class="pillar-icon on-dark">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(246,243,236,0.85)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C6 9 4 13 4 16a8 8 0 0 0 16 0c0-3-2-7-8-14z"/>
+          </svg>
+        </div>
         <span class="pillar-accent gold">Water Efficiency</span>
         <h3 class="pillar-h on-dark" style="margin-top:8px;">Water scarcity solved.</h3>
         <p class="pillar-p on-dark">
@@ -1174,7 +1284,12 @@
 
       <!-- Fungi -->
       <div class="pillar-card sand">
-        <div class="pillar-icon light">🦠</div>
+        <div class="pillar-icon light">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--forest)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+        </div>
         <span class="pillar-accent sage">Mould Elimination</span>
         <h3 class="pillar-h light" style="margin-top:8px;">Fungi &amp; Mould Eliminated.</h3>
         <p class="pillar-p light">
@@ -1187,8 +1302,12 @@
 
       <!-- Nutrients — full width -->
       <div class="pillar-card white full">
-        <div class="pillar-deco">🎓</div>
-        <div class="pillar-icon light">🎓</div>
+        <div class="pillar-deco" style="font-family:'Cormorant Garamond',serif;font-size:120px;">∑</div>
+        <div class="pillar-icon light">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--forest)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+          </svg>
+        </div>
         <span class="pillar-accent sage">University-Verified Nutrition</span>
         <h3 class="pillar-h light" style="margin-top:8px;">Real science. Real results.</h3>
         <p class="pillar-p light" style="max-width:760px;">
@@ -1223,21 +1342,38 @@
 
     <div class="science-grid r">
       <div class="science-card">
-        <span class="science-icon">🌱</span>
+        <span class="science-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a5 5 0 0 1 5 5v3H7V7a5 5 0 0 1 5-5z"/><rect x="5" y="10" width="14" height="11" rx="2"/>
+            <line x1="12" y1="14" x2="12" y2="18"/>
+          </svg>
+        </span>
         <h3 class="science-h">Seed Becomes Feed</h3>
         <p class="science-p">A 50kg bag of seed sprouts into approximately 300kg of green nutrient-dense fodder in just 6–7 days. The sprout mat is completely edible — animals eat the entire mat, roots and green growth, so there is zero waste.</p>
         <span class="science-num">300kg</span>
         <span class="science-num-label">Yield from 50kg seed</span>
       </div>
       <div class="science-card">
-        <span class="science-icon">🧬</span>
+        <span class="science-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </span>
         <h3 class="science-h">Dramatically Improved Digestibility</h3>
         <p class="science-p">Barley's digestibility jumps from 41% to 81% through sprouting. Crude protein rises from 12.7% to 15.6% after 7 days of germination. Crude fibre increases from 5.5% to 14.2%, improving gut function in all livestock.</p>
         <span class="science-num">81%</span>
         <span class="science-num-label">Digestibility after sprouting (vs. 41% dry)</span>
       </div>
       <div class="science-card">
-        <span class="science-icon">☀️</span>
+        <span class="science-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </span>
         <h3 class="science-h">Chlorophyll &amp; Vitamin D3</h3>
         <p class="science-p">Natural sunlight in our cladding system ensures the plants are loaded with chlorophyll and vitamin D3 — both essential for healthier livestock. Artificial lighting cannot replicate this effect, and it introduces mould risk and electricity cost.</p>
         <span class="science-num">D3+</span>
@@ -1784,9 +1920,16 @@
           <div class="contact-info-group">
             <span class="contact-info-label">Direct Lines</span>
             <p class="contact-info-text">
-              Office: <a href="tel:+27448730371">+27 44 873 0371</a><br>
+              Office: <a href="tel:+27448730371">044 873 0371</a><br>
               Vivian: <a href="tel:+27826737211">+27 82 673 7211</a><br>
-              Victor: <a href="tel:+27619831872">+27 61 983 1872</a>
+              Victor: <a href="tel:+27448730371">044 873 0371</a>
+            </p>
+          </div>
+
+          <div class="contact-info-group">
+            <span class="contact-info-label">Email</span>
+            <p class="contact-info-text">
+              <a href="mailto:victor@greensprouts.co.za">victor@greensprouts.co.za</a>
             </p>
           </div>
 
@@ -1871,7 +2014,10 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <div class="footer-logo">Green<span>Sprouts</span>.</div>
+      <div class="footer-logo">
+        <img src="/logo.png" alt="Green Sprouts Solutions" style="height:36px;width:auto;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span style="display:none;">Green<span style="color:var(--sage);">Sprouts</span> Solutions</span>
+      </div>
       <p class="footer-copy">© 2010 – 2026 Green Sprouts Solutions · George, Western Cape, RSA<br>Manufacturing the future of African agriculture.</p>
       <div class="footer-links">
         <a href="https://www.facebook.com/Greensproutssolutions" target="_blank" rel="noopener">Facebook</a>
@@ -1887,6 +2033,24 @@
      SCRIPTS
 ══════════════════════════════════════════════════════ -->
 <script>
+  /* ── Video overlay ────────────────────────────────── */
+  function loadVideo() {
+    const overlay = document.getElementById('video-overlay');
+    const iframe  = document.getElementById('yt-iframe');
+    // Their YouTube channel ID — loads channel page as playlist.
+    // If you have a specific video ID (e.g. "abc123XYZ"), replace the src with:
+    // https://www.youtube.com/embed/abc123XYZ?autoplay=1&rel=0&color=white
+    iframe.src = 'https://www.youtube.com/embed?listType=user_uploads&list=greensproutssolutions1887&autoplay=1&rel=0&color=white&modestbranding=1';
+    iframe.style.display = 'block';
+    overlay.style.display = 'none';
+  }
+  // Play button hover effect
+  const playBtn = document.getElementById('play-btn');
+  if (playBtn) {
+    playBtn.addEventListener('mouseover', () => { playBtn.style.transform = 'scale(1.1)'; });
+    playBtn.addEventListener('mouseout',  () => { playBtn.style.transform = 'scale(1)'; });
+  }
+
   /* ── Reveal on scroll ─────────────────────────────── */
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
