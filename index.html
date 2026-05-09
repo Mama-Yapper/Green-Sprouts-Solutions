@@ -1952,83 +1952,37 @@
       <div class="contact-right">
         <h3 class="contact-form-h">Send an Enquiry</h3>
 
-        <!-- ─────────────────────────────────────────────────────
-             HOW THIS WORKS (for the developer):
-             This form uses Formspree — a free service that emails
-             submissions to victor@greensprouts.co.za with zero backend.
-
-             SETUP (one-time, 2 minutes):
-             1. Go to https://formspree.io and sign up free
-             2. Click "New Form", name it "GreenSprouts Enquiry"
-             3. Set the destination email to: victor@greensprouts.co.za
-             4. Copy your form ID (looks like "xpwzgkla")
-             5. Replace YOUR_FORMSPREE_ID below with that ID
-             6. Done — every submission emails Victor directly.
-
-             The form below already handles: validation, loading states,
-             success confirmation, and network error feedback.
-        ──────────────────────────────────────────────────────── -->
-
-        <form
-          id="contact-form"
-          action="https://formspree.io/f/YOUR_FORMSPREE_ID"
-          method="POST"
-          novalidate
-        >
-          <!-- Formspree: reply-to will be set to the sender's email automatically -->
-          <!-- Hidden subject line so Victor sees it clearly in his inbox -->
-          <input type="hidden" name="_subject" value="New Enquiry — Green Sprouts Solutions Website">
-          <!-- Redirect back to the same page after submit (Formspree default page is ugly) -->
-          <!-- We handle submission via JS instead so no redirect happens -->
+        <form id="contact-form" novalidate>
 
           <div class="form-row">
             <div class="form-field">
               <label class="form-label" for="f-name">Name / Naam <span style="color:var(--gold);">*</span></label>
-              <input
-                type="text" id="f-name" name="name"
-                class="form-input" placeholder="Your full name"
-                required autocomplete="name"
-              >
+              <input type="text" id="f-name" class="form-input" placeholder="Your full name" required autocomplete="name">
             </div>
             <div class="form-field">
               <label class="form-label" for="f-email">Email / E-pos <span style="color:var(--gold);">*</span></label>
-              <input
-                type="email" id="f-email" name="email"
-                class="form-input" placeholder="email@example.com"
-                required autocomplete="email"
-              >
+              <input type="email" id="f-email" class="form-input" placeholder="email@example.com" required autocomplete="email">
             </div>
           </div>
 
           <div class="form-field-single">
             <label class="form-label" for="f-phone">Phone / Telefoon <span style="color:var(--gold);">*</span></label>
-            <input
-              type="tel" id="f-phone" name="phone"
-              class="form-input" placeholder="+27 __ ___ ____"
-              required autocomplete="tel"
-            >
+            <input type="tel" id="f-phone" class="form-input" placeholder="+27 __ ___ ____" required autocomplete="tel">
           </div>
 
           <div class="form-field-single">
             <label class="form-label" for="f-location">Location / Ligging</label>
-            <input
-              type="text" id="f-location" name="location"
-              class="form-input" placeholder="Province, Country"
-              autocomplete="country-name"
-            >
+            <input type="text" id="f-location" class="form-input" placeholder="Province, Country">
           </div>
 
           <div class="form-field-single">
             <label class="form-label" for="f-livestock">Livestock Type</label>
-            <input
-              type="text" id="f-livestock" name="livestock"
-              class="form-input" placeholder="e.g. Sheep, Cattle, Chickens…"
-            >
+            <input type="text" id="f-livestock" class="form-input" placeholder="e.g. Sheep, Cattle, Chickens…">
           </div>
 
           <div class="form-field-single">
             <label class="form-label" for="f-product">Product / Quotation Required</label>
-            <select id="f-product" name="product" class="form-select">
+            <select id="f-product" class="form-select">
               <option value="">Select a system…</option>
               <option>Econo Booster</option>
               <option>NextGen Econo</option>
@@ -2046,41 +2000,22 @@
 
           <div class="form-field-single">
             <label class="form-label" for="f-message">Message / Boodskap</label>
-            <textarea
-              id="f-message" name="message"
-              rows="3" class="form-textarea"
-              placeholder="Tell us about your farm and requirements…"
-            ></textarea>
+            <textarea id="f-message" rows="3" class="form-textarea" placeholder="Tell us about your farm and requirements…"></textarea>
           </div>
 
-          <!-- Validation error banner -->
-          <p id="form-error" style="
-            display:none; font-size:12px; font-weight:600;
-            color:#c0392b; margin-top:12px; padding:10px 16px;
-            background:#fff0ee; border-radius:8px;
-            border-left:3px solid #c0392b;
-          "></p>
+          <!-- Validation error -->
+          <p id="form-error" style="display:none;font-size:12px;font-weight:600;color:#c0392b;margin-top:12px;padding:10px 16px;background:#fff0ee;border-radius:8px;border-left:3px solid #c0392b;"></p>
 
           <div style="margin-top:20px;">
-            <button type="submit" id="form-submit-btn" class="btn btn-dark" style="width:100%;justify-content:center;padding:18px 32px;">
+            <button type="submit" class="btn btn-dark" style="width:100%;justify-content:center;padding:18px 32px;">
               <span id="btn-text">Send Enquiry</span>
-              <svg id="btn-arrow" class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              <!-- Spinner shown during submission -->
-              <svg id="btn-spinner" style="display:none; animation:spin .8s linear infinite;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+              <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </button>
           </div>
 
-          <!-- Success message -->
-          <div id="form-success" style="
-            display:none; margin-top:20px; padding:20px 24px;
-            background:#f0f9f0; border-radius:14px;
-            border:1px solid rgba(90,138,94,.3);
-            text-align:center;
-          ">
-            <div style="font-size:28px; margin-bottom:8px;">✓</div>
-            <p style="font-size:15px; font-weight:700; color:var(--forest); margin-bottom:4px;">Message received!</p>
-            <p style="font-size:13px; color:var(--muted);">Victor will be in touch shortly at <strong>victor@greensprouts.co.za</strong> — or call <a href="tel:+27448730371" style="color:var(--sage);">044 873 0371</a>.</p>
-          </div>
+          <p style="margin-top:12px;font-size:11px;color:var(--muted);text-align:center;line-height:1.6;">
+            This will open your email app pre-filled and ready to send to Victor.
+          </p>
 
         </form>
       </div>
@@ -2157,92 +2092,77 @@
     if (!open) { body.classList.add('open'); btn.classList.add('open'); }
   }
 
-  /* ── Form submission via Formspree ───────────────────
-     Sends data to Formspree which emails victor@greensprouts.co.za
-     Developer: replace YOUR_FORMSPREE_ID in the form action attribute
-     with the real ID from https://formspree.io after signing up.
+  /* ── Form submission via mailto ──────────────────────
+     Builds a pre-filled email to victor@greensprouts.co.za
+     and opens the user's default email app. Works on every
+     device with no backend or account needed.
   ────────────────────────────────────────────────── */
-  const contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', async function(e) {
-      e.preventDefault();
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-      const btn       = document.getElementById('form-submit-btn');
-      const btnText   = document.getElementById('btn-text');
-      const btnArrow  = document.getElementById('btn-arrow');
-      const spinner   = document.getElementById('btn-spinner');
-      const success   = document.getElementById('form-success');
-      const errorBox  = document.getElementById('form-error');
+    const errorBox = document.getElementById('form-error');
+    errorBox.style.display = 'none';
 
-      // Clear previous states
-      errorBox.style.display = 'none';
-      success.style.display  = 'none';
+    // Gather values
+    const name     = document.getElementById('f-name').value.trim();
+    const email    = document.getElementById('f-email').value.trim();
+    const phone    = document.getElementById('f-phone').value.trim();
+    const location = document.getElementById('f-location').value.trim();
+    const livestock= document.getElementById('f-livestock').value.trim();
+    const product  = document.getElementById('f-product').value.trim();
+    const message  = document.getElementById('f-message').value.trim();
 
-      // Client-side validation
-      const name  = document.getElementById('f-name').value.trim();
-      const email = document.getElementById('f-email').value.trim();
-      const phone = document.getElementById('f-phone').value.trim();
+    // Validation
+    if (!name) {
+      errorBox.textContent = 'Please enter your name.';
+      errorBox.style.display = 'block';
+      document.getElementById('f-name').focus();
+      return;
+    }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errorBox.textContent = 'Please enter a valid email address.';
+      errorBox.style.display = 'block';
+      document.getElementById('f-email').focus();
+      return;
+    }
+    if (!phone) {
+      errorBox.textContent = 'Please enter your phone number.';
+      errorBox.style.display = 'block';
+      document.getElementById('f-phone').focus();
+      return;
+    }
 
-      if (!name) {
-        errorBox.textContent = 'Please enter your name.';
-        errorBox.style.display = 'block';
-        document.getElementById('f-name').focus();
-        return;
-      }
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        errorBox.textContent = 'Please enter a valid email address.';
-        errorBox.style.display = 'block';
-        document.getElementById('f-email').focus();
-        return;
-      }
-      if (!phone) {
-        errorBox.textContent = 'Please enter your phone number.';
-        errorBox.style.display = 'block';
-        document.getElementById('f-phone').focus();
-        return;
-      }
+    // Build the email body
+    const body = [
+      'New enquiry from the Green Sprouts Solutions website:',
+      '',
+      'Name:       ' + name,
+      'Email:      ' + email,
+      'Phone:      ' + phone,
+      'Location:   ' + (location  || '—'),
+      'Livestock:  ' + (livestock || '—'),
+      'Product:    ' + (product   || '—'),
+      '',
+      'Message:',
+      message || '—',
+      '',
+      '---',
+      'Sent via greensprouts.co.za enquiry form'
+    ].join('\n');
 
-      // Loading state
-      btn.disabled    = true;
-      btnText.textContent = 'Sending…';
-      btnArrow.style.display  = 'none';
-      spinner.style.display   = 'block';
+    const subject = 'Website Enquiry' + (product ? ' — ' + product : '') + ' | ' + name;
 
-      try {
-        const response = await fetch(contactForm.action, {
-          method: 'POST',
-          body: new FormData(contactForm),
-          headers: { 'Accept': 'application/json' }
-        });
+    // Open the user's email client pre-filled
+    window.location.href =
+      'mailto:victor@greensprouts.co.za'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body='    + encodeURIComponent(body);
 
-        if (response.ok) {
-          // Success
-          contactForm.reset();
-          success.style.display = 'block';
-          success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        } else {
-          // Formspree returned an error (e.g. form ID not set up yet)
-          const data = await response.json().catch(() => ({}));
-          if (data.errors) {
-            errorBox.textContent = data.errors.map(e => e.message).join(', ');
-          } else {
-            errorBox.textContent = 'Something went wrong. Please email victor@greensprouts.co.za directly or call 044 873 0371.';
-          }
-          errorBox.style.display = 'block';
-        }
-      } catch (err) {
-        // Network failure
-        errorBox.textContent = 'Could not send — check your connection, or email victor@greensprouts.co.za directly.';
-        errorBox.style.display = 'block';
-      } finally {
-        // Reset button
-        btn.disabled = false;
-        btnText.textContent    = 'Send Enquiry';
-        btnArrow.style.display = 'block';
-        spinner.style.display  = 'none';
-      }
-    });
-  }
+    // Update button text briefly to confirm action
+    const btnText = document.getElementById('btn-text');
+    btnText.textContent = 'Opening email…';
+    setTimeout(() => { btnText.textContent = 'Send Enquiry'; }, 3000);
+  });
 </script>
 
 </body>
