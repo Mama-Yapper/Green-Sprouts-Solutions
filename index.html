@@ -51,7 +51,7 @@
       color: var(--ink);
     }
 
-    /* ─── GLOBAL IMAGE FIX (Solves Overscaling) ──────────── */
+    /* ─── GLOBAL IMAGE FIX ──────────── */
     img {
       max-width: 100%;
       height: auto;
@@ -68,13 +68,6 @@
     /* ─── UTILITIES ──────────────────────────────────────── */
     .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
     @media(max-width:768px){ .container{ padding:0 20px; } }
-
-    .tag {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-      border: 1.5px solid var(--gold); color: var(--gold);
-      padding: 5px 14px; border-radius: 100px;
-    }
 
     /* ─── BUTTONS ────────────────────────────────────────── */
     .btn {
@@ -94,9 +87,6 @@
 
     .btn-ghost { background: transparent; color: var(--ink); border: 2px solid var(--forest); }
     .btn-ghost:hover { background: var(--forest); color: var(--cream); }
-
-    .btn .arrow { transition: transform .4s ease; }
-    .btn:hover .arrow { transform: translateX(5px); }
 
     /* ─── NAV ────────────────────────────────────────────── */
     #nav {
@@ -546,53 +536,37 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.r').forEach(el => io.observe(el));
   
-  /* ─── REAL CONTACT FORM BACKEND CONNECTION ─── */
-  document.getElementById('contact-form').addEventListener('submit', async function(e) {
+  /* ─── MAILTO CONTACT FORM CONNECTION ─── */
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    
+
     const form = this;
     const btn = form.querySelector('button[type="submit"]');
     const originalBtnText = btn.innerHTML;
     
-    btn.innerHTML = 'Sending...';
-    btn.style.opacity = '0.7';
-    btn.style.pointerEvents = 'none';
-
+    // Grab the values from the inputs
     const inputs = form.querySelectorAll('input');
-    const formData = {
-      name: inputs[0].value,
-      email: inputs[1].value,
-      phone: inputs[2].value,
-      system: inputs[3].value
-    };
+    const name = inputs[0].value;
+    const email = inputs[1].value;
+    const phone = inputs[2].value;
+    const system = inputs[3].value;
 
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
+    // Format the email subject and body
+    const subject = encodeURIComponent(`Green Sprouts Enquiry: ${system || 'New Message'}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nSystem Interested In: ${system}\n\nMessage:\n`);
 
-      if (response.ok) {
-        btn.innerHTML = 'Message Sent! ✔';
-        btn.style.background = 'var(--sage)';
-        btn.style.color = 'white';
-        form.reset(); 
-      } else {
-        throw new Error('Failed to send');
-      }
-    } catch (error) {
-      btn.innerHTML = 'Error. Try Again.';
-      btn.style.background = 'red';
-      btn.style.color = 'white';
-    }
-
+    // Open the user's default email app
+    window.location.href = `mailto:victor@greensprouts.co.za?subject=${subject}&body=${body}`;
+    
+    // Give a little visual feedback on the button
+    btn.innerHTML = 'Opening Mail App... ↗';
+    btn.style.opacity = '0.7';
+    
+    // Reset the button after 3 seconds
     setTimeout(() => {
       btn.innerHTML = originalBtnText;
       btn.style.opacity = '1';
-      btn.style.pointerEvents = 'auto';
-      btn.style.background = 'var(--forest)';
-      btn.style.color = 'var(--cream)';
+      form.reset(); // Clear the form
     }, 3000);
   });
 </script>
