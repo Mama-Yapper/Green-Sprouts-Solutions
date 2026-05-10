@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Green Sprouts Solutions | Advanced Hydroponic Fodder Systems — Africa</title>
-  <meta name="description" content="Manufacturers & Suppliers of Green Feed Booster Solutions, Hydroponic Fodder Systems, Hydroponic Greenhouses & Hothouses. GREENSPROUTS — We supply AFRICA.">
+  <title>Green Sprouts Solutions | Hydroponic Systems Africa</title>
+  <meta name="description" content="Manufacturers & Suppliers of Green Feed Solutions, Hydroponic Fodder Systems, and Greenhouses. Built in South Africa for African weather.">
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* ─── TOKENS ──────────────────────────────────────────── */
+    /* ─── COLORS & VARIABLES ──────────────────────────────── */
     :root {
       --ink:       #0E1C14;
       --forest:    #163320;
@@ -51,7 +51,21 @@
       color: var(--ink);
     }
 
-    /* ─── UTILITY ────────────────────────────────────────── */
+    /* ─── GLOBAL IMAGE FIX (Solves Overscaling) ──────────── */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .object-cover-fix {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* ─── UTILITIES ──────────────────────────────────────── */
     .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
     @media(max-width:768px){ .container{ padding:0 20px; } }
 
@@ -72,32 +86,19 @@
     .btn {
       display: inline-flex; align-items: center; gap: 10px;
       font-family: 'Outfit', sans-serif;
-      font-size: 13px; font-weight: 700; letter-spacing: .05em;
+      font-size: 13px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
       padding: 15px 32px; border-radius: 100px;
       cursor: pointer; border: none; text-decoration: none;
-      transition: all .4s cubic-bezier(.16,1,.3,1);
+      transition: all .4s ease;
       position: relative; overflow: hidden;
     }
-    .btn-dark {
-      background: var(--forest); color: var(--cream);
-    }
-    .btn-dark::before {
-      content:''; position:absolute; inset:0;
-      background: var(--mid); transform:scaleX(0); transform-origin:left;
-      transition: transform .4s cubic-bezier(.16,1,.3,1);
-    }
-    .btn-dark:hover::before { transform:scaleX(1); }
-    .btn-dark span, .btn-dark svg { position:relative; z-index:1; }
+    .btn-dark { background: var(--forest); color: var(--cream); }
+    .btn-dark:hover { background: var(--mid); }
 
-    .btn-gold {
-      background: var(--gold); color: var(--ink);
-    }
+    .btn-gold { background: var(--gold); color: var(--ink); }
     .btn-gold:hover { background: var(--gold-lt); }
 
-    .btn-ghost {
-      background: transparent; color: var(--ink);
-      border: 2px solid var(--forest);
-    }
+    .btn-ghost { background: transparent; color: var(--ink); border: 2px solid var(--forest); }
     .btn-ghost:hover { background: var(--forest); color: var(--cream); }
 
     .btn .arrow { transition: transform .4s ease; }
@@ -106,32 +107,22 @@
     /* ─── NAV ────────────────────────────────────────────── */
     #nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(246,243,236,.88);
-      backdrop-filter: blur(24px) saturate(160%);
-      -webkit-backdrop-filter: blur(24px) saturate(160%);
-      border-bottom: 1px solid rgba(196,169,107,.18);
+      background: rgba(246,243,236,.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(196,169,107,.2);
       transition: box-shadow .3s;
     }
-    #nav.scrolled { box-shadow: 0 8px 48px rgba(14,28,20,.08); }
-    .nav-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      height: 72px;
-    }
+    #nav.scrolled { box-shadow: 0 8px 30px rgba(14,28,20,.1); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
     .nav-logo {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 20px; font-weight: 700; color: var(--ink);
-      text-decoration: none; letter-spacing: -.01em;
+      font-size: 22px; font-weight: 700; color: var(--ink);
+      text-decoration: none;
     }
     .nav-logo span:first-of-type { color: var(--sage); }
     .nav-logo span:last-of-type  { color: var(--mint); }
-    .nav-links {
-      display: flex; gap: 36px; list-style: none;
-    }
-    .nav-links a {
-      font-size: 13px; font-weight: 600; color: var(--muted);
-      text-decoration: none; letter-spacing: .02em;
-      transition: color .25s;
-    }
+    .nav-links { display: flex; gap: 30px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .2s; text-transform: uppercase; letter-spacing: 1px; }
     .nav-links a:hover { color: var(--ink); }
     @media(max-width:900px){ .nav-links{display:none;} }
 
@@ -143,2131 +134,432 @@
       padding-top: 72px;
       position: relative; overflow: hidden;
     }
-    @media(max-width:900px){ #hero{grid-template-columns:1fr; min-height:auto; padding-top:100px; padding-bottom:60px;} }
+    @media(max-width:900px){ #hero{grid-template-columns:1fr; min-height:auto; padding-top:100px;} }
 
-    .hero-bg {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, var(--cream) 0%, #EEE9D6 60%, #E4DEC8 100%);
-      z-index: 0;
-    }
-    /* Subtle organic grain texture */
-    .hero-bg::after {
-      content:'';
-      position:absolute; inset:0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      opacity: .5; pointer-events:none;
-    }
-
-    .hero-left {
-      position: relative; z-index: 2;
-      padding: 80px 60px 80px 0;
-    }
+    .hero-left { position: relative; z-index: 2; padding: 60px 40px 60px 0; }
     @media(max-width:900px){ .hero-left{padding:40px 0;} }
 
-    .hero-eyebrow {
-      display: flex; align-items: center; gap: 12px;
-      margin-bottom: 28px;
-    }
-    .hero-eyebrow-line {
-      width: 40px; height: 1.5px; background: var(--gold);
-    }
-    .hero-eyebrow-text {
-      font-size: 11px; font-weight: 700; letter-spacing: .14em;
-      text-transform: uppercase; color: var(--gold);
-    }
+    .hero-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .hero-eyebrow-line { width: 40px; height: 2px; background: var(--gold); }
+    .hero-eyebrow-text { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
 
-    .hero-h1 {
-      font-size: clamp(52px, 5.5vw, 80px);
-      font-weight: 600; line-height: 1.03;
-      color: var(--ink); margin-bottom: 24px;
-    }
+    .hero-h1 { font-size: clamp(42px, 5vw, 64px); font-weight: 600; line-height: 1.1; color: var(--ink); margin-bottom: 20px; }
     .hero-h1 em { color: var(--sage); font-style: italic; }
 
-    .hero-sub {
-      font-size: 16px; color: var(--muted); line-height: 1.75;
-      max-width: 480px; margin-bottom: 8px;
-    }
-    .hero-lang {
-      font-size: 12px; color: var(--sage); font-weight: 600;
-      letter-spacing: .04em; margin-bottom: 40px;
-    }
+    .hero-sub { font-size: 16px; color: var(--muted); line-height: 1.6; max-width: 450px; margin-bottom: 30px; }
+    
     .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
-    /* Hero right — image pane */
-    .hero-right {
-      position: relative; z-index: 2;
-      height: 100vh; min-height: 600px;
-    }
-    @media(max-width:900px){ .hero-right{height:420px; min-height:0;} }
+    .hero-right { position: relative; z-index: 2; height: 100vh; min-height: 500px; width: 100%; }
+    @media(max-width:900px){ .hero-right{height: 400px; min-height:0; width: 100vw; margin-left: -20px;} }
 
-    .hero-img-wrap {
-      position: absolute; inset: 0;
-      overflow: hidden;
-    }
-    .hero-img-wrap img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform 12s ease;
-    }
-    .hero-img-wrap:hover img { transform: scale(1.04); }
-
-    /* Diagonal clip on image */
+    .hero-img-wrap { position: absolute; inset: 0; overflow: hidden; }
     .hero-img-wrap::before {
-      content:''; position:absolute; left:0; top:0; bottom:0;
-      width: 80px; z-index:2;
+      content:''; position:absolute; left:0; top:0; bottom:0; width: 60px; z-index:2;
       background: linear-gradient(to right, var(--cream), transparent);
     }
-
-    /* Floating stat pill */
-    .hero-stat {
-      position: absolute; z-index: 10;
-      background: var(--white);
-      border-radius: 20px;
-      padding: 18px 24px;
-      box-shadow: 0 24px 64px rgba(14,28,20,.13), 0 4px 16px rgba(14,28,20,.06);
-      transform: translateY(0);
-      animation: float 6s ease-in-out infinite;
-    }
-    .hero-stat-1 { bottom: 10%; left: -40px; animation-delay: 0s; }
-    .hero-stat-2 { top: 15%; right: 30px; animation-delay: -3s; }
-    @media(max-width:900px){ .hero-stat{ display:none; } }
-    @keyframes float {
-      0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)}
-    }
-    .hs-num {
-      font-family:'Cormorant Garamond',serif;
-      font-size: 36px; font-weight: 700; color: var(--ink); line-height:1;
-    }
-    .hs-label {
-      font-size: 10px; font-weight: 700; letter-spacing:.1em; text-transform:uppercase;
-      color: var(--sage); margin-top:4px;
-    }
+    @media(max-width:900px){ .hero-img-wrap::before{display:none;} }
 
     /* ─── MARQUEE ────────────────────────────────────────── */
-    .marquee-bar {
-      background: var(--forest);
-      padding: 14px 0; overflow: hidden;
-      border-top: 1px solid rgba(90,138,94,.3);
-      border-bottom: 1px solid rgba(90,138,94,.2);
-    }
-    .marquee-track {
-      display: flex; gap: 48px;
-      animation: marquee 35s linear infinite;
-      white-space: nowrap;
-    }
-    .marquee-item {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-      color: rgba(246,243,236,.7); flex-shrink: 0;
-    }
-    .marquee-dot {
-      width: 4px; height: 4px; border-radius: 50%;
-      background: var(--gold); flex-shrink:0;
-    }
-    @keyframes marquee {
-      0%{transform:translateX(0)} 100%{transform:translateX(-50%)}
-    }
+    .marquee-bar { background: var(--forest); padding: 14px 0; overflow: hidden; border-y: 1px solid rgba(90,138,94,.3); }
+    .marquee-track { display: flex; gap: 40px; animation: marquee 30s linear infinite; white-space: nowrap; }
+    .marquee-item { display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(246,243,236,.8); }
+    .marquee-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+    @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
-    /* ─── STATS STRIP ────────────────────────────────────── */
-    .stats-strip {
-      padding: 80px 0;
-      background: var(--cream);
-      position: relative;
-    }
-    .stats-strip::before {
-      content:'';
-      position: absolute; left:50%; top:0; bottom:0; width:1px;
-      background: var(--sand);
-      transform:translateX(-50%);
-    }
-    .stats-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-    }
-    @media(max-width:768px){ .stats-grid{grid-template-columns:repeat(2,1fr);} }
-    .stat-item {
-      text-align: center; padding: 40px 20px;
-      border-right: 1px solid var(--sand);
-      position: relative;
-    }
-    .stat-item:last-child { border-right: none; }
-    @media(max-width:768px){ .stat-item:nth-child(2){border-right:none;} .stat-item:nth-child(3){border-right:1px solid var(--sand);} }
-    .stat-num {
-      font-family:'Cormorant Garamond',serif;
-      font-size: 64px; font-weight: 600; color: var(--ink); line-height:1;
-      display: block;
-    }
-    .stat-suffix {
-      font-family:'Cormorant Garamond',serif;
-      font-size: 36px; color: var(--sage);
-    }
-    .stat-label {
-      font-size: 11px; font-weight: 700; letter-spacing:.1em; text-transform:uppercase;
-      color: var(--sage); margin-top:10px; display:block;
-    }
-
-    /* ─── SECTIONS generic ───────────────────────────────── */
-    .section { padding: 120px 0; }
-    .section-sm { padding: 80px 0; }
-    .bg-dark { background: var(--forest); }
+    /* ─── SECTIONS ───────────────────────────────────────── */
+    .section { padding: 100px 0; }
+    .section-sm { padding: 60px 0; }
     .bg-sand { background: var(--sand); }
     .bg-white { background: var(--white); }
+    .bg-forest { background: var(--forest); color: white; }
 
-    .section-label {
-      display: flex; align-items: center; gap: 12px;
-      margin-bottom: 20px;
-    }
-    .section-label-line { width:32px; height:1.5px; background:var(--gold); }
-    .section-label-text {
-      font-size: 11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
-      color: var(--gold);
-    }
-    .section-label-text.light { color: var(--gold-lt); }
+    .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .section-label-line { width: 30px; height: 2px; background: var(--gold); }
+    .section-label-text { font-size: 11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color: var(--gold); }
 
-    .section-h2 {
-      font-size: clamp(40px, 4vw, 62px);
-      font-weight: 600; line-height:1.06; color:var(--ink);
-    }
+    .section-h2 { font-size: clamp(36px, 4vw, 48px); font-weight: 600; line-height:1.1; color:var(--ink); }
     .section-h2.light { color: var(--cream); }
     .section-h2 em { color:var(--sage); font-style:italic; }
 
-    /* ─── ABOUT ──────────────────────────────────────────── */
-    .about-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 80px; align-items: center;
-    }
-    @media(max-width:900px){ .about-grid{grid-template-columns:1fr; gap:48px;} }
+    /* ─── ABOUT & MANUFACTURING ──────────────────────────── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    @media(max-width:900px){ .about-grid{grid-template-columns:1fr; gap:40px;} }
 
-    .about-body { font-size:16px; color:var(--muted); line-height:1.8; }
-    .about-body + .about-body { margin-top:20px; }
+    .about-body { font-size:16px; color:var(--muted); line-height:1.7; margin-bottom: 16px; }
+    .bg-forest .about-body { color: rgba(255,255,255,0.7); }
 
-    .about-badges {
-      display: flex; flex-wrap:wrap; gap:10px; margin-top:32px;
-    }
-    .badge {
-      background: var(--sand); color: var(--ink);
-      font-size:12px; font-weight:600; letter-spacing:.02em;
-      padding: 8px 18px; border-radius:100px;
-      border: 1px solid var(--warm);
-    }
+    .about-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; height: 100%; min-height: 400px; }
+    .about-img-wrap { border-radius: var(--r-md); overflow:hidden; box-shadow: 0 10px 30px rgba(0,0,0,.1); height: 100%; min-height: 250px;}
+    .about-img-wrap:nth-child(2) { margin-top:24px; margin-bottom:-24px; }
+    .about-img-wrap:nth-child(4) { margin-top:-24px; }
+    
+    .single-img-wrap { border-radius: var(--r-md); overflow:hidden; box-shadow: 0 10px 30px rgba(0,0,0,.1); height: 100%; min-height: 400px; }
 
-    .about-imgs {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    .about-img-wrap {
-      border-radius: var(--r-md); overflow:hidden;
-      box-shadow: 0 20px 60px rgba(14,28,20,.10);
-    }
-    .about-img-wrap:nth-child(2) { margin-top:32px; }
-    .about-img-wrap:nth-child(4) { margin-top:-32px; }
-    .about-img-wrap img {
-      width:100%; height:220px; object-fit:cover; display:block;
-      transition: transform .9s cubic-bezier(.16,1,.3,1);
-    }
-    .about-img-wrap:hover img { transform:scale(1.06); }
-
-    /* ─── FOUNDER CALLOUT ────────────────────────────────── */
-    .founder-band {
-      background: var(--ink);
-      padding: 60px 0;
-    }
-    .founder-inner {
-      display: flex; align-items: center; gap: 48px;
-      max-width: 900px; margin: 0 auto;
-    }
-    @media(max-width:700px){ .founder-inner{flex-direction:column; gap:24px; text-align:center;} }
-    .founder-avatar {
-      width: 80px; height: 80px; border-radius:50%;
-      background: var(--mid);
-      display:flex; align-items:center; justify-content:center;
-      font-family:'Cormorant Garamond',serif;
-      font-size:32px; font-weight:700; color:var(--gold);
-      flex-shrink:0;
-      border: 2px solid var(--gold);
-    }
-    .founder-quote {
-      font-family:'Cormorant Garamond',serif;
-      font-size: 22px; font-style:italic; color:var(--cream);
-      line-height:1.5;
-    }
-    .founder-name {
-      font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-      color:var(--gold); margin-top:10px;
-    }
-
-    /* ─── DIFFERENCE / PILLARS ───────────────────────────── */
-    .pillars-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
+    /* ─── PILLARS / FEATURES ─────────────────────────────── */
+    .pillars-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     @media(max-width:768px){ .pillars-grid{grid-template-columns:1fr;} }
 
-    .pillar-card {
-      border-radius: var(--r-lg);
-      padding: 48px;
-      position:relative; overflow:hidden;
-      transition: transform .5s cubic-bezier(.16,1,.3,1), box-shadow .5s;
-    }
-    .pillar-card:hover { transform:translateY(-5px); box-shadow:0 40px 80px rgba(14,28,20,.12); }
+    .pillar-card { border-radius: var(--r-lg); padding: 40px; position:relative; overflow:hidden; }
     .pillar-card.white { background:var(--white); }
-    .pillar-card.dark  { background:var(--forest); }
+    .pillar-card.dark  { background:var(--forest); color: white; }
     .pillar-card.sand  { background:var(--sand); }
     .pillar-card.full  { grid-column:1/-1; }
     @media(max-width:768px){ .pillar-card.full{grid-column:auto;} }
 
-    .pillar-icon {
-      width:52px; height:52px; border-radius:14px;
-      display:flex; align-items:center; justify-content:center;
-      font-size:22px; margin-bottom:24px;
-    }
-    .pillar-icon.light { background:var(--sand); }
-    .pillar-icon.on-dark { background:rgba(255,255,255,.08); }
-
-    .pillar-h { font-size:24px; font-weight:600; margin-bottom:14px; }
-    .pillar-h.light { color:var(--ink); }
-    .pillar-h.on-dark { color:var(--cream); }
-    .pillar-p { font-size:14px; line-height:1.75; }
-    .pillar-p.light { color:var(--muted); }
-    .pillar-p.on-dark { color:rgba(246,243,236,.65); }
-
-    .pillar-accent {
-      font-size:10px; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
-    }
-    .pillar-accent.sage { color:var(--sage); }
-    .pillar-accent.gold { color:var(--gold); }
-
-    /* Big decorative number */
-    .pillar-deco {
-      font-family:'Cormorant Garamond',serif;
-      font-size: 140px; font-weight:700;
-      position:absolute; right:-10px; bottom:-20px;
-      line-height:1; opacity:.06; color:var(--forest); user-select:none;
-    }
-    .pillar-deco.light-text { color:var(--cream); }
-
-    .pillar-stat {
-      margin-top:28px; padding-top:20px;
-      border-top:1px solid rgba(90,138,94,.25);
-    }
-    .pillar-stat-num {
-      font-family:'Cormorant Garamond',serif;
-      font-size:36px; font-weight:600; color:var(--mint);
-    }
-    .pillar-stat-label {
-      font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-      color: rgba(246,243,236,.4); margin-top:4px;
-    }
+    .pillar-h { font-size: 24px; font-weight: 600; margin-bottom: 12px; }
+    .pillar-p { font-size: 15px; line-height: 1.6; opacity: 0.8; }
 
     /* ─── SYSTEMS ────────────────────────────────────────── */
-    .system-row {
-      display: grid; grid-template-columns: 7fr 6fr;
-      align-items: center; gap: 0;
-      margin-bottom: 80px;
-    }
-    .system-row.rev { grid-template-columns: 6fr 7fr; direction:rtl; }
+    .system-row { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 0; margin-bottom: 60px; }
+    .system-row.rev { grid-template-columns: 1fr 1fr; direction:rtl; }
     .system-row.rev > * { direction:ltr; }
-    @media(max-width:900px){ .system-row,.system-row.rev{ grid-template-columns:1fr; direction:ltr; gap:0; margin-bottom:60px; } }
+    @media(max-width:900px){ .system-row, .system-row.rev{ grid-template-columns:1fr; margin-bottom:40px; } }
 
-    .system-img-wrap {
-      border-radius: var(--r-xl);
-      overflow:hidden;
-      box-shadow: 0 32px 80px rgba(14,28,20,.13);
-      position:relative; z-index:0;
-      align-self: stretch;
-    }
-    .system-img-wrap img {
-      width:100%; height:100%; min-height:340px; max-height:520px;
-      object-fit:cover; object-position:center; display:block;
-      transition: transform .9s cubic-bezier(.16,1,.3,1);
-    }
-    .system-img-wrap:hover img { transform:scale(1.04); }
-
-    .system-card {
-      background: var(--white);
-      border-radius: var(--r-xl);
-      padding: 48px;
-      box-shadow: 0 24px 64px rgba(14,28,20,.10);
-      position:relative; z-index:1;
-    }
-    .system-row:not(.rev) .system-card { margin-left:-48px; }
-    .system-row.rev .system-card { margin-right:-48px; }
+    .system-img-wrap { border-radius: var(--r-lg); overflow:hidden; box-shadow: 0 20px 50px rgba(0,0,0,.1); height: 450px; z-index:0; background: #ddd; }
+    .system-card { background: var(--white); border-radius: var(--r-lg); padding: 50px; box-shadow: 0 10px 40px rgba(0,0,0,.1); z-index:1; }
+    
+    .system-row:not(.rev) .system-card { margin-left:-30px; }
+    .system-row.rev .system-card { margin-right:-30px; }
     @media(max-width:900px){
-      .system-row:not(.rev) .system-card, .system-row.rev .system-card {
-        margin:0; border-radius:0 0 var(--r-xl) var(--r-xl);
-      }
-      .system-img-wrap { border-radius:var(--r-xl) var(--r-xl) 0 0; }
+      .system-row:not(.rev) .system-card, .system-row.rev .system-card { margin:0; border-radius:0 0 var(--r-lg) var(--r-lg); margin-top: -20px; padding: 30px;}
+      .system-img-wrap { border-radius:var(--r-lg) var(--r-lg) 0 0; }
     }
 
-    .system-card.dark-card {
-      background: var(--forest);
-    }
+    .system-card.dark-card { background: var(--forest); color: white; }
 
-    .system-price {
-      font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase;
-      background: rgba(196,169,107,.15); color:var(--gold);
-      border: 1px solid rgba(196,169,107,.4);
-      padding: 5px 14px; border-radius:100px; display:inline-block;
-      margin-bottom:16px;
-    }
-    .system-price.on-dark {
-      background: rgba(196,169,107,.12); color:var(--gold-lt);
-      border-color: rgba(196,169,107,.3);
-    }
+    .system-price { font-size:11px; font-weight:700; background: rgba(196,169,107,.2); color:var(--gold); padding: 4px 12px; border-radius:100px; display:inline-block; margin-bottom:12px; letter-spacing: 1px; }
+    .system-features { list-style:none; margin-top: 16px; margin-bottom:24px; }
+    .system-features li { font-size: 14px; padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+    .dark-card .system-features li { border-bottom: 1px solid rgba(255,255,255,0.1); }
 
-    .system-h { font-size:32px; font-weight:600; margin-bottom:14px; }
-    .system-h.light { color:var(--ink); }
-    .system-h.on-dark { color:var(--cream); }
-    .system-p { font-size:14px; line-height:1.75; margin-bottom:20px; }
-    .system-p.light { color:var(--muted); }
-    .system-p.on-dark { color:rgba(246,243,236,.6); }
-
-    .system-features {
-      list-style:none; margin-bottom:28px;
-    }
-    .system-features li {
-      display:flex; align-items:flex-start; gap:10px;
-      font-size:13px; font-weight:600; color:var(--text);
-      padding:6px 0;
-      border-bottom:1px solid var(--sand);
-    }
-    .system-features li:last-child { border-bottom:none; }
-    .system-features li.dark-li { color:rgba(246,243,236,.7); border-color:rgba(255,255,255,.07); }
-    .system-features li .check {
-      width:18px; height:18px; border-radius:50%; flex-shrink:0; margin-top:1px;
-      background: var(--sage); display:flex; align-items:center; justify-content:center;
-    }
-    .system-features li .check svg { width:10px; height:10px; stroke:white; fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
-
-    /* Industrial tandem card */
-    .tandem-block {
-      background: var(--ink);
-      border-radius: var(--r-xl);
-      overflow:hidden;
-      display:grid; grid-template-columns:1fr 1fr;
-      box-shadow: 0 32px 80px rgba(14,28,20,.2);
-    }
-    @media(max-width:900px){ .tandem-block{grid-template-columns:1fr;} }
-    .tandem-content { padding:64px; }
-    @media(max-width:768px){ .tandem-content{padding:40px 32px;} }
-    .tandem-specs {
-      display:grid; grid-template-columns:repeat(3,1fr);
-      gap:12px; margin:28px 0;
-    }
-    .tandem-spec {
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.07);
-      border-radius:14px; padding:18px; text-align:center;
-    }
-    .tandem-spec-num {
-      font-family:'Cormorant Garamond',serif;
-      font-size:28px; font-weight:600; color:var(--cream); display:block;
-    }
-    .tandem-spec-label {
-      font-size:9px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
-      color:var(--sage); display:block; margin-top:4px;
-    }
-    .tandem-feats {
-      list-style:none;
-    }
-    .tandem-feats li {
-      display:flex; align-items:center; gap:10px;
-      font-size:13px; font-weight:600;
-      color:rgba(246,243,236,.6);
-      padding:7px 0; border-bottom:1px solid rgba(255,255,255,.05);
-    }
-    .tandem-feats li:last-child { border-bottom:none; }
-    .tandem-feats li .dot {
-      width:6px; height:6px; border-radius:50%; background:var(--sage); flex-shrink:0;
-    }
-    .tandem-img {
-      position:relative; overflow:hidden;
-    }
-    @media(max-width:900px){ .tandem-img{height:300px;} }
-    .tandem-img img {
-      width:100%; height:100%; object-fit:cover;
-      transition:transform 12s ease;
-    }
-    .tandem-img:hover img { transform:scale(1.05); }
-
-    /* ─── PRICING ────────────────────────────────────────── */
-    .pricing-grid {
-      display:grid; grid-template-columns: repeat(3,1fr);
-      gap:20px; align-items:start;
-    }
-    @media(max-width:900px){ .pricing-grid{grid-template-columns:1fr;} }
-
-    .price-card {
-      border-radius:var(--r-xl); overflow:hidden;
-      box-shadow: 0 20px 60px rgba(14,28,20,.08);
-      transition: transform .5s cubic-bezier(.16,1,.3,1), box-shadow .5s;
-      position:relative;
-    }
-    .price-card:hover { transform:translateY(-6px); box-shadow:0 40px 90px rgba(14,28,20,.14); }
-    .price-card.featured { transform:scale(1.04); }
-    .price-card.featured:hover { transform:scale(1.04) translateY(-6px); }
-
-    .price-card-head {
-      padding:36px 36px 28px;
-    }
-    .price-card.light-card .price-card-head { background:var(--white); }
-    .price-card.dark-card .price-card-head { background:var(--forest); }
-
-    .price-tier {
-      font-size:10px; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
-      color:var(--sage); margin-bottom:8px; display:block;
-    }
-    .price-tier.gold-tier { color:var(--gold); }
-
-    .price-name { font-size:26px; font-weight:600; margin-bottom:4px; }
-    .price-name.on-dark { color:var(--cream); }
-
-    .price-amount {
-      font-family:'Cormorant Garamond',serif;
-      font-size:48px; font-weight:700; color:var(--ink); line-height:1;
-      margin:12px 0 4px;
-    }
-    .price-amount.on-dark { color:var(--cream); }
-    .price-amount .cur { font-size:24px; }
-    .price-amount .suffix { font-family:'Outfit',sans-serif; font-size:14px; color:var(--sage); }
-    .price-note { font-size:11px; color:var(--muted); }
-    .price-note.on-dark { color:rgba(255,255,255,.35); }
-
-    .price-card-body {
-      padding:28px 36px 36px;
-    }
-    .price-card.light-card .price-card-body { background:var(--white); border-top:1px solid var(--sand); }
-    .price-card.dark-card .price-card-body { background:var(--forest); border-top:1px solid rgba(255,255,255,.06); }
-
-    .price-feats { list-style:none; margin-bottom:28px; }
-    .price-feats li {
-      display:flex; align-items:center; gap:10px;
-      font-size:13px; padding:7px 0;
-      border-bottom:1px solid var(--sand);
-    }
-    .price-card.dark-card .price-feats li {
-      color:rgba(246,243,236,.65);
-      border-color:rgba(255,255,255,.05);
-    }
-    .price-feats li:last-child { border-bottom:none; }
-
-    /* ─── TECHNOLOGY FAQ ─────────────────────────────────── */
-    .faq-item {
-      background: var(--white);
-      border-radius:var(--r-md); overflow:hidden;
-      box-shadow: 0 4px 20px rgba(14,28,20,.05);
-      margin-bottom:8px;
-    }
-    .faq-btn {
-      width:100%; display:flex; justify-content:space-between; align-items:center;
-      padding:24px 32px; background:none; border:none; cursor:pointer;
-      text-align:left;
-      font-family:'Outfit',sans-serif; font-size:15px; font-weight:600; color:var(--ink);
-    }
-    .faq-btn svg { flex-shrink:0; transition:transform .35s ease; color:var(--sage); }
-    .faq-btn.open svg { transform:rotate(180deg); }
-    .faq-body {
-      max-height:0; overflow:hidden; transition:max-height .45s cubic-bezier(.16,1,.3,1);
-    }
-    .faq-body.open { max-height:400px; }
-    .faq-body-inner {
-      padding:0 32px 28px;
-      font-size:14px; color:var(--muted); line-height:1.8;
-    }
-
-    /* ─── SPROUT SCIENCE ─────────────────────────────────── */
-    .science-grid {
-      display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
-    }
-    @media(max-width:900px){ .science-grid{grid-template-columns:1fr;} }
-    .science-card {
-      background:var(--white); border-radius:var(--r-lg);
-      padding:40px; box-shadow:0 8px 32px rgba(14,28,20,.06);
-      transition:transform .4s, box-shadow .4s;
-    }
-    .science-card:hover { transform:translateY(-4px); box-shadow:0 24px 60px rgba(14,28,20,.10); }
-    .science-icon { font-size:32px; margin-bottom:20px; display:flex; align-items:center; }
-    .science-h { font-size:20px; font-weight:600; margin-bottom:12px; }
-    .science-p { font-size:13px; color:var(--muted); line-height:1.75; }
-    .science-num {
-      font-family:'Cormorant Garamond',serif;
-      font-size:42px; font-weight:600; color:var(--sage);
-      display:block; margin-top:20px;
-    }
-    .science-num-label {
-      font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-      color:var(--muted);
-    }
-
-    /* ─── TESTIMONIALS ───────────────────────────────────── */
-    .testi-grid {
-      display:grid; grid-template-columns:1fr 1fr; gap:20px;
-    }
-    @media(max-width:768px){ .testi-grid{grid-template-columns:1fr;} }
-
-    .testi-card {
-      border-radius:var(--r-xl); padding:44px;
-      box-shadow:0 16px 50px rgba(14,28,20,.07);
-      transition: transform .4s, box-shadow .4s;
-    }
-    .testi-card:hover { transform:translateY(-4px); box-shadow:0 32px 70px rgba(14,28,20,.12); }
-    .testi-card.white { background:var(--white); }
-    .testi-card.dark  { background:var(--forest); }
-
-    .testi-quote-mark {
-      font-family:'Cormorant Garamond',serif;
-      font-size:80px; line-height:.5;
-      color:var(--sage); opacity:.3; margin-bottom:16px; display:block;
-    }
-    .testi-text {
-      font-family:'Cormorant Garamond',serif;
-      font-size:20px; font-style:italic; line-height:1.6;
-      margin-bottom:28px;
-    }
-    .testi-text.light { color:var(--ink); }
-    .testi-text.on-dark { color:rgba(246,243,236,.9); }
-
-    .testi-meta {
-      display:flex; align-items:center; gap:14px;
-      padding-top:20px; border-top:1px solid var(--sand);
-    }
-    .testi-card.dark .testi-meta { border-color:rgba(255,255,255,.08); }
-    .testi-avatar {
-      width:44px; height:44px; border-radius:50%; flex-shrink:0;
-      background:var(--sand);
-      display:flex; align-items:center; justify-content:center;
-      font-family:'Cormorant Garamond',serif;
-      font-size:18px; font-weight:700; color:var(--forest);
-    }
-    .testi-card.dark .testi-avatar { background:rgba(255,255,255,.08); color:var(--mint); }
-    .testi-name { font-size:14px; font-weight:700; color:var(--ink); }
-    .testi-card.dark .testi-name { color:var(--cream); }
-    .testi-location { font-size:11px; font-weight:600; letter-spacing:.04em; color:var(--sage); }
-    .testi-stars { color:var(--gold); font-size:12px; margin-bottom:3px; }
-
-    /* ─── GALLERY ────────────────────────────────────────── */
-    .gallery-masonry {
-      display:grid;
-      grid-template-columns:repeat(4, 1fr);
-      grid-template-rows:auto auto;
-      gap:12px;
-    }
-    @media(max-width:768px){ .gallery-masonry{grid-template-columns:repeat(2,1fr);} }
-    .gal-item {
-      border-radius:var(--r-md); overflow:hidden;
-      box-shadow:0 8px 24px rgba(14,28,20,.08);
-    }
-    .gal-item:nth-child(1) { grid-row:span 2; }
-    .gal-item:nth-child(5) { grid-row:span 2; }
-    .gal-item img {
-      width:100%; height:100%; object-fit:cover; display:block;
-      transition:transform .9s cubic-bezier(.16,1,.3,1);
-    }
-    .gal-item:hover img { transform:scale(1.06); }
-    .gal-item:nth-child(1) img,
-    .gal-item:nth-child(5) img { height:auto; min-height:280px; }
-
-    /* ─── CONTACT ────────────────────────────────────────── */
-    .contact-wrap {
-      background:var(--white);
-      border-radius:var(--r-xl);
-      overflow:hidden;
-      display:grid; grid-template-columns:5fr 7fr;
-      box-shadow:0 40px 100px rgba(14,28,20,.12);
-    }
+    /* ─── CONTACT & FOOTER ───────────────────────────────── */
+    .contact-wrap { background:var(--white); border-radius:var(--r-lg); overflow:hidden; display:grid; grid-template-columns:1fr 1fr; box-shadow:0 20px 60px rgba(0,0,0,.1); }
     @media(max-width:900px){ .contact-wrap{grid-template-columns:1fr;} }
+    .contact-left { background:var(--forest); padding:50px; color: white; }
+    .contact-right { padding:50px; }
+    
+    .form-input { width:100%; border:none; border-bottom:2px solid var(--sand); padding:10px 0; font-family:inherit; font-size:15px; outline:none; margin-bottom: 20px;}
 
-    .contact-left {
-      background:var(--forest);
-      padding:64px 52px;
-      display:flex; flex-direction:column; justify-content:space-between;
-    }
-    @media(max-width:768px){ .contact-left{padding:48px 36px;} }
+    footer { padding: 40px 0; background:var(--ink); color: white; text-align: center; font-size: 13px; }
+    .footer-agency { color: var(--mint); font-weight: 600; margin-top: 10px; letter-spacing: 1px; }
 
-    .contact-h {
-      font-family:'Cormorant Garamond',serif;
-      font-size:52px; font-weight:600; color:var(--cream);
-      line-height:1.05; margin-bottom:16px;
-    }
-    .contact-sub { font-size:15px; color:rgba(246,243,236,.55); line-height:1.7; margin-bottom:48px; }
-    .contact-info-group { margin-bottom:32px; }
-    .contact-info-label {
-      font-size:9px; font-weight:800; letter-spacing:.16em; text-transform:uppercase;
-      color:var(--gold); margin-bottom:10px; display:block;
-    }
-    .contact-info-text {
-      font-size:14px; color:rgba(246,243,236,.75); line-height:1.7;
-    }
-    .contact-info-text a {
-      color:inherit; text-decoration:none;
-      transition:color .25s;
-    }
-    .contact-info-text a:hover { color:var(--mint); }
-
-    .contact-socials { display:flex; gap:10px; }
-    .contact-social {
-      width:38px; height:38px; border-radius:50%;
-      background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1);
-      display:flex; align-items:center; justify-content:center;
-      color:rgba(246,243,236,.6); text-decoration:none; font-size:12px; font-weight:700;
-      transition:all .3s;
-    }
-    .contact-social:hover { background:var(--sage); color:white; border-color:var(--sage); }
-
-    .contact-right { padding:64px 52px; }
-    @media(max-width:768px){ .contact-right{padding:48px 36px;} }
-    .contact-form-h {
-      font-size:28px; font-weight:600; margin-bottom:36px;
-    }
-
-    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:24px; }
-    @media(max-width:600px){ .form-row{grid-template-columns:1fr;} }
-    .form-field { margin-bottom:0; }
-    .form-field-single { margin-bottom:24px; }
-    .form-label {
-      display:block; font-size:10px; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
-      color:var(--sage); margin-bottom:8px;
-    }
-    .form-input, .form-select, .form-textarea {
-      width:100%; background:transparent;
-      border:none; border-bottom:2px solid var(--sand);
-      padding:10px 0; font-family:'Outfit',sans-serif; font-size:15px; color:var(--ink);
-      outline:none; transition:border-color .3s; resize:none;
-      appearance:none;
-    }
-    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color:var(--forest); }
-    .form-select { cursor:pointer; }
-
-    #form-success {
-      display:none; text-align:center;
-      font-size:13px; font-weight:700; color:var(--sage);
-      letter-spacing:.04em; margin-top:16px;
-    }
-
-    /* ─── FOOTER ─────────────────────────────────────────── */
-    footer {
-      padding:40px 0;
-      border-top:1px solid var(--sand);
-      background:var(--cream);
-    }
-    .footer-inner {
-      display:flex; justify-content:space-between; align-items:center;
-      gap:20px; flex-wrap:wrap;
-    }
-    .footer-logo {
-      font-family:'Cormorant Garamond',serif;
-      font-size:20px; font-weight:700; color:var(--ink);
-    }
-    .footer-logo span:first-of-type { color: var(--sage); }
-    .footer-logo span:last-of-type  { color: var(--mint); }
-    .footer-copy {
-      font-size:12px; color:var(--muted); font-weight:500; text-align:center;
-    }
-    .footer-links { display:flex; gap:20px; }
-    .footer-links a {
-      font-size:12px; font-weight:600; color:var(--muted);
-      text-decoration:none; transition:color .25s;
-    }
-    .footer-links a:hover { color:var(--ink); }
-
-    /* ─── REVEAL ─────────────────────────────────────────── */
-    .r {
-      opacity:0; transform:translateY(32px);
-      transition:opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1);
-    }
+    /* ─── REVEAL ANIMATIONS ──────────────────────────────── */
+    .r { opacity:0; transform:translateY(20px); transition:all .8s ease; }
     .r.visible { opacity:1; transform:translateY(0); }
-    .r-d1 { transition-delay:.08s; }
-    .r-d2 { transition-delay:.18s; }
-    .r-d3 { transition-delay:.28s; }
-    .r-d4 { transition-delay:.38s; }
-
-    /* ─── SCROLL INDICATOR ───────────────────────────────── */
-    .scroll-line {
-      width:1px; height:60px; background:var(--sand);
-      position:relative; overflow:hidden;
-      display:inline-block; margin:0 auto;
-    }
-    .scroll-line::after {
-      content:''; position:absolute; top:-100%; left:0;
-      width:1px; height:100%;
-      background: linear-gradient(to bottom, transparent, var(--gold));
-      animation: scrollDrop 2.2s ease-in-out infinite;
-    }
-    @keyframes scrollDrop {
-      0%{top:-100%} 100%{top:200%}
-    }
-    .scroll-hint {
-      display:flex; flex-direction:column; align-items:center; gap:8px;
-      position:absolute; bottom:40px; left:50%; transform:translateX(-50%);
-      z-index:5;
-    }
-    .scroll-text {
-      font-size:9px; font-weight:800; letter-spacing:.18em; text-transform:uppercase;
-      color:var(--gold); writing-mode:vertical-lr;
-    }
-    @media(max-width:900px){ .scroll-hint{display:none;} }
-
-    /* ─── IMAGE MISSING FALLBACK ─────────────────────────── */
-    img { display:block; }
-
-    @keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
   </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════════════
-     NAV
-══════════════════════════════════════════════════════ -->
 <nav id="nav">
-  <div class="container">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">Green<span> Sprouts</span><span> Solutions</span></a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#video">Video</a></li>
-        <li><a href="#difference">Technology</a></li>
-        <li><a href="#systems">Systems</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#testimonials">Clients</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-      </ul>
-      <a href="#contact" class="btn btn-dark" style="padding:12px 24px;">
-        <span>Get a Quote</span>
-        <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-    </div>
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">Green<span> Sprouts</span><span> Solutions</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#difference">Why Us</a></li>
+      <li><a href="#systems">Boosters</a></li>
+      <li><a href="#greenhouses">Greenhouses</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-dark" style="padding:10px 24px;">Contact Us</a>
   </div>
 </nav>
 
-
-<!-- ══════════════════════════════════════════════════════
-     HERO
-══════════════════════════════════════════════════════ -->
 <section id="hero">
-  <div class="hero-bg"></div>
-
-  <!-- scroll hint -->
-  <div class="scroll-hint">
-    <span class="scroll-text">Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
-
   <div class="container" style="display:contents;">
-
-    <!-- Left -->
     <div class="hero-left container r">
       <div class="hero-eyebrow">
         <div class="hero-eyebrow-line"></div>
-        <span class="hero-eyebrow-text">Est. 20+ Years · George, Western Cape, RSA</span>
+        <span class="hero-eyebrow-text">Market Leader in Green Feed Systems</span>
       </div>
-
-      <h1 class="hero-h1">
-        The new standard<br>in <em>green feed</em><br>technology.
-      </h1>
-
-      <p class="hero-sub">
-        Manufacturers and suppliers of hydroponic fodder systems, green feed boosters, and hothouses — engineered for African climates with over 600 successful installations across the continent.
-      </p>
-      <p class="hero-lang">Enquiries welcome in English &amp; Afrikaans.</p>
-
+      <h1 class="hero-h1">More than 600 units <br><em>installed worldwide.</em></h1>
+      <p class="hero-sub">We are a specialist company in Product Manufacturing and Feeding Solutions. Our systems can withstand harsh and extreme weather conditions to produce nutrient-dense greenfeed all year round.</p>
       <div class="hero-actions">
-        <a href="#systems" class="btn btn-dark">
-          <span>Explore Systems</span>
-          <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-        <a href="#contact" class="btn btn-ghost">
-          <span>Contact Us</span>
-        </a>
+        <a href="#systems" class="btn btn-dark">Explore Systems</a>
+        <a href="#about" class="btn btn-ghost">Our Mission</a>
       </div>
     </div>
-
-    <!-- Right — image -->
     <div class="hero-right">
       <div class="hero-img-wrap">
-        <img
-          src="https://static.wixstatic.com/media/e85c6c_c70932245a644945ac4435c0a13a4b8a~mv2.jpg/v1/fill/w_1400,h_900,al_c,q_90,enc_avif,quality_auto/e85c6c_c70932245a644945ac4435c0a13a4b8a~mv2.jpg"
-          alt="Green Sprouts Hydroponic Fodder System — Inside view"
-          onerror="this.src='https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=1200'"
-        >
-      </div>
-
-      <!-- Floating stats -->
-      <div class="hero-stat hero-stat-1">
-        <div class="hs-num">600<span style="font-family:Outfit,sans-serif;font-size:20px;color:var(--sage)">+</span></div>
-        <div class="hs-label">Units Installed</div>
-      </div>
-      <div class="hero-stat hero-stat-2">
-        <div class="hs-num">7<span style="font-family:Outfit,sans-serif;font-size:18px;color:var(--sage)">day</span></div>
-        <div class="hs-label">Feed Cycle</div>
+        <img class="object-cover-fix" src="image_57ee3f.png" alt="Green Sprouts Trays Inside">
       </div>
     </div>
-
   </div>
 </section>
 
-
-<!-- ══════════════════════════════════════════════════════
-     MARQUEE
-══════════════════════════════════════════════════════ -->
 <div class="marquee-bar">
   <div class="marquee-track">
     <span class="marquee-item">💧 Low Water Usage <span class="marquee-dot"></span></span>
-    <span class="marquee-item">☀️ Natural Sunlight Driven <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🦠 SporeBuster Technology <span class="marquee-dot"></span></span>
-    <span class="marquee-item">⚡ Low Electricity Running Cost <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🛡️ Patented Innovation <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🌍 600+ African Installations <span class="marquee-dot"></span></span>
-    <span class="marquee-item">☀️ Solar Options Available <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🌿 University-Verified Nutrients <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🐑 Feeds Sheep · Goats · Cattle · Pigs · Chickens <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🏭 Manufactured in George, RSA <span class="marquee-dot"></span></span>
-    <!-- duplicate for seamless loop -->
+    <span class="marquee-item">☀️ No Yellow Colouring (Natural Sunlight) <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🦠 No Moulding (SporeBuster) <span class="marquee-dot"></span></span>
+    <span class="marquee-item">⚡ Low Electricity <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🛡️ Patented Technology <span class="marquee-dot"></span></span>
+    <span class="marquee-item">☀️ Solar Options <span class="marquee-dot"></span></span>
     <span class="marquee-item">💧 Low Water Usage <span class="marquee-dot"></span></span>
-    <span class="marquee-item">☀️ Natural Sunlight Driven <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🦠 SporeBuster Technology <span class="marquee-dot"></span></span>
-    <span class="marquee-item">⚡ Low Electricity Running Cost <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🛡️ Patented Innovation <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🌍 600+ African Installations <span class="marquee-dot"></span></span>
-    <span class="marquee-item">☀️ Solar Options Available <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🌿 University-Verified Nutrients <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🐑 Feeds Sheep · Goats · Cattle · Pigs · Chickens <span class="marquee-dot"></span></span>
-    <span class="marquee-item">🏭 Manufactured in George, RSA <span class="marquee-dot"></span></span>
+    <span class="marquee-item">☀️ No Yellow Colouring (Natural Sunlight) <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🦠 No Moulding (SporeBuster) <span class="marquee-dot"></span></span>
+    <span class="marquee-item">⚡ Low Electricity <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🛡️ Patented Technology <span class="marquee-dot"></span></span>
+    <span class="marquee-item">☀️ Solar Options <span class="marquee-dot"></span></span>
   </div>
 </div>
 
-
-<!-- ══════════════════════════════════════════════════════
-     STATS
-══════════════════════════════════════════════════════ -->
-<div class="stats-strip">
-  <div class="container">
-    <div class="stats-grid r">
-      <div class="stat-item">
-        <span class="stat-num">600<span class="stat-suffix">+</span></span>
-        <span class="stat-label">Units Installed</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">20<span class="stat-suffix">+</span></span>
-        <span class="stat-label">Years Manufacturing</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">15<span class="stat-suffix">ha</span></span>
-        <span class="stat-label">Water Equivalent Saved</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">7<span class="stat-suffix" style="font-size:28px">day</span></span>
-        <span class="stat-label">Greenfeed Cycle</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ══════════════════════════════════════════════════════
-     ABOUT
-══════════════════════════════════════════════════════ -->
 <section id="about" class="section">
   <div class="container">
     <div class="about-grid">
-
       <div class="r">
         <div class="section-label">
           <div class="section-label-line"></div>
-          <span class="section-label-text">Market Leader in Green Feed</span>
+          <span class="section-label-text">About Us</span>
         </div>
-        <h2 class="section-h2" style="margin-bottom:24px;">
-          Africa's most trusted <em>fodder innovator.</em>
-        </h2>
-        <p class="about-body">
-          Green Sprouts Solutions is a South African manufacturer of hydroponic fodder systems, biobooster systems, and hothouses, supplying farmers across Africa from our manufacturing facility in George, Western Cape. We have been engineering green feed solutions for over two decades, driven by a singular mission: to make high-quality, nutritious livestock feed accessible and affordable.
-        </p>
-        <p class="about-body" style="margin-top:16px;">
-          Our systems produce year-round greenfeed within 7 days without the need for a pivot or ploughing fields. We partner with university professors to develop precise feeding rations that maximise profit margins for our clients across different geographical regions.
-        </p>
-        <p class="about-body" style="margin-top:16px;">
-          The company was founded by Vivian Beukes, whose engineering background and expertise in bacterial science shaped a product category that has transformed African livestock farming. Green Sprouts Solutions has successfully installed systems all over the country and across the continent.
-        </p>
-        <div class="about-badges">
-          <span class="badge">Patented Technology</span>
-          <span class="badge">Solar-Ready Systems</span>
-          <span class="badge">University Verified</span>
-          <span class="badge">Pan-African Supply</span>
-          <span class="badge">Delivery &amp; Installation</span>
-          <span class="badge">George, Western Cape</span>
-        </div>
+        <h2 class="section-h2" style="margin-bottom:20px;">Grow good... <em>in all aspects of life.</em></h2>
+        <p class="about-body">Green Sprouts Solutions has been around for more than 20 years, affording us the opportunity to become experts in sprouting technology and hothouse design.</p>
+        <p class="about-body"><strong>Our Vision:</strong> To introduce a sufficient skills and development program to all the people of Africa, ensuring they become empowered to be self-sustainable.</p>
+        <p class="about-body"><strong>Our Mission:</strong> By way of expertise and a positive spirit of enterprise and enthusiasm, we create products that will be beneficial in all spheres of life.</p>
+        <p class="about-body">Founder <strong>Vivian Beukes</strong> set out with his engineering background and bacterial expertise to solve the most pressing issues faced by the industry. Today, farmers who have invested in our system agree it has revolutionized the way we feed livestock worldwide.</p>
       </div>
-
-      <div class="about-imgs r r-d2">
-        <div class="about-img-wrap">
-          <img src="https://static.wixstatic.com/media/e85c6c_1c18254b42a74c85a837c7bdb620f23d~mv2.jpg/v1/fill/w_600,h_600,al_c,q_90,enc_avif,quality_auto/e85c6c_1c18254b42a74c85a837c7bdb620f23d~mv2.jpg" alt="Green Sprouts System Interior" onerror="this.src='https://images.pexels.com/photos/3076009/pexels-photo-3076009.jpeg?auto=compress&cs=tinysrgb&w=600'">
-        </div>
-        <div class="about-img-wrap">
-          <img src="https://static.wixstatic.com/media/e85c6c_c70932245a644945ac4435c0a13a4b8a~mv2.jpg/v1/fill/w_600,h_600,al_c,q_90,enc_avif,quality_auto/e85c6c_c70932245a644945ac4435c0a13a4b8a~mv2.jpg" alt="Hydroponic Fodder Trays" onerror="this.src='https://images.pexels.com/photos/1105019/pexels-photo-1105019.jpeg?auto=compress&cs=tinysrgb&w=600'">
-        </div>
-        <div class="about-img-wrap">
-          <img src="https://static.wixstatic.com/media/e85c6c_20cb6ca84760487b91f20f41ba6e7bbc~mv2.jpg/v1/fill/w_600,h_600,al_c,q_90,enc_avif,quality_auto/e85c6c_20cb6ca84760487b91f20f41ba6e7bbc~mv2.jpg" alt="Green Feed Booster System" onerror="this.src='https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=600'">
-        </div>
-        <div class="about-img-wrap">
-          <img src="https://static.wixstatic.com/media/e85c6c_52c661f339e444ea8df524ea35f64189~mv2.jpg/v1/fill/w_600,h_600,al_c,q_90,enc_avif,quality_auto/e85c6c_52c661f339e444ea8df524ea35f64189~mv2.jpg" alt="Sprout Booster Interior View" onerror="this.src='https://images.pexels.com/photos/3076009/pexels-photo-3076009.jpeg?auto=compress&cs=tinysrgb&w=600'">
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════
-     FOUNDER CALLOUT
-══════════════════════════════════════════════════════ -->
-<div class="founder-band">
-  <div class="container">
-    <div class="founder-inner r">
-      <div class="founder-avatar">V</div>
-      <div>
-        <p class="founder-quote">"From an early start, the goal has always been to develop a product that is both cost-effective and efficient — one that becomes a genuine asset to every client."</p>
-        <p class="founder-name">Vivian Beukes — Founder &amp; Owner, Green Sprouts Solutions</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ══════════════════════════════════════════════════════
-     VIDEO SECTION
-══════════════════════════════════════════════════════ -->
-<section id="video" class="section" style="background:var(--ink); padding-top:100px; padding-bottom:100px;">
-  <div class="container">
-    <div class="r" style="text-align:center; margin-bottom:52px;">
-      <div class="section-label" style="justify-content:center;">
-        <div class="section-label-line"></div>
-        <span class="section-label-text" style="color:var(--gold-lt);">See It in Action</span>
-        <div class="section-label-line"></div>
-      </div>
-      <h2 class="section-h2 light" style="margin-top:16px; color:var(--cream);">Watch our system <em style="color:var(--mint);">work.</em></h2>
-      <p style="font-size:16px; color:rgba(246,243,236,.5); margin-top:14px; max-width:520px; margin-left:auto; margin-right:auto; line-height:1.7;">
-        See how our hydroponic fodder booster produces nutrient-dense greenfeed in 7 days — straight from the source in George, Western Cape.
-      </p>
-    </div>
-
-    <!-- Video embed wrapper -->
-    <div class="r" style="max-width:960px; margin:0 auto; position:relative;">
-      <!-- Decorative glow behind video -->
-      <div style="position:absolute; inset:-24px; background:radial-gradient(ellipse at center, rgba(90,138,94,.18) 0%, transparent 70%); pointer-events:none; border-radius:80px;"></div>
-
-      <div style="position:relative; border-radius:32px; overflow:hidden; box-shadow:0 48px 120px rgba(0,0,0,.55), 0 8px 32px rgba(0,0,0,.3);">
-        <!-- Gold border ring -->
-        <div style="position:absolute; inset:0; border:1px solid rgba(196,169,107,.2); border-radius:32px; z-index:2; pointer-events:none;"></div>
-
-        <!-- YouTube embed — channel UCeJ1ZbTpIpBVisb8fllV6WA -->
-        <!-- The src below loads their channel's latest/featured video. -->
-        <!-- If you have the specific video ID, replace VIDEO_ID in the src. -->
-        <div id="video-container" style="position:relative; padding-bottom:56.25%; height:0; background:var(--forest);">
-
-          <!-- Custom play overlay — shown before user clicks -->
-          <div id="video-overlay" onclick="loadVideo()" style="
-            position:absolute; inset:0; z-index:10; cursor:pointer;
-            display:flex; flex-direction:column; align-items:center; justify-content:center;
-            background:linear-gradient(135deg, #0E1C14 0%, #163320 60%, #1f4a2a 100%);
-          ">
-            <!-- Poster image -->
-            <img
-              src="https://static.wixstatic.com/media/e85c6c_b99740aebfa64b19bdad7fff5b1ff52e~mv2_d_6000_4000_s_4_2.jpg/v1/fill/w_1200,h_675,al_c,q_90,enc_avif,quality_auto/e85c6c_b99740aebfa64b19bdad7fff5b1ff52e~mv2_d_6000_4000_s_4_2.jpg"
-              alt="Green Sprouts Solutions — Product Video"
-              style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35;"
-              onerror="this.style.display='none'"
-            >
-            <!-- Play button -->
-            <div style="
-              position:relative; z-index:2;
-              width:80px; height:80px; border-radius:50%;
-              background:var(--gold);
-              display:flex; align-items:center; justify-content:center;
-              box-shadow:0 0 0 16px rgba(196,169,107,.15), 0 0 0 32px rgba(196,169,107,.07);
-              transition:transform .3s, box-shadow .3s;
-              margin-bottom:24px;
-            " id="play-btn">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--ink)" style="margin-left:4px;">
-                <polygon points="5 3 19 12 5 21 5 3"/>
-              </svg>
-            </div>
-            <p style="position:relative;z-index:2;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(246,243,236,.7);">Play Video</p>
-            <p style="position:relative;z-index:2;font-size:11px;color:rgba(246,243,236,.35);margin-top:6px;letter-spacing:.04em;">Green Sprouts Solutions — George, RSA</p>
-          </div>
-
-          <!-- iframe loads on click -->
-          <iframe
-            id="yt-iframe"
-            style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;display:none;"
-            src=""
-            title="Green Sprouts Solutions — Hydroponic Fodder System"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
-
-      <!-- Caption strip below video -->
-      <div style="display:flex; justify-content:center; gap:40px; margin-top:32px; flex-wrap:wrap;">
-        <div style="text-align:center;">
-          <span style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--cream);display:block;">7 Days</span>
-          <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);">Seed to Feed</span>
-        </div>
-        <div style="width:1px;background:rgba(255,255,255,.08);"></div>
-        <div style="text-align:center;">
-          <span style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--cream);display:block;">300kg</span>
-          <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);">From 50kg Seed</span>
-        </div>
-        <div style="width:1px;background:rgba(255,255,255,.08);"></div>
-        <div style="text-align:center;">
-          <span style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--cream);display:block;">600+</span>
-          <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);">Installations</span>
-        </div>
-        <div style="width:1px;background:rgba(255,255,255,.08);"></div>
-        <div style="text-align:center;">
-          <a href="https://www.youtube.com/@greensproutssolutions1887" target="_blank" rel="noopener" style="
-            font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--gold);
-            display:block;text-decoration:none;transition:color .25s;
-          " onmouseover="this.style.color='var(--gold-lt)'" onmouseout="this.style.color='var(--gold)'">YT ↗</a>
-          <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);">Our Channel</span>
-        </div>
+      <div class="about-imgs r">
+        <div class="about-img-wrap"><img class="object-cover-fix" src="image_57ee61.png" alt="Green Sprouts Expo"></div>
+        <div class="about-img-wrap"><img class="object-cover-fix" src="image_57eb58.png" alt="System Construction"></div>
+        <div class="about-img-wrap"><img class="object-cover-fix" src="image_57e315.png" alt="System Installation"></div>
+        <div class="about-img-wrap"><img class="object-cover-fix" src="image_57e036.png" alt="Building Extension"></div>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ══════════════════════════════════════════════════════
-     DIFFERENCE / PILLARS
-══════════════════════════════════════════════════════ -->
-<section id="difference" class="section">
+<section class="section bg-forest">
   <div class="container">
-    <div class="r" style="margin-bottom:56px; max-width:600px;">
-      <div class="section-label">
-        <div class="section-label-line"></div>
-        <span class="section-label-text">What Sets Us Apart</span>
+    <div class="about-grid">
+      <div class="single-img-wrap r">
+        <img class="object-cover-fix" src="image_57eef7.png" alt="Manufacturing Facility">
       </div>
-      <h2 class="section-h2">Uncompromising <em>quality.</em></h2>
-      <p style="font-size:16px;color:var(--muted);margin-top:14px;line-height:1.7;">Four engineering pillars that separate Green Sprouts from the rest of the market.</p>
-    </div>
-
-    <div class="pillars-grid r">
-
-      <!-- Cost — full width -->
-      <div class="pillar-card white full">
-        <div class="pillar-deco">$</div>
-        <div class="pillar-icon light">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--forest)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-          </svg>
+      <div class="r">
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span class="section-label-text" style="color:var(--gold-lt);">Manufacturing Facility</span>
         </div>
-        <span class="pillar-accent sage">Cost Efficiency</span>
-        <h3 class="pillar-h light" style="margin-top:8px;">Designed to protect your profit.</h3>
-        <p class="pillar-p light" style="max-width:680px;">
-          It is futile to develop an expensive system that will erode any potential profit gain. Our cleverly designed cooling system eliminates the need for expensive air-conditioners entirely. Due to our very low energy consumption, clients can install a far more cost-effective solar system — proving to be a true game changer for the African market. A 50kg bag of seed can produce 300kg of green nutrient-dense feed in just 6–7 days.
-        </p>
-      </div>
-
-      <!-- Water -->
-      <div class="pillar-card dark">
-        <div class="pillar-deco light-text" style="right:-5px; bottom:-10px; font-size:100px; font-family:'Cormorant Garamond',serif;">~</div>
-        <div class="pillar-icon on-dark">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(246,243,236,0.85)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C6 9 4 13 4 16a8 8 0 0 0 16 0c0-3-2-7-8-14z"/>
-          </svg>
-        </div>
-        <span class="pillar-accent gold">Water Efficiency</span>
-        <h3 class="pillar-h on-dark" style="margin-top:8px;">Water scarcity solved.</h3>
-        <p class="pillar-p on-dark">
-          Water is becoming a scarce commodity across Africa. Irrigated land uses enormous amounts. Our standard booster system produces the equivalent of 15 hectares of irrigated land — redefining water efficiency for African agriculture and dramatically reducing your operational water costs.
-        </p>
-        <div class="pillar-stat">
-          <span class="pillar-stat-num">≡ 15ha</span>
-          <div class="pillar-stat-label">Irrigated land equivalent per standard unit</div>
-        </div>
-      </div>
-
-      <!-- Fungi -->
-      <div class="pillar-card sand">
-        <div class="pillar-icon light">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--forest)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            <line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-          </svg>
-        </div>
-        <span class="pillar-accent sage">Mould Elimination</span>
-        <h3 class="pillar-h light" style="margin-top:8px;">Fungi &amp; Mould Eliminated.</h3>
-        <p class="pillar-p light">
-          By sticking to nature and using our patented cladding that allows the right amount of sunlight through, combined with our organic bacterial product <strong>SporeBuster</strong>, we have all but eliminated moulding. Our system achieves temperature variation inside — impossible with air-conditioners — which is the key to eliminating spores at the source.
-        </p>
-        <div style="margin-top:20px;">
-          <span class="tag">SporeBuster Technology</span>
-        </div>
-      </div>
-
-      <!-- Nutrients — full width -->
-      <div class="pillar-card white full">
-        <div class="pillar-deco" style="font-family:'Cormorant Garamond',serif;font-size:120px;">∑</div>
-        <div class="pillar-icon light">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--forest)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
-          </svg>
-        </div>
-        <span class="pillar-accent sage">University-Verified Nutrition</span>
-        <h3 class="pillar-h light" style="margin-top:8px;">Real science. Real results.</h3>
-        <p class="pillar-p light" style="max-width:760px;">
-          Sprouted fodder technology has had to overcome uneducated claims that livestock can thrive on sprouted fodder alone. We have found this to simply not be true. That is why we enrolled university professors to formulate precise feeding rations that include but are not limited to fodder. Rations are varied based on geographic location to reduce costs and increase client profit margins — redeeming the hydroponic fodder system through real science.
-        </p>
-        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;">
-          <span class="badge">Partner Universities</span>
-          <span class="badge">Geographic Ration Profiling</span>
-          <span class="badge">Profit-First Formulation</span>
-          <span class="badge">Barley · Wheat · Maize · Oats</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════
-     SPROUTING SCIENCE
-══════════════════════════════════════════════════════ -->
-<section id="science" class="section-sm bg-sand">
-  <div class="container">
-    <div class="r" style="margin-bottom:48px; text-align:center;">
-      <div class="section-label" style="justify-content:center;">
-        <div class="section-label-line"></div>
-        <span class="section-label-text">The Science of Sprouting</span>
-        <div class="section-label-line"></div>
-      </div>
-      <h2 class="section-h2" style="margin-top:14px;">Why sprouted fodder <em>works.</em></h2>
-    </div>
-
-    <div class="science-grid r">
-      <div class="science-card">
-        <span class="science-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2a5 5 0 0 1 5 5v3H7V7a5 5 0 0 1 5-5z"/><rect x="5" y="10" width="14" height="11" rx="2"/>
-            <line x1="12" y1="14" x2="12" y2="18"/>
-          </svg>
-        </span>
-        <h3 class="science-h">Seed Becomes Feed</h3>
-        <p class="science-p">A 50kg bag of seed sprouts into approximately 300kg of green nutrient-dense fodder in just 6–7 days. The sprout mat is completely edible — animals eat the entire mat, roots and green growth, so there is zero waste.</p>
-        <span class="science-num">300kg</span>
-        <span class="science-num-label">Yield from 50kg seed</span>
-      </div>
-      <div class="science-card">
-        <span class="science-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-          </svg>
-        </span>
-        <h3 class="science-h">Dramatically Improved Digestibility</h3>
-        <p class="science-p">Barley's digestibility jumps from 41% to 81% through sprouting. Crude protein rises from 12.7% to 15.6% after 7 days of germination. Crude fibre increases from 5.5% to 14.2%, improving gut function in all livestock.</p>
-        <span class="science-num">81%</span>
-        <span class="science-num-label">Digestibility after sprouting (vs. 41% dry)</span>
-      </div>
-      <div class="science-card">
-        <span class="science-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"/>
-            <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-          </svg>
-        </span>
-        <h3 class="science-h">Chlorophyll &amp; Vitamin D3</h3>
-        <p class="science-p">Natural sunlight in our cladding system ensures the plants are loaded with chlorophyll and vitamin D3 — both essential for healthier livestock. Artificial lighting cannot replicate this effect, and it introduces mould risk and electricity cost.</p>
-        <span class="science-num">D3+</span>
-        <span class="science-num-label">Chlorophyll-rich, vitamin-enhanced plants</span>
+        <h2 class="section-h2 light" style="margin-bottom:20px;">Quality control at <em>every step.</em></h2>
+        <p class="about-body">The material used in the Green Sprouts Booster Systems has proven its fantastic durability. Both our production process and our sheeting material have been patented.</p>
+        <p class="about-body">We keep a constant eye on quality. Each manufacturing line undergoes a thorough examination and quality check, ensuring no sub-standard materials ever leave the assembly line.</p>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ══════════════════════════════════════════════════════
-     SYSTEMS
-══════════════════════════════════════════════════════ -->
-<section id="systems" class="section">
-  <div class="container">
-    <div class="r" style="margin-bottom:72px; max-width:600px;">
-      <div class="section-label">
-        <div class="section-label-line"></div>
-        <span class="section-label-text">Fodder Production Systems</span>
-      </div>
-      <h2 class="section-h2" style="margin-top:14px;">Every system. <em>Built to last.</em></h2>
-      <p style="font-size:16px;color:var(--muted);margin-top:16px;line-height:1.75;">
-        Every booster is built with UV- and heat-stabilised polymer, stainless steel fasteners, and our patented cladding — hail resistant, rust-free, chemical proof, and engineered for the African climate. Cladding will not discolour, and material withstands all cleaning agents.
-      </p>
-    </div>
-
-    <!-- Econo & NextGen Econo — actual exterior photo of the econo unit -->
-    <div class="system-row r">
-      <div class="system-img-wrap">
-        <img
-          src="https://static.wixstatic.com/media/e85c6c_52c661f339e444ea8ed2c51f4cb96~mv2.jpg/v1/fill/w_980,al_c,q_90,enc_avif,quality_auto/e85c6c_52c661f339e444ea8ed2c51f4cb96~mv2.jpg"
-          alt="Econo Booster and NextGen Econo Booster"
-          onerror="this.src='https://static.wixstatic.com/media/e85c6c_52c661f339e444ea8df524ea35f64189~mv2.jpg/v1/fill/w_980,al_c,q_90,enc_avif,quality_auto/e85c6c_52c661f339e444ea8df524ea35f64189~mv2.jpg'"
-        >
-      </div>
-      <div class="system-card">
-        <span class="system-price">From R32,000.00</span>
-        <h3 class="system-h light">Econo Booster &amp; NextGen Econo</h3>
-        <p class="system-p light">Our most affordable entry-level boosters — ideal for farmers starting out. Capable of feeding 20 sheep/goats or 200 chickens. Roof and sides constructed with high-quality UV- and heat-stabilised polymer and stainless steel fasteners. The patented cladding allows essential sun rays through, producing chlorophyll-rich, vitamin D3-loaded plants without any growing lights, keeping running costs minimal.</p>
-        <ul class="system-features">
-          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Feeds 20 sheep/goats or 200 chickens</li>
-          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Hail resistant · No rust · No discolouration</li>
-          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Chemical proof — withstands all cleaning agents</li>
-          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> All pumps, plumbing &amp; electrical box included</li>
-          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Zero growing lights — solar-compatible</li>
-          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Minimal labour input required</li>
-        </ul>
-        <a href="#contact" class="btn btn-dark">
-          <span>Request a Quote</span>
-          <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Non-Standard 180 & Standard — interior tray/fodder photo -->
-    <div class="system-row rev r">
-      <div class="system-img-wrap">
-        <img
-          src="https://static.wixstatic.com/media/e85c6c_20cb6ca84760487b91f20f41ba6e7bbc~mv2.jpg/v1/fill/w_980,al_c,q_90,enc_avif,quality_auto/e85c6c_20cb6ca84760487b91f20f41ba6e7bbc~mv2.jpg"
-          alt="Non-Standard 180 and Standard Booster interior with fodder trays"
-          onerror="this.src='https://static.wixstatic.com/media/e85c6c_1c18254b42a74c85a837c7bdb620f23d~mv2.jpg/v1/fill/w_980,al_c,q_90,enc_avif,quality_auto/e85c6c_1c18254b42a74c85a837c7bdb620f23d~mv2.jpg'"
-        >
-      </div>
-      <div class="system-card dark-card">
-        <span class="system-price on-dark">From R111,500.00</span>
-        <h3 class="system-h on-dark">Non-Standard 180 &amp; Standard Booster</h3>
-        <p class="system-p on-dark">The Non-Standard 180 feeds 100–150 sheep/goats. The Standard Booster features a 1.45m wide internal passage leading into the unit, giving full interior access for cleaning, harvesting, sowing, and repairs. Same patented cladding — no growing lights, chemical proof, solar-ready.</p>
-        <ul class="system-features">
-          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Non-Standard 180: feeds 100–150 sheep/goats</li>
-          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> 1.45m wide internal access passage</li>
-          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Full access for cleaning, harvesting &amp; repairs</li>
-          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> UV-stabilised polymer · Patented cladding</li>
-          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> SporeBuster compatible · Solar-ready</li>
-        </ul>
-        <a href="#contact" class="btn btn-ghost" style="border-color:rgba(255,255,255,.25);color:var(--cream);">
-          <span>Request Full Specifications</span>
-          <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Hybrid — exterior of hybrid unit with chromadek panelling -->
-    <div class="system-row r">
-      <div class="system-img-wrap">
-        <img
-          src="https://static.wixstatic.com/media/e85c6c_1c18254b42a74c85a837c7bdb620f23d~mv2.jpg/v1/fill/w_980,al_c,q_90,enc_avif,quality_auto/e85c6c_1c18254b42a74c85a837c7bdb620f23d~mv2.jpg"
-          alt="Hybrid Booster with insulated chromadek panelling"
-          onerror="this.src='https://static.wixstatic.com/media/e85c6c_c70932245a644945ac4435c0a13a4b8a~mv2.jpg/v1/fill/w_980,al_c,q_90,enc_avif,quality_auto/e85c6c_c70932245a644945ac4435c0a13a4b8a~mv2.jpg'"
-        >
-      </div>
-      <div class="system-card">
-        <span class="system-price">Mid-Range System</span>
-        <h3 class="system-h light">Hybrid Booster</h3>
-        <p class="system-p light">The perfect bridge between the Standard and the Next Generation Booster. Constructed with the same quality polymer as the Standard, with added insulated chromadek panelling at the front, back, and top. This extra insulation layer delivers better cold-weather performance in winter, and protects the top row of plants during extremely hot summers and intense sunlight typical of warmer African regions.</p>
-        <ul class="system-features">
-          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Insulated chromadek panels — front, back &amp; top</li>
-          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Superior cold-weather insulation in winter</li>
-          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Top-row plant protection in extreme summer heat</li>
-          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Same patented polymer cladding as Standard</li>
-          <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Hail resistant · No rust · Chemical proof</li>
-        </ul>
-        <a href="#contact" class="btn btn-dark">
-          <span>Get Hybrid Quote</span>
-          <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Next Gen — the actual NextGen booster photos from original site -->
-    <div class="system-row rev r">
-      <div class="system-img-wrap">
-        <!-- NextGen2 image from the original sprout-booster-options page -->
-        <img
-          src="https://static.wixstatic.com/media/e85c6c_6c59537337ec446cb9628100321e98f7~mv2.jpg/v1/fill/w_980,al_c,q_90,enc_avif,quality_auto/e85c6c_6c59537337ec446cb9628100321e98f7~mv2.jpg"
-          alt="Next Generation Booster — exterior view with insulated doors"
-          onerror="this.src='https://static.wixstatic.com/media/e85c6c_f799d38c30434f378737ca895be02222~mv2.jpg/v1/fill/w_980,al_c,q_90,enc_avif,quality_auto/e85c6c_f799d38c30434f378737ca895be02222~mv2.jpg'"
-        >
-      </div>
-      <div class="system-card dark-card">
-        <span class="system-price on-dark">Flagship System</span>
-        <h3 class="system-h on-dark">Next Generation Booster</h3>
-        <p class="system-p on-dark">Our most advanced system, designed for climates with extreme cold or heat. The NextGen is designed for the client who understands the importance of natural sunlight — no artificial lights, minimum electricity cost. A 900mm-wide internal passage gives full access. Insulated doors close tightly over the polymer cladding for superior cold insulation. A specially designed evaporative cooler replaces expensive air-conditioners, running at very low cost during hot summers.</p>
-        <ul class="system-features">
-          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> 900mm wide internal access passage</li>
-          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Insulated doors — tightly close over cladding</li>
-          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Evaporative cooler — no air-con required</li>
-          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Natural sunlight — zero growing lights</li>
-          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Market-leading low electrical usage</li>
-          <li class="dark-li"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Affordable solar integration available</li>
-        </ul>
-        <a href="#contact" class="btn btn-ghost" style="border-color:rgba(255,255,255,.25);color:var(--cream);">
-          <span>Request Full Specifications</span>
-          <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Tandem / Twin — the solar tandem image from original site -->
-    <div class="tandem-block r">
-      <div class="tandem-content">
-        <span class="tag-inv" style="margin-bottom:20px; display:inline-block;">Industrial Scale</span>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:var(--cream);margin-bottom:14px;">Tandem &amp; Twin Systems</h3>
-        <p style="font-size:14px;color:rgba(246,243,236,.55);line-height:1.75;margin-bottom:8px;">
-          Tandem and Twin systems are exactly double the size of their Standard, Hybrid, and NextGen counterparts — built for high-volume commercial operations requiring maximum throughput at the lowest possible cost per kilogram of fodder.
-        </p>
-        <div class="tandem-specs">
-          <div class="tandem-spec">
-            <span class="tandem-spec-num">16m</span>
-            <span class="tandem-spec-label">Length</span>
-          </div>
-          <div class="tandem-spec">
-            <span class="tandem-spec-num">3.4m</span>
-            <span class="tandem-spec-label">Width</span>
-          </div>
-          <div class="tandem-spec">
-            <span class="tandem-spec-num">2.75m</span>
-            <span class="tandem-spec-label">Height</span>
-          </div>
-        </div>
-        <ul class="tandem-feats">
-          <li><span class="dot"></span> Produces up to 1 ton of fodder per day</li>
-          <li><span class="dot"></span> Very low operating costs</li>
-          <li><span class="dot"></span> Natural sunlight — enhanced chlorophyll</li>
-          <li><span class="dot"></span> Affordable solar option available</li>
-          <li><span class="dot"></span> Available in Tandem Standard, Hybrid &amp; NextGen</li>
-        </ul>
-        <a href="#contact" class="btn btn-gold" style="margin-top:20px;">
-          <span>Request Tandem Quote</span>
-          <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
-      <div class="tandem-img">
-        <!-- Standard Booster Solar Solution — the correct solar tandem image -->
-        <img
-          src="https://static.wixstatic.com/media/e85c6c_9d5b58d12aa6470687cfe73dbde69f13~mv2.png/v1/fill/w_720,h_485,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e85c6c_9d5b58d12aa6470687cfe73dbde69f13~mv2.png"
-          alt="Standard Booster Solar Solution — Tandem system with solar panels"
-        >
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════
-     GREENHOUSES & HOTHOUSES
-══════════════════════════════════════════════════════ -->
-<section id="greenhouses" class="section bg-sand">
-  <div class="container">
-
-    <div class="r" style="margin-bottom:64px; max-width:640px;">
-      <div class="section-label">
-        <div class="section-label-line"></div>
-        <span class="section-label-text">Vegetable Production &amp; Greenhouses</span>
-      </div>
-      <h2 class="section-h2" style="margin-top:14px;">Greenhouses &amp; <em>Hothouses.</em></h2>
-      <p style="font-size:16px;color:var(--muted);margin-top:16px;line-height:1.75;">
-        Beyond fodder systems, Green Sprouts Solutions designs and manufactures hydroponic greenhouse tunnels and hothouses — from portable home-garden units to full commercial structures engineered to withstand extreme African weather conditions.
-      </p>
-    </div>
-
-    <!-- Portable Greenhouse Tunnels -->
-    <div class="r" style="margin-bottom:72px;">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
-        <div>
-          <span class="tag" style="margin-bottom:20px;display:inline-flex;">Portable Walk-In Tunnel</span>
-          <h3 style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:var(--ink);margin-bottom:16px;line-height:1.1;">Greenhouse Tunnels</h3>
-          <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:20px;">
-            The GreenSprouts portable walk-in greenhouse tunnel is specifically designed for the home gardener. Self-sufficient food propagation has never been easier. The variety of sizes available mean that anyone, no matter how much space they have, can produce fresh greens at home.
-          </p>
-          <p style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em;">All tunnels include:</p>
-          <ul style="list-style:none;margin-bottom:28px;">
-            <li style="display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--warm);font-size:13px;font-weight:600;color:var(--text);">
-              <span style="width:18px;height:18px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              25mm galvanised steel poles for endoskeleton
-            </li>
-            <li style="display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--warm);font-size:13px;font-weight:600;color:var(--text);">
-              <span style="width:18px;height:18px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              UV-treated, reinforced PE plastic roof sheeting
-            </li>
-            <li style="display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--warm);font-size:13px;font-weight:600;color:var(--text);">
-              <span style="width:18px;height:18px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              Dual-zip roll-up door (front and back)
-            </li>
-            <li style="display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--warm);font-size:13px;font-weight:600;color:var(--text);">
-              <span style="width:18px;height:18px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              Roll-up side windows with insect netting
-            </li>
-            <li style="display:flex;gap:10px;align-items:flex-start;padding:6px 0;font-size:13px;font-weight:600;color:var(--text);">
-              <span style="width:18px;height:18px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              Full instructions &amp; all tools for construction
-            </li>
-          </ul>
-
-          <!-- Size & Price table -->
-          <div style="background:var(--white);border-radius:20px;overflow:hidden;box-shadow:0 8px 32px rgba(14,28,20,.07);">
-            <table style="width:100%;border-collapse:collapse;font-size:13px;">
-              <thead>
-                <tr style="background:var(--forest);">
-                  <th style="padding:12px 20px;text-align:left;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:10px;color:var(--gold);">Size</th>
-                  <th style="padding:12px 20px;text-align:right;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:10px;color:var(--gold);">Price (excl. VAT)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom:1px solid var(--sand);">
-                  <td style="padding:11px 20px;font-weight:600;color:var(--ink);">3m × 2m × 2m</td>
-                  <td style="padding:11px 20px;text-align:right;font-weight:700;color:var(--forest);">R 4,160.00</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--sand);background:var(--cream);">
-                  <td style="padding:11px 20px;font-weight:600;color:var(--ink);">4.5m × 2m × 2m</td>
-                  <td style="padding:11px 20px;text-align:right;font-weight:700;color:var(--forest);">R 5,980.00</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--sand);">
-                  <td style="padding:11px 20px;font-weight:600;color:var(--ink);">4m × 3m × 2m</td>
-                  <td style="padding:11px 20px;text-align:right;font-weight:700;color:var(--forest);">R 6,695.00</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--sand);background:var(--cream);">
-                  <td style="padding:11px 20px;font-weight:600;color:var(--ink);">6m × 3m × 2.5m</td>
-                  <td style="padding:11px 20px;text-align:right;font-weight:700;color:var(--forest);">R 11,180.00</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--sand);">
-                  <td style="padding:11px 20px;font-weight:600;color:var(--ink);">10m × 3m × 2.5m</td>
-                  <td style="padding:11px 20px;text-align:right;font-weight:700;color:var(--forest);">R 13,000.00</td>
-                </tr>
-                <tr style="background:var(--cream);">
-                  <td style="padding:11px 20px;font-weight:600;color:var(--ink);">12m × 3m × 2.5m</td>
-                  <td style="padding:11px 20px;text-align:right;font-weight:700;color:var(--forest);">R 14,950.00</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p style="font-size:11px;color:var(--muted);margin-top:10px;">Custom sizes available on request. All prices subject to change.</p>
-          <a href="#contact" class="btn btn-dark" style="margin-top:24px;">
-            <span>Enquire About Greenhouses</span>
-            <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-
-        <!-- Greenhouse images from original site -->
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-          <div style="border-radius:20px;overflow:hidden;box-shadow:0 12px 40px rgba(14,28,20,.10);">
-            <img src="https://static.wixstatic.com/media/e85c6c_e5a016b626c04fdba1d32473d9cbd311~mv2.png/v1/fill/w_400,h_400,q_85,enc_avif,quality_auto/e85c6c_e5a016b626c04fdba1d32473d9cbd311~mv2.png" alt="3m x 2m Greenhouse Tunnel" style="width:100%;height:auto;display:block;" onerror="this.style.display='none'">
-          </div>
-          <div style="border-radius:20px;overflow:hidden;box-shadow:0 12px 40px rgba(14,28,20,.10);margin-top:24px;">
-            <img src="https://static.wixstatic.com/media/e85c6c_96650fb44b1645849594f9e3fa76ae5b~mv2.png/v1/fill/w_400,h_400,q_85,enc_avif,quality_auto/e85c6c_96650fb44b1645849594f9e3fa76ae5b~mv2.png" alt="4.5m x 2m Greenhouse Tunnel" style="width:100%;height:auto;display:block;" onerror="this.style.display='none'">
-          </div>
-          <div style="border-radius:20px;overflow:hidden;box-shadow:0 12px 40px rgba(14,28,20,.10);">
-            <img src="https://static.wixstatic.com/media/e85c6c_3771b71e5d7c471d9f19ab35871d1d1a~mv2.png/v1/fill/w_400,h_400,q_85,enc_avif,quality_auto/e85c6c_3771b71e5d7c471d9f19ab35871d1d1a~mv2.png" alt="4m x 3m Greenhouse Tunnel" style="width:100%;height:auto;display:block;" onerror="this.style.display='none'">
-          </div>
-          <div style="border-radius:20px;overflow:hidden;box-shadow:0 12px 40px rgba(14,28,20,.10);margin-top:24px;">
-            <img src="https://static.wixstatic.com/media/e85c6c_c33a5ad869c145918521624a09f697e2~mv2.png/v1/fill/w_400,h_400,q_85,enc_avif,quality_auto/e85c6c_c33a5ad869c145918521624a09f697e2~mv2.png" alt="6m x 3m Greenhouse Tunnel" style="width:100%;height:auto;display:block;" onerror="this.style.display='none'">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Hydroponic Hothouses -->
-    <div class="r">
-      <div style="background:var(--ink);border-radius:var(--r-xl);overflow:hidden;padding:64px;box-shadow:0 32px 80px rgba(14,28,20,.2);">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;">
-
-          <div>
-            <span class="tag-inv" style="margin-bottom:20px;display:inline-block;">Commercial Grade</span>
-            <h3 style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:var(--cream);margin-bottom:16px;line-height:1.1;">Hydroponic Hothouses</h3>
-            <p style="font-size:14px;color:rgba(246,243,236,.55);line-height:1.8;margin-bottom:20px;">
-              Our Hydroponic Hothouses are designed to withstand extreme weather conditions. The material is a unique patented formula, produced using Polyethylene complying with ISO standards. UV-stabilised cladding ensures a very long lifespan, and blocks harmful UV-rays to prevent plant damage.
-            </p>
-            <p style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:14px;text-transform:uppercase;letter-spacing:.08em;">Cladding advantages:</p>
-            <ul style="list-style:none;margin-bottom:24px;column-count:2;column-gap:20px;">
-              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:4px 0;font-weight:500;">· Long lifespan</li>
-              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:4px 0;font-weight:500;">· Will not discolour</li>
-              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:4px 0;font-weight:500;">· Lightweight &amp; easy to handle</li>
-              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:4px 0;font-weight:500;">· Price competitive</li>
-              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:4px 0;font-weight:500;">· Hail resistant</li>
-              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:4px 0;font-weight:500;">· Eliminates fungal growth</li>
-              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:4px 0;font-weight:500;">· Easy to keep clean</li>
-              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:4px 0;font-weight:500;">· Wind resistant</li>
-            </ul>
-
-            <p style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:14px;text-transform:uppercase;letter-spacing:.08em;">Standard dimensions:</p>
-            <ul style="list-style:none;margin-bottom:28px;">
-              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:3px 0;">· Modular concept — length in 2.0m increments</li>
-              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:3px 0;">· Width: 3m / 5m / 8m / 10m / 12m standard options</li>
-              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:3px 0;">· Side walls: 2.1m high</li>
-              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:3px 0;">· Sliding door: 2.0m high × 2.5m wide (customisable)</li>
-              <li style="font-size:12px;color:rgba(246,243,236,.55);padding:3px 0;">· Custom designed to any requirement &amp; application</li>
-            </ul>
-            <p style="font-size:11px;color:rgba(246,243,236,.3);margin-bottom:24px;">Projects completed in: South Africa, Namibia, Lesotho, Botswana, Zimbabwe, Kenya, Uganda, Tanzania &amp; Holland.</p>
-            <a href="#contact" class="btn btn-gold">
-              <span>Request Hothouse Quote</span>
-              <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-          </div>
-
-          <!-- Hothouse images from original site -->
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-            <div style="border-radius:16px;overflow:hidden;">
-              <img src="https://static.wixstatic.com/media/e85c6c_d96453cd13194fadb37875108ff3463d~mv2.jpeg/v1/fill/w_400,h_300,al_c,q_85,enc_avif,quality_auto/e85c6c_d96453cd13194fadb37875108ff3463d~mv2.jpeg" alt="Hydroponic Hothouse" style="width:100%;height:auto;display:block;" onerror="this.style.display='none'">
-            </div>
-            <div style="border-radius:16px;overflow:hidden;margin-top:20px;">
-              <img src="https://static.wixstatic.com/media/e85c6c_297ce118db3b43dc840d3c7fd96e7d0d~mv2.jpeg/v1/fill/w_400,h_300,al_c,q_85,enc_avif,quality_auto/e85c6c_297ce118db3b43dc840d3c7fd96e7d0d~mv2.jpeg" alt="Hydroponic Hothouse interior" style="width:100%;height:auto;display:block;" onerror="this.style.display='none'">
-            </div>
-            <div style="border-radius:16px;overflow:hidden;">
-              <img src="https://static.wixstatic.com/media/e85c6c_5639eee228f64334afa288344066e07d~mv2.jpg/v1/fill/w_400,h_300,al_c,q_85,enc_avif,quality_auto/e85c6c_5639eee228f64334afa288344066e07d~mv2.jpg" alt="Hydroponic Hothouse exterior" style="width:100%;height:auto;display:block;" onerror="this.style.display='none'">
-            </div>
-            <div style="border-radius:16px;overflow:hidden;margin-top:20px;">
-              <img src="https://static.wixstatic.com/media/e85c6c_b51a6e79f6244387ba93320bc3986244~mv2.jpg/v1/fill/w_400,h_300,al_c,q_85,enc_avif,quality_auto/e85c6c_b51a6e79f6244387ba93320bc3986244~mv2.jpg" alt="Green Sprouts installation" style="width:100%;height:auto;display:block;" onerror="this.style.display='none'">
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- Vegetable Production note -->
-    <div class="r" style="margin-top:48px;background:var(--white);border-radius:24px;padding:40px 48px;box-shadow:0 8px 32px rgba(14,28,20,.06);display:flex;align-items:center;gap:40px;flex-wrap:wrap;">
-      <div>
-        <span style="font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);display:block;margin-bottom:8px;">Also Available</span>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--ink);margin-bottom:10px;">Vegetable Production Systems</h3>
-        <p style="font-size:14px;color:var(--muted);line-height:1.75;max-width:560px;">
-          We offer a variety of hydroponic and soil vegetable production systems — ranging from DIY home-grown vegetable kits to full commercial operations. The ultimate kits for self-sustainability and food traceability. For full info and pricing visit our vegetable section.
-        </p>
-      </div>
-      <a href="http://www.gardenroothydro.co.za" target="_blank" rel="noopener" class="btn btn-dark" style="flex-shrink:0;">
-        <span>Visit GardenRoot Hydro</span>
-        <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-    </div>
-
-  </div>
-</section>
-
-
-══════════════════════════════════════════════════════ -->
-<section id="pricing" class="section bg-sand">
-  <div class="container">
-    <div class="r" style="text-align:center;margin-bottom:64px;">
-      <div class="section-label" style="justify-content:center;">
-        <div class="section-label-line"></div>
-        <span class="section-label-text">System Pricing</span>
-        <div class="section-label-line"></div>
-      </div>
-      <h2 class="section-h2" style="margin-top:14px;">Transparent <em>pricing.</em></h2>
-      <p style="font-size:16px;color:var(--muted);margin-top:14px;max-width:540px;margin-left:auto;margin-right:auto;line-height:1.7;">All prices are indicative. Contact us for a full quote tailored to your location and livestock needs.</p>
-    </div>
-
-    <div class="pricing-grid r">
-
-      <!-- Entry -->
-      <div class="price-card light-card">
-        <div class="price-card-head">
-          <span class="price-tier">Entry Level</span>
-          <h3 class="price-name">Econo Booster</h3>
-          <div class="price-amount"><span class="cur">R</span>32,000<span class="suffix">+</span></div>
-          <p class="price-note">Includes pumps, plumbing &amp; electrical</p>
-        </div>
-        <div class="price-card-body">
-          <ul class="price-feats">
-            <li>🐑 20 sheep / goats</li>
-            <li>🐔 200 chickens</li>
-            <li>☀️ No growing lights needed</li>
-            <li>🔩 Stainless steel fasteners</li>
-            <li>💧 Pumps &amp; plumbing included</li>
-            <li>🛡️ UV-stabilised polymer</li>
-            <li>⚡ Solar-compatible</li>
-          </ul>
-          <a href="#contact" class="btn btn-dark" style="width:100%;justify-content:center;">
-            <span>Enquire Now</span>
-            <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Featured -->
-      <div class="price-card dark-card featured">
-        <div style="position:absolute;top:0;right:0;background:var(--gold);color:var(--ink);font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:7px 16px;border-radius:0 var(--r-xl) 0 14px;">Most Popular</div>
-        <div class="price-card-head">
-          <span class="price-tier gold-tier" style="margin-top:16px;display:block;">Mid Range</span>
-          <h3 class="price-name on-dark">Non-Standard 180</h3>
-          <div class="price-amount on-dark"><span class="cur">R</span>111,500<span class="suffix" style="color:var(--sage)">+</span></div>
-          <p class="price-note on-dark">Feeds 100–150 sheep or goats</p>
-        </div>
-        <div class="price-card-body">
-          <ul class="price-feats">
-            <li>🐑 100–150 sheep / goats</li>
-            <li>☀️ Natural sunlight cladding</li>
-            <li>🦠 SporeBuster compatible</li>
-            <li>⚡ Minimal electricity use</li>
-            <li>🛡️ Chemical proof construction</li>
-            <li>🌿 Vitamin D3 enhanced plants</li>
-            <li>💧 Very low water consumption</li>
-          </ul>
-          <a href="#contact" class="btn btn-gold" style="width:100%;justify-content:center;">
-            <span>Enquire Now</span>
-            <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Flagship -->
-      <div class="price-card light-card">
-        <div class="price-card-head">
-          <span class="price-tier">Flagship</span>
-          <h3 class="price-name">Next Generation</h3>
-          <div class="price-amount" style="font-size:30px;margin-top:14px;">Price on Request</div>
-          <p class="price-note" style="margin-top:6px;">Tandem / Twin systems also available</p>
-        </div>
-        <div class="price-card-body">
-          <ul class="price-feats">
-            <li>🏭 Extreme climate design</li>
-            <li>❄️ Insulated doors — full closure</li>
-            <li>💨 Evaporative cooler (no A/C)</li>
-            <li>🛤️ 900mm wide internal passage</li>
-            <li>☀️ Solar option available</li>
-            <li>⚡ Market-leading low electricity</li>
-            <li>🏗️ Industrial tandem scale available</li>
-          </ul>
-          <a href="#contact" class="btn btn-dark" style="width:100%;justify-content:center;">
-            <span>Request Specs</span>
-            <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════
-     TECHNOLOGY FAQ
-══════════════════════════════════════════════════════ -->
-<section class="section-sm">
-  <div class="container">
-    <div class="r" style="text-align:center;margin-bottom:56px;max-width:600px;margin-left:auto;margin-right:auto;">
-      <div class="section-label" style="justify-content:center;">
-        <div class="section-label-line"></div>
-        <span class="section-label-text">The Technology</span>
-        <div class="section-label-line"></div>
-      </div>
-      <h2 class="section-h2" style="margin-top:14px;">Answers to every <em>farmer's question.</em></h2>
-    </div>
-
-    <div style="max-width:820px;margin:0 auto;" class="r">
-
-      <div class="faq-item">
-        <button onclick="faq(this)" class="faq-btn">
-          <span>Why natural sunlight instead of growing lights?</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-body">
-          <div class="faq-body-inner">No one can argue that artificial lighting cannot compare to natural sunlight in the chlorophyll process. Natural sunlight ensures healthier plants loaded with chlorophyll and vitamin D3 — both essential elements for healthier livestock. By eliminating growing lights, we dramatically reduce electricity running costs and make solar integration far more cost-effective. Artificial lighting also creates environments where unwanted micro-organisms thrive.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button onclick="faq(this)" class="faq-btn">
-          <span>How does the SporeBuster system work?</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-body">
-          <div class="faq-body-inner">SporeBuster is our key organic bacterial product. Combined with our patented cladding technology, it allows the right amount of sunlight to reach the fodder while eliminating mould and fungal growth. A critical additional factor is that our system achieves temperature variation inside the booster — something impossible with a conventional air-conditioner — and this temperature variance is key to eliminating spores at the source.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button onclick="faq(this)" class="faq-btn">
-          <span>Can livestock survive on sprouted fodder alone?</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-body">
-          <div class="faq-body-inner">No. We have found that to simply not be true and we are transparent about it. That is why we partnered with university professors to formulate comprehensive feeding rations that include — but are not limited to — fodder. These rations are tailored per geographic region, which allows us to bring costs down significantly and increase profit margins for each client.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button onclick="faq(this)" class="faq-btn">
-          <span>What grains work best for sprouting?</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-body">
-          <div class="faq-body-inner">Commonly used grains for fodder are barley, wheat, maize, and whole oats. Barley, which is the easiest to grow, has a crude protein percentage of 12.7% and a crude fibre of 5.5% as a seed — these jump to 15.6% protein and 14.2% crude fibre after an average of 7 days of sprouting. Digestibility increases from 41% to 81%, meaning livestock need to consume less feed while obtaining more nutrition.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button onclick="faq(this)" class="faq-btn">
-          <span>What are the solar options?</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-body">
-          <div class="faq-body-inner">Because our systems operate on very low electricity, the solar panel system required to run them is far smaller and more affordable than you might expect. Solar options are available across our range, including the Tandem NextGen system. This makes our boosters viable for remote farms with unreliable grid supply. Contact us for a solar quote specific to your location.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button onclick="faq(this)" class="faq-btn">
-          <span>Is the sprout mat completely consumed by livestock?</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-body">
-          <div class="faq-body-inner">Yes. The sprout mat is completely edible and highly nutritious as it is a living food. Animals will eat the entire mat — roots and green growth — so there is zero waste. This makes the system extremely efficient from a cost-per-kilogram-of-feed perspective.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button onclick="faq(this)" class="faq-btn">
-          <span>Do you offer delivery and installation?</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-body">
-          <div class="faq-body-inner">Yes. Green Sprouts Solutions offers full delivery and installation services. We have successfully installed over 600 units across Southern Africa. Contact our team in George for delivery timelines and installation costs to your specific location. We supply all of Africa including South Africa, Botswana, Namibia, Zimbabwe, Lesotho, and Swaziland.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button onclick="faq(this)" class="faq-btn">
-          <span>What is the BioBoost system?</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-body">
-          <div class="faq-body-inner">The BioBoost is a unique designed system that accelerates the germination periods of seeds. It is part of the broader range of feeding and production systems offered by Green Sprouts Solutions alongside our hydroponic greenhouses and hothouses. Contact us for full specifications.</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════
-     TESTIMONIALS
-══════════════════════════════════════════════════════ -->
-<section id="testimonials" class="section bg-sand">
-  <div class="container">
-    <div class="r" style="margin-bottom:64px;">
-      <div class="section-label">
-        <div class="section-label-line"></div>
-        <span class="section-label-text">Client Results</span>
-      </div>
-      <h2 class="section-h2" style="margin-top:14px;">What our clients <em>say.</em></h2>
-      <p style="font-size:16px;color:var(--muted);margin-top:14px;">Real farmers. Real results. Across South Africa.</p>
-    </div>
-
-    <div class="testi-grid r">
-
-      <div class="testi-card dark">
-        <span class="testi-quote-mark" style="color:var(--sage);">"</span>
-        <p class="testi-text on-dark">Best quality Angora Goats in my area. I have never had such quality goats. All thanks to the greenfeed.</p>
-        <div class="testi-meta">
-          <div class="testi-avatar">G</div>
-          <div>
-            <div class="testi-stars">★★★★★</div>
-            <div class="testi-name">Gugi Botha</div>
-            <div class="testi-location">Pearston, Eastern Cape</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card white">
-        <span class="testi-quote-mark">"</span>
-        <p class="testi-text light">I have cut my feeding cost on my heifers by about 40% and am getting a better quality animal as well.</p>
-        <div class="testi-meta">
-          <div class="testi-avatar">E</div>
-          <div>
-            <div class="testi-stars">★★★★★</div>
-            <div class="testi-name">Eric Steenekamp</div>
-            <div class="testi-location">Derby, North West</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card white">
-        <span class="testi-quote-mark">"</span>
-        <p class="testi-text light">This is definitely the best agricultural invention of the last decade. My butcher says he has never seen such good quality carcasses on pigs.</p>
-        <div class="testi-meta">
-          <div class="testi-avatar">L</div>
-          <div>
-            <div class="testi-stars">★★★★★</div>
-            <div class="testi-name">Louw Wessels</div>
-            <div class="testi-location">Hartenbos, Western Cape</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card dark">
-        <span class="testi-quote-mark" style="color:var(--sage);">"</span>
-        <p class="testi-text on-dark">This system provides me with greenfeed year round, within 7 days — without the need for a pivot or to plough my fields.</p>
-        <div class="testi-meta">
-          <div class="testi-avatar">C</div>
-          <div>
-            <div class="testi-stars">★★★★★</div>
-            <div class="testi-name">Chris Hayward</div>
-            <div class="testi-location">South Africa</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════
-     GALLERY
-══════════════════════════════════════════════════════ -->
-<section id="gallery" class="section-sm">
+<section id="difference" class="section bg-sand">
   <div class="container">
     <div class="r" style="margin-bottom:40px;">
       <div class="section-label">
         <div class="section-label-line"></div>
-        <span class="section-label-text">From Our Installations</span>
+        <span class="section-label-text">What Makes Us Different?</span>
       </div>
-      <h2 class="section-h2" style="margin-top:14px;">600+ systems <em>installed.</em></h2>
-      <p style="font-size:16px;color:var(--muted);margin-top:12px;">A selection of our systems across Africa.</p>
+      <h2 class="section-h2">Engineered for <em>Profit.</em></h2>
     </div>
-
-    <div class="gallery-masonry r">
-      <div class="gal-item">
-        <img src="https://static.wixstatic.com/media/e85c6c_b99740aebfa64b19bdad7fff5b1ff52e~mv2_d_6000_4000_s_4_2.jpg/v1/fill/w_600,h_800,al_c,q_90,enc_avif,quality_auto/e85c6c_b99740aebfa64b19bdad7fff5b1ff52e~mv2_d_6000_4000_s_4_2.jpg" alt="Installation" onerror="this.src='https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=600'">
+    <div class="pillars-grid r">
+      <div class="pillar-card white">
+        <h3 class="pillar-h">Cost Efficiency</h3>
+        <p class="pillar-p">It is futile to develop an expensive system that erodes potential profit. Our cleverly designed cooling system eliminates the need for expensive air-conditioners. Minimal labor, low energy, and highly cost-effective solar options make this a game changer for the African market.</p>
       </div>
-      <div class="gal-item" style="height:220px;">
-        <img src="https://static.wixstatic.com/media/e85c6c_1c18254b42a74c85a837c7bdb620f23d~mv2.jpg/v1/fill/w_600,h_400,al_c,q_90,enc_avif,quality_auto/e85c6c_1c18254b42a74c85a837c7bdb620f23d~mv2.jpg" alt="Installation" onerror="this.src='https://images.pexels.com/photos/3076009/pexels-photo-3076009.jpeg?auto=compress&cs=tinysrgb&w=600'">
+      <div class="pillar-card dark">
+        <h3 class="pillar-h">Water Scarcity Solved</h3>
+        <p class="pillar-p">Water is becoming a commodity. Irrigated land uses a tremendous amount of water. Our standard booster system produces the equivalent of <strong>15ha of irrigated land</strong>, showing the immense benefit in water savings.</p>
       </div>
-      <div class="gal-item" style="height:220px;">
-        <img src="https://static.wixstatic.com/media/e85c6c_c70932245a644945ac4435c0a13a4b8a~mv2.jpg/v1/fill/w_600,h_400,al_c,q_90,enc_avif,quality_auto/e85c6c_c70932245a644945ac4435c0a13a4b8a~mv2.jpg" alt="Installation" onerror="this.src='https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=600'">
+      <div class="pillar-card white">
+        <h3 class="pillar-h">Mould Elimination (Fungi)</h3>
+        <p class="pillar-p">We stick to nature. Using our patented cladding to let sunlight in, alongside our key organic bacterial product <strong>SporeBuster</strong>, we have all but eliminated moulding. Our system allows temperature variation inside, which is key to eliminating spores (impossible with A/C).</p>
       </div>
-      <div class="gal-item" style="height:220px;">
-        <img src="https://static.wixstatic.com/media/e85c6c_20cb6ca84760487b91f20f41ba6e7bbc~mv2.jpg/v1/fill/w_600,h_400,al_c,q_90,enc_avif,quality_auto/e85c6c_20cb6ca84760487b91f20f41ba6e7bbc~mv2.jpg" alt="Installation" onerror="this.src='https://images.pexels.com/photos/1105019/pexels-photo-1105019.jpeg?auto=compress&cs=tinysrgb&w=600'">
-      </div>
-      <div class="gal-item">
-        <img src="https://static.wixstatic.com/media/e85c6c_52c661f339e444ea8df524ea35f64189~mv2.jpg/v1/fill/w_600,h_800,al_c,q_90,enc_avif,quality_auto/e85c6c_52c661f339e444ea8df524ea35f64189~mv2.jpg" alt="Installation" onerror="this.src='https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=600'">
-      </div>
-      <div class="gal-item" style="height:220px;">
-        <img src="https://static.wixstatic.com/media/e85c6c_7235a3e00abd444d928ade104e14eb07~mv2.jpg/v1/fill/w_600,h_400,al_c,q_90,enc_avif,quality_auto/e85c6c_7235a3e00abd444d928ade104e14eb07~mv2.jpg" alt="Installation" onerror="this.src='https://images.pexels.com/photos/3076009/pexels-photo-3076009.jpeg?auto=compress&cs=tinysrgb&w=600'">
-      </div>
-      <div class="gal-item" style="height:220px;">
-        <img src="https://static.wixstatic.com/media/e85c6c_6c59537337ec446cb9628100321e98f7~mv2.jpg/v1/fill/w_600,h_400,al_c,q_90,enc_avif,quality_auto/e85c6c_6c59537337ec446cb9628100321e98f7~mv2.jpg" alt="Installation" onerror="this.src='https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=600'">
-      </div>
-      <div class="gal-item" style="height:220px;">
-        <img src="https://static.wixstatic.com/media/e85c6c_b51a6e79f6244387ba93320bc3986244~mv2.jpg/v1/fill/w_600,h_400,al_c,q_90,enc_avif,quality_auto/e85c6c_b51a6e79f6244387ba93320bc3986244~mv2.jpg" alt="Installation" onerror="this.src='https://images.pexels.com/photos/1105019/pexels-photo-1105019.jpeg?auto=compress&cs=tinysrgb&w=600'">
+      <div class="pillar-card white">
+        <h3 class="pillar-h">Nutrient Science</h3>
+        <p class="pillar-p">Livestock cannot thrive on sprouted fodder alone. We enrolled university professors to aid us in formulating different feeding rations tailored to geographical locations, bringing costs down and increasing your profit margins.</p>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ══════════════════════════════════════════════════════
-     SUPPLY BAND
-══════════════════════════════════════════════════════ -->
-<div style="background:var(--forest);padding:52px 0;">
+<section id="systems" class="section">
   <div class="container">
-    <div class="r" style="text-align:center;">
-      <p style="font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">We Supply All of Africa</p>
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px 24px;">
-        <span style="font-size:13px;font-weight:600;color:rgba(246,243,236,.55);">South Africa</span>
-        <span style="color:var(--sage);font-size:10px;margin-top:3px;">•</span>
-        <span style="font-size:13px;font-weight:600;color:rgba(246,243,236,.55);">Botswana</span>
-        <span style="color:var(--sage);font-size:10px;margin-top:3px;">•</span>
-        <span style="font-size:13px;font-weight:600;color:rgba(246,243,236,.55);">Namibia</span>
-        <span style="color:var(--sage);font-size:10px;margin-top:3px;">•</span>
-        <span style="font-size:13px;font-weight:600;color:rgba(246,243,236,.55);">Zimbabwe</span>
-        <span style="color:var(--sage);font-size:10px;margin-top:3px;">•</span>
-        <span style="font-size:13px;font-weight:600;color:rgba(246,243,236,.55);">Lesotho</span>
-        <span style="color:var(--sage);font-size:10px;margin-top:3px;">•</span>
-        <span style="font-size:13px;font-weight:600;color:rgba(246,243,236,.55);">Swaziland</span>
-        <span style="color:var(--sage);font-size:10px;margin-top:3px;">•</span>
-        <span style="font-size:13px;font-weight:600;color:rgba(246,243,236,.55);">Mozambique</span>
-        <span style="color:var(--sage);font-size:10px;margin-top:3px;">•</span>
-        <span style="font-size:13px;font-weight:600;color:rgba(246,243,236,.55);">& Beyond</span>
+    <div class="r" style="margin-bottom:50px;">
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Sprout Booster Options</span>
+      </div>
+      <h2 class="section-h2">Our Fodder <em>Systems.</em></h2>
+      <p style="margin-top:10px; color:var(--muted); max-width: 700px; line-height: 1.6;">
+        Every system's cladding is patented to allow essential sun rays through, producing chlorophyll-rich and Vitamin D3 loaded plants without growing lights. Advantages include: Will not discolour / Hail resistant / No rust or oxidation / Chemical proof / Long Lifespan.
+      </p>
+    </div>
+
+    <div class="system-row r">
+      <div class="system-img-wrap">
+        <img class="object-cover-fix" src="image_57ee7d.png" alt="Econo Booster">
+      </div>
+      <div class="system-card">
+        <span class="system-price">From R32,000.00</span>
+        <h3 class="system-h">Econo & NextGen Econo</h3>
+        <p class="system-p">Our most affordable boosters, excellent for those starting out.</p>
+        <ul class="system-features">
+          <li>✔ Feeds 20 sheep/goats or 200 chickens</li>
+          <li>✔ High quality UV & heat stabilised polymer</li>
+          <li>✔ All pumps, plumbing, sprinklers & electrical included</li>
+          <li>✔ Completely chemical proof and easy to clean</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="system-row rev r">
+      <div class="system-img-wrap">
+        <img class="object-cover-fix" src="image_57df39.png" alt="Standard Booster">
+      </div>
+      <div class="system-card dark-card">
+        <span class="system-price" style="color:var(--gold-lt); border-color:var(--gold-lt);">From R111,500.00</span>
+        <h3 class="system-h">Non Standard 180 & Standard Booster</h3>
+        <p class="system-p">The Non Standard feeds 100-150 sheep/goats. The Standard Booster is identical but includes a 1.45m wide passage leading inside, giving you easy access for cleaning, harvesting, sowing, and repairs.</p>
+        <ul class="system-features">
+          <li>✔ Feeds 100–150 sheep or goats</li>
+          <li>✔ 1.45m wide internal walking passage (Standard)</li>
+          <li>✔ Stainless steel fasteners and supports</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="system-row r">
+      <div class="system-img-wrap">
+        <img class="object-cover-fix" src="image_57ee5a.png" alt="Hybrid Booster">
+      </div>
+      <div class="system-card">
+        <span class="system-price">Mid-Range System</span>
+        <h3 class="system-h">Hybrid Booster</h3>
+        <p class="system-p">A perfect in-between system. Constructed with the same quality material as the Standard, but with added insulated chromadek paneling at the front, back, and top.</p>
+        <ul class="system-features">
+          <li>✔ Insulates much better in winter</li>
+          <li>✔ Protects the top row of plants during extreme summer heat</li>
+          <li>✔ Perfect for warmer areas with intense sunlight</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="system-row rev r">
+      <div class="system-img-wrap">
+        <img class="object-cover-fix" src="image_57eb74.png" alt="Next Gen Booster">
+      </div>
+      <div class="system-card dark-card">
+        <span class="system-price" style="color:var(--gold-lt); border-color:var(--gold-lt);">Flagship System</span>
+        <h3 class="system-h">Next Generation Booster</h3>
+        <p class="system-p">Our flagship booster designed for extremely cold climates and clients who understand the importance of natural sunlight. Very low electrical usage makes it the system to challenge in the marketplace.</p>
+        <ul class="system-features">
+          <li>✔ 900mm wide passage between shelves</li>
+          <li>✔ Insulated doors close tightly over polymer cladding</li>
+          <li>✔ Specially designed evaporative cooler (no A/C needed)</li>
+          <li>✔ Constant fresh air during hot summer days</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="system-row r">
+      <div class="system-img-wrap">
+        <img class="object-cover-fix" src="image_57dfd6.png" alt="Tandem System Solar">
+      </div>
+      <div class="system-card">
+        <span class="system-price">Commercial Scale</span>
+        <h3 class="system-h">Tandem & Twin Systems</h3>
+        <p class="system-p">Double the size of the Standard, Hybrid, and NextGen systems. Built for massive daily production.</p>
+        <ul class="system-features">
+          <li>✔ <strong>Measurements:</strong> Length 16.00m, Width 3.40m, Height 2.75m</li>
+          <li>✔ Produces up to 1 ton of fodder per day</li>
+          <li>✔ Very low operating costs</li>
+          <li>✔ Solar option available + affordable</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="greenhouses" class="section bg-sand">
+  <div class="container">
+    <div class="r" style="margin-bottom:40px;">
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Hot House Manufacturers</span>
+      </div>
+      <h2 class="section-h2">Hydroponic Green Houses & <em>Hot Houses.</em></h2>
+      <p style="margin-top:10px; color:var(--muted); max-width: 600px; line-height: 1.6;">Beyond feeding systems, Green Sprouts Solutions manufactures highly durable Hot Houses and Hydroponic Green Houses built to withstand the harsh African climate.</p>
+    </div>
+    
+    <div class="system-row r">
+      <div class="system-img-wrap" style="background: var(--forest); display:flex; align-items:center; justify-content:center; padding: 40px; text-align: center;">
+         <img class="object-cover-fix" src="image_57df94.png" alt="Hydroponic Green House">
+      </div>
+      <div class="system-card">
+        <h3 class="system-h">Commercial & Home Tunnels</h3>
+        <p class="system-p">Grow your own fresh vegetables easily or scale up to massive commercial operations. We build structures that last.</p>
+        <ul class="system-features">
+          <li>✔ Extremely durable UV-treated roofing</li>
+          <li>✔ Steel endoskeletons for wind resistance</li>
+          <li>✔ Custom sizes available on request</li>
+        </ul>
       </div>
     </div>
   </div>
-</div>
+</section>
 
+<section class="section-sm">
+  <div class="container">
+    <div class="r" style="margin-bottom:40px; text-align: center;">
+      <h2 class="section-h2">System <em>Gallery</em></h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;" class="r">
+      <div style="border-radius: var(--r-md); overflow: hidden; height: 250px;"><img class="object-cover-fix" src="image_57df73.png" alt="Gallery Image 1"></div>
+      <div style="border-radius: var(--r-md); overflow: hidden; height: 250px;"><img class="object-cover-fix" src="image_57dc51.png" alt="Gallery Image 2"></div>
+      <div style="border-radius: var(--r-md); overflow: hidden; height: 250px;"><img class="object-cover-fix" src="image_57df17.png" alt="Gallery Image 3"></div>
+      <div style="border-radius: var(--r-md); overflow: hidden; height: 250px;"><img class="object-cover-fix" src="image_57e338.png" alt="Gallery Image 4"></div>
+      <div style="border-radius: var(--r-md); overflow: hidden; height: 250px;"><img class="object-cover-fix" src="image_57dfb4.png" alt="Gallery Image 5"></div>
+      <div style="border-radius: var(--r-md); overflow: hidden; height: 250px;"><img class="object-cover-fix" src="image_57ee1b.png" alt="Gallery Image 6"></div>
+    </div>
+  </div>
+</section>
 
-<!-- ══════════════════════════════════════════════════════
-     CONTACT
-══════════════════════════════════════════════════════ -->
 <section id="contact" class="section">
   <div class="container">
     <div class="contact-wrap r">
-
       <div class="contact-left">
-        <div>
-          <h2 class="contact-h">Let's<br><em style="font-style:italic;color:var(--mint);">Talk.</em></h2>
-          <p class="contact-sub">Enquiries are welcome in English and Afrikaans. Partner with Africa's market leader in green feed technology.</p>
-
-          <div class="contact-info-group">
-            <span class="contact-info-label">Manufacturing Facility</span>
-            <p class="contact-info-text">Unit 3, 113 Fichat Street<br>George Industria, 6529<br>Western Cape, RSA</p>
-          </div>
-
-          <div class="contact-info-group">
-            <span class="contact-info-label">Direct Lines</span>
-            <p class="contact-info-text">
-              Office: <a href="tel:+27448730371">044 873 0371</a><br>
-              Vivian: <a href="tel:+27826737211">+27 82 673 7211</a><br>
-              Victor: <a href="tel:+27448730371">044 873 0371</a>
-            </p>
-          </div>
-
-          <div class="contact-info-group">
-            <span class="contact-info-label">Email</span>
-            <p class="contact-info-text">
-              <a href="mailto:victor@greensprouts.co.za">victor@greensprouts.co.za</a>
-            </p>
-          </div>
-
-          <div class="contact-info-group">
-            <span class="contact-info-label">Follow Us</span>
-            <div class="contact-socials">
-              <a href="https://www.facebook.com/Greensproutssolutions" target="_blank" rel="noopener" class="contact-social">f</a>
-              <a href="https://www.instagram.com/greensproutssolutions/" target="_blank" rel="noopener" class="contact-social">ig</a>
-            </div>
-          </div>
+        <h2 class="section-h2" style="color:white;">Get in touch.</h2>
+        <p style="margin-top:20px; opacity:0.8; line-height: 1.6;">We supply all over South Africa and the rest of Africa. Contact us for prices, shipping, solar options, or any questions!</p>
+        
+        <div style="margin-top:40px;">
+          <strong style="color:var(--gold); display:block; margin-bottom:5px; font-size:12px; text-transform:uppercase; letter-spacing: 1px;">Manufacturing Facility</strong>
+          <p style="opacity: 0.9;">Unit 3, 113 Fichat Street<br>George Industria, RSA</p>
         </div>
-
-        <div style="border-top:1px solid rgba(255,255,255,.08);padding-top:24px;">
-          <p style="font-size:11px;color:rgba(246,243,236,.3);font-weight:500;">Delivering &amp; installing across Africa since 2010.</p>
+        
+        <div style="margin-top:30px;">
+          <strong style="color:var(--gold); display:block; margin-bottom:5px; font-size:12px; text-transform:uppercase; letter-spacing: 1px;">Call Us</strong>
+          <p style="opacity: 0.9;">Office: 044 873 0371<br>Vivian: +27 82 673 7211<br>Victor: 044 873 0371</p>
         </div>
       </div>
-
       <div class="contact-right">
-        <h3 class="contact-form-h">Send an Enquiry</h3>
-
-        <form id="contact-form" novalidate>
-
-          <div class="form-row">
-            <div class="form-field">
-              <label class="form-label" for="f-name">Name / Naam <span style="color:var(--gold);">*</span></label>
-              <input type="text" id="f-name" class="form-input" placeholder="Your full name" required autocomplete="name">
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="f-email">Email / E-pos <span style="color:var(--gold);">*</span></label>
-              <input type="email" id="f-email" class="form-input" placeholder="email@example.com" required autocomplete="email">
-            </div>
-          </div>
-
-          <div class="form-field-single">
-            <label class="form-label" for="f-phone">Phone / Telefoon <span style="color:var(--gold);">*</span></label>
-            <input type="tel" id="f-phone" class="form-input" placeholder="+27 __ ___ ____" required autocomplete="tel">
-          </div>
-
-          <div class="form-field-single">
-            <label class="form-label" for="f-location">Location / Ligging</label>
-            <input type="text" id="f-location" class="form-input" placeholder="Province, Country">
-          </div>
-
-          <div class="form-field-single">
-            <label class="form-label" for="f-livestock">Livestock Type</label>
-            <input type="text" id="f-livestock" class="form-input" placeholder="e.g. Sheep, Cattle, Chickens…">
-          </div>
-
-          <div class="form-field-single">
-            <label class="form-label" for="f-product">Product / Quotation Required</label>
-            <select id="f-product" class="form-select">
-              <option value="">Select a system…</option>
-              <option>Econo Booster</option>
-              <option>NextGen Econo</option>
-              <option>Non-Standard 180 Booster</option>
-              <option>Standard Booster</option>
-              <option>Hybrid Booster</option>
-              <option>Next Generation Booster</option>
-              <option>Tandem / Twin System</option>
-              <option>Hydroponic Greenhouse / Hothouse</option>
-              <option>BioBoost System</option>
-              <option>Solar Options</option>
-              <option>General Enquiry</option>
-            </select>
-          </div>
-
-          <div class="form-field-single">
-            <label class="form-label" for="f-message">Message / Boodskap</label>
-            <textarea id="f-message" rows="3" class="form-textarea" placeholder="Tell us about your farm and requirements…"></textarea>
-          </div>
-
-          <!-- Validation error -->
-          <p id="form-error" style="display:none;font-size:12px;font-weight:600;color:#c0392b;margin-top:12px;padding:10px 16px;background:#fff0ee;border-radius:8px;border-left:3px solid #c0392b;"></p>
-
-          <div style="margin-top:20px;">
-            <button type="submit" class="btn btn-dark" style="width:100%;justify-content:center;padding:18px 32px;">
-              <span id="btn-text">Send Enquiry</span>
-              <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </button>
-          </div>
-
-          <p style="margin-top:12px;font-size:11px;color:var(--muted);text-align:center;line-height:1.6;">
-            This will open your email app pre-filled and ready to send to Victor.
-          </p>
-
+        <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 20px;">Send an Enquiry</h3>
+        <form id="contact-form">
+          <input type="text" class="form-input" placeholder="Your Full Name" required>
+          <input type="email" class="form-input" placeholder="Your Email Address" required>
+          <input type="text" class="form-input" placeholder="Phone Number" required>
+          <input type="text" class="form-input" placeholder="What system are you looking for? (e.g. NextGen Booster)">
+          <button type="submit" class="btn btn-dark" style="margin-top:20px; width: 100%; justify-content: center;">Send Message</button>
         </form>
       </div>
-
     </div>
   </div>
 </section>
 
-
-<!-- ══════════════════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════════════════ -->
 <footer>
   <div class="container">
-    <div class="footer-inner">
-      <div class="footer-logo">Green<span> Sprouts</span><span> Solutions</span></div>
-      <p class="footer-copy">© 2010 – 2026 Green Sprouts Solutions · George, Western Cape, RSA<br>Manufacturing the future of African agriculture.</p>
-      <div class="footer-links">
-        <a href="https://www.facebook.com/Greensproutssolutions" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://www.instagram.com/greensproutssolutions/" target="_blank" rel="noopener">Instagram</a>
-        <a href="tel:+27448730371">+27 44 873 0371</a>
-      </div>
-    </div>
+    <div style="font-family:'Cormorant Garamond', serif; font-size:24px; font-weight:700; margin-bottom: 10px;">Green<span style="color:var(--sage)"> Sprouts</span><span style="color:var(--mint)"> Solutions</span></div>
+    <p style="opacity: 0.7; margin-bottom: 15px;">© 2026 Green Sprouts Solutions · George, RSA</p>
+    <p class="footer-agency">Designed by NETSites</p>
   </div>
 </footer>
 
-
-<!-- ══════════════════════════════════════════════════════
-     SCRIPTS
-══════════════════════════════════════════════════════ -->
 <script>
-  /* ── Video overlay ────────────────────────────────── */
-  function loadVideo() {
-    const overlay = document.getElementById('video-overlay');
-    const iframe  = document.getElementById('yt-iframe');
-    // Their YouTube channel ID — loads channel page as playlist.
-    // If you have a specific video ID (e.g. "abc123XYZ"), replace the src with:
-    // https://www.youtube.com/embed/abc123XYZ?autoplay=1&rel=0&color=white
-    iframe.src = 'https://www.youtube.com/embed/MXD3EdpYCpw?autoplay=1&rel=0&color=white&modestbranding=1';
-    iframe.style.display = 'block';
-    overlay.style.display = 'none';
-  }
-  // Play button hover effect
-  const playBtn = document.getElementById('play-btn');
-  if (playBtn) {
-    playBtn.addEventListener('mouseover', () => { playBtn.style.transform = 'scale(1.1)'; });
-    playBtn.addEventListener('mouseout',  () => { playBtn.style.transform = 'scale(1)'; });
-  }
-
-  /* ── Reveal on scroll ─────────────────────────────── */
+  /* Reveal Animations */
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -2275,95 +567,13 @@
         io.unobserve(e.target);
       }
     });
-  }, { threshold: 0.07, rootMargin: '0px 0px -48px 0px' });
+  }, { threshold: 0.1 });
   document.querySelectorAll('.r').forEach(el => io.observe(el));
-
-  /* ── Nav shadow ───────────────────────────────────── */
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', scrollY > 50);
-  });
-
-  /* ── FAQ accordion ────────────────────────────────── */
-  function faq(btn) {
-    const body = btn.nextElementSibling;
-    const open = body.classList.contains('open');
-    // close all
-    document.querySelectorAll('.faq-body').forEach(b => b.classList.remove('open'));
-    document.querySelectorAll('.faq-btn').forEach(b => b.classList.remove('open'));
-    if (!open) { body.classList.add('open'); btn.classList.add('open'); }
-  }
-
-  /* ── Form submission via mailto ──────────────────────
-     Builds a pre-filled email to victor@greensprouts.co.za
-     and opens the user's default email app. Works on every
-     device with no backend or account needed.
-  ────────────────────────────────────────────────── */
+  
+  /* Prevent default form submit for aesthetic */
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
-
-    const errorBox = document.getElementById('form-error');
-    errorBox.style.display = 'none';
-
-    // Gather values
-    const name     = document.getElementById('f-name').value.trim();
-    const email    = document.getElementById('f-email').value.trim();
-    const phone    = document.getElementById('f-phone').value.trim();
-    const location = document.getElementById('f-location').value.trim();
-    const livestock= document.getElementById('f-livestock').value.trim();
-    const product  = document.getElementById('f-product').value.trim();
-    const message  = document.getElementById('f-message').value.trim();
-
-    // Validation
-    if (!name) {
-      errorBox.textContent = 'Please enter your name.';
-      errorBox.style.display = 'block';
-      document.getElementById('f-name').focus();
-      return;
-    }
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      errorBox.textContent = 'Please enter a valid email address.';
-      errorBox.style.display = 'block';
-      document.getElementById('f-email').focus();
-      return;
-    }
-    if (!phone) {
-      errorBox.textContent = 'Please enter your phone number.';
-      errorBox.style.display = 'block';
-      document.getElementById('f-phone').focus();
-      return;
-    }
-
-    // Build the email body
-    const body = [
-      'New enquiry from the Green Sprouts Solutions website:',
-      '',
-      'Name:       ' + name,
-      'Email:      ' + email,
-      'Phone:      ' + phone,
-      'Location:   ' + (location  || '—'),
-      'Livestock:  ' + (livestock || '—'),
-      'Product:    ' + (product   || '—'),
-      '',
-      'Message:',
-      message || '—',
-      '',
-      '---',
-      'Sent via greensprouts.co.za enquiry form'
-    ].join('\n');
-
-    const subject = 'Website Enquiry' + (product ? ' — ' + product : '') + ' | ' + name;
-
-    // Open the user's email client pre-filled
-    window.location.href =
-      'mailto:victor@greensprouts.co.za'
-      + '?subject=' + encodeURIComponent(subject)
-      + '&body='    + encodeURIComponent(body);
-
-    // Update button text briefly to confirm action
-    const btnText = document.getElementById('btn-text');
-    btnText.textContent = 'Opening email…';
-    setTimeout(() => { btnText.textContent = 'Send Enquiry'; }, 3000);
+    alert("In a live environment, this will send an email to victor@greensprouts.co.za!");
   });
 </script>
 
